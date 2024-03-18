@@ -1,53 +1,86 @@
 @import "../index.scss";
 
 .button {
-    cursor: pointer;
-    padding: 8px 24px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 16px;
-    background-color: $white;
-    border: .5px solid $white;
-    margin-top: 16px;
-    margin-right: 16px;
-    transition: all .05s ease-in;
-    &:hover {
-        background-color: darken($white, 5);
-    }
-    &.rounded {
-        border-radius: 999px;
-    }
+  cursor: pointer;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  background-color: $white;
+  border: 0.5px solid $white;
+  margin-top: 16px;
+  margin-right: 16px;
+  transition: all 0.05s ease-in;
+  &:hover {
+    background-color: darken($white, 5);
+  }
+  &.rounded {
+    border-radius: 999px;
+  }
 }
 
 .primary {
-    color: $white;
-    background-color: $primary;
-    border: .5px solid $primary;
-    &:hover {
-        background-color: darken($primary, 10);
-        border: .5px solid darken($primary, 10);
-    }
-    &.outline {
-        color: $primary;
-    }
+  color: $white;
+  background-color: $primary;
+  border: 0.5px solid $primary;
+  &:hover {
+    background-color: darken($primary, 10);
+    border: 0.5px solid darken($primary, 10);
+  }
+  &.outline {
+    color: $primary;
+  }
 }
 
 .secondary {
-    color: $white;
-    background-color: $secondary;
-    border: .5px solid $secondary;
-    &:hover {
-        background-color: darken($secondary, 10);
-        border: .5px solid arken($secondary, 10);
-    }
-    &.outline {
-        color: $secondary;
-    }
+  color: $white;
+  background-color: $secondary;
+  border: 0.5px solid $secondary;
+  &:hover {
+    background-color: darken($secondary, 10);
+    border: 0.5px solid arken($secondary, 10);
+  }
+  &.outline {
+    color: $secondary;
+  }
+}
+
+.warning {
+  color: $white;
+  background-color: $warning;
+  border: 0.5px solid $warning;
+  &:hover {
+    background-color: darken($warning, 5);
+    border: 0.5px solid darken($warning, 5);
+  }
+  &.outline {
+    color: $warning;
+  }
 }
 
 .outline {
-    background-color: $white;
-    &:hover {
-        background-color: darken($white, 5);
-    }
+  background-color: $white;
+  &:hover {
+    background-color: darken($white, 5);
+  }
+}
+
+.Accordion {
+  padding: 16px;
+  height: auto;
+  overflow: hidden;
+  .AccordionContentWrapper {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.AccordionLabel {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: lighten($primary, 90);
+  &:hover {
+    background-color: lighten($primary, 80);
+  }
 }

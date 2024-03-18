@@ -1,3 +1,4 @@
+import Accordion from "./Components/Accordion";
 import Button from "./Components/Button";
 
 function App() {
@@ -5,20 +6,28 @@ function App() {
     console.log("Clicked");
   };
 
-  const handleMouseEnter = () => {
-    console.log("Mouse Entered");
-  };
+  const accordionContent = [
+    {
+      key: "kadjshf",
+      label: "This is a title of an accordion",
+      content: "This is the content of an accordion",
+    },
+    {
+      key: "jkashd",
+      label: "This is the second",
+      content: "This is the content of an accordion",
+    },
+    {
+      key: "jkghn",
+      label: "This is the third and last title of an accordion",
+      content: "This is the content of an accordion",
+    },
+  ];
 
   return (
     <div>
-      <Button primary onClick={handleClick}>
-        Primary
-      </Button>
-      <Button secondary onMouseEnter={handleMouseEnter}>
-        Secondary
-      </Button>
-      <Button rounded>Rounded</Button>
-      <Button secondary outline>
+      <Accordion items={accordionContent} />
+      <Button warning onClick={handleClick}>
         Outline
       </Button>
     </div>
