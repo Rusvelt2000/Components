@@ -38,7 +38,7 @@
   border: 0.5px solid $secondary;
   &:hover {
     background-color: darken($secondary, 10);
-    border: 0.5px solid arken($secondary, 10);
+    border: 0.5px solid darken($secondary, 10);
   }
   &.outline {
     color: $secondary;
@@ -66,21 +66,37 @@
 }
 
 .Accordion {
-  padding: 16px;
   height: auto;
   overflow: hidden;
-  .AccordionContentWrapper {
-    height: 0;
-    overflow: hidden;
-  }
-}
+  margin: 0 auto 8px;
+  .AccordionLabel {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: 4px 4px 0 0;
+    background-color: lighten($primary, 30);
 
-.AccordionLabel {
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 4px;
-  background-color: lighten($primary, 90);
-  &:hover {
-    background-color: lighten($primary, 80);
+    font-weight: 600;
+    font-size: 16px;
+    &:hover {
+      background-color: lighten($primary, 25);
+    }
+    p {
+      flex-grow: 1;
+      margin: 0;
+      color: $dark-grey;
+    }
+    span {
+      font-size: 20px;
+      margin: 0;
+      color: $dark-grey;
+    }
+  }
+  .AccordionContent {
+    padding: 8px 16px;
+    border: 0.5px solid lighten($secondary, 40);
+    margin: 0 auto;
+    border-radius: 0 0 4px 4px;
   }
 }

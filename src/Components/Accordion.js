@@ -1,21 +1,27 @@
 import { useState } from "react";
+import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
 
 function Accordion({ items }) {
-  const [active, setActive] = useState(null);
-  const openAccordion = async (e) => {
-    await console.log(e.target);
-    setActive(e.target);
+  const [expandedItem, setExpandedItem] = useState(-1);
+
+  const handleClick = (nextIndex) => {
+    setExpandedItem(nextIndex);
   };
 
-  const renderedAccordion = items.map((item) => {
+  const renderedAccordion = items.map((item, index) => {
+    const isExpanded = index === expandedItem;
+    const icon = (
+      <span>{isExpanded ? <GoTriangleDown /> : <GoTriangleLeft />}</span>
+    );
+
     return (
       <div key={item.key} className="Accordion">
-        <h3 className="AccordionLabel" onClick={openAccordion}>
-          {item.label}
-        </h3>
-        <div className="AccordionContentWrapper">
-          <p>{item.content}</p>
+        <div className="AccordionLabel" onClick={() => handleClick(index)}>
+          <p>{item.label}</p>
+          {icon}
         </div>
+
+        {isExpanded && <p className="AccordionContent">{item.content}</p>}
       </div>
     );
   });

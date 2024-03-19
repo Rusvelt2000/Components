@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div>
-      <Accordion items={accordionContent} />
+      <Accordion items={accordionContent}></Accordion>
       <Button warning onClick={handleClick}>
         Outline
       </Button>

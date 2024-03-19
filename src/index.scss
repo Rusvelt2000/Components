@@ -2,7 +2,9 @@ $primary: #007bff;
 $secondary: #6c757d;
 $warning: #ffc107;
 $white: #fafafa;
+$dark-grey: #343a40;
 
 * {
   font-family: "Poppins", sans-serif;
+  color: $dark-grey;
 }
