@@ -5,7 +5,9 @@ function Accordion({ items }) {
   const [expandedItem, setExpandedItem] = useState(-1);
 
   const handleClick = (nextIndex) => {
-    setExpandedItem(nextIndex);
+    expandedItem === nextIndex
+      ? setExpandedItem(-1)
+      : setExpandedItem(nextIndex);
   };
 
   const renderedAccordion = items.map((item, index) => {
