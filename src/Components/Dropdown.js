@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Dropdown({ options, onSelection, selectedOption }) {
+function Dropdown({ options, onChange, value }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const handleExpansion = () => {
     setIsExpanded(!isExpanded);
@@ -8,7 +8,7 @@ function Dropdown({ options, onSelection, selectedOption }) {
 
   const handleSelection = (selection) => {
     setIsExpanded(false);
-    onSelection(selection);
+    onChange(selection);
   };
 
   const renderedOptions = options.map((option) => {
@@ -24,7 +24,7 @@ function Dropdown({ options, onSelection, selectedOption }) {
   });
   return (
     <div onClick={handleExpansion}>
-      {selectedOption?.label || "Select an option"}
+      {value?.label || "Select an option"}
       {isExpanded && <div>{renderedOptions}</div>}
     </div>
   );
