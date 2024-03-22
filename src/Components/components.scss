@@ -1,5 +1,9 @@
 @import "../index.scss";
 
+/* ------------------
+   --- BUTTON ---
+--------------------*/
+
 .button {
   cursor: pointer;
   padding: 8px 24px;
@@ -65,6 +69,10 @@
   }
 }
 
+/* ------------------
+   --- ACCORDION ---
+--------------------*/
+
 .Accordion {
   height: auto;
   overflow: hidden;
@@ -98,5 +106,46 @@
     border: 0.5px solid lighten($secondary, 40);
     margin: 0 auto;
     border-radius: 0 0 4px 4px;
+  }
+}
+
+/* ------------------
+   --- DROPDOWN ---
+--------------------*/
+
+.Panel {
+  position: relative;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: $alt-bg;
+  flex-grow: 1;
+  cursor: pointer;
+  p {
+    margin: 0;
+    font-size: 14px;
+    flex-grow: 1;
+  }
+  &:hover {
+    background-color: lighten($primary, 45);
+  }
+  .Panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .Panel-options-container {
+    position: absolute;
+    margin-top: 20px;
+    border-radius: 4px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+  }
+  .Panel-option {
+    padding: 16px;
+    background-color: $alt-bg;
+    &:hover {
+      background-color: lighten($primary, 45);
+    }
   }
 }

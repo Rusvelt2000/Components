@@ -2,9 +2,14 @@ $primary: #007bff;
 $secondary: #6c757d;
 $warning: #ffc107;
 $white: #fafafa;
+$alt-bg: #ebebeb;
 $dark-grey: #343a40;
 
 * {
   font-family: "Poppins", sans-serif;
   color: $dark-grey;
+}
+
+html {
+  background-color: $white;
 }

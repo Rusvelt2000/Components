@@ -1,7 +1,25 @@
-import { useState } from "react";
+// import className from "classnames";
+import { useState, useEffect, useRef } from "react";
+import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
-function Dropdown({ options, onChange, value }) {
+function Dropdown({ options, onChange, value, children }) {
   const [isExpanded, setIsExpanded] = useState(false);
+
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!dropdownRef.current.contains(event.target)) {
+        setIsExpanded(false);
+      }
+    };
+    document.addEventListener("click", handleOutsideClick, true);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick, true);
+    };
+  }, []);
+
   const handleExpansion = () => {
     setIsExpanded(!isExpanded);
   };
@@ -13,19 +31,25 @@ function Dropdown({ options, onChange, value }) {
 
   const renderedOptions = options.map((option) => {
     return (
-      <option
+      <div
+        className="Panel-option"
         key={option.value}
         value={option.value}
         onClick={() => handleSelection(option)}
       >
         {option.label}
-      </option>
+      </div>
     );
   });
   return (
-    <div onClick={handleExpansion}>
-      {value?.label || "Select an option"}
-      {isExpanded && <div>{renderedOptions}</div>}
+    <div ref={dropdownRef} className="Panel" onClick={handleExpansion}>
+      <div className="Panel-title">
+        <p>{value?.label || children}</p>
+        {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
+      </div>
+      <div className="Panel-options-container">
+        {isExpanded && <div>{renderedOptions}</div>}
+      </div>
     </div>
   );
 }
