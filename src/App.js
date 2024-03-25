@@ -1,64 +1,24 @@
-import { useEffect, useState } from "react";
-import Dropdown from "./Components/Dropdown";
+import Link from "./Components/Link";
+import Route from "./Components/Route";
+import DropdownPage from "./Pages/DropdownPage";
+import AccordionPage from "./Pages/AccordionPage";
+import ButtonPage from "./Pages/ButtonPage";
 
 function App() {
-  const [selectedDish, setSelectedDish] = useState(null);
-  const [selectedDrink, setSelectedDrink] = useState(null);
-
-  useEffect(() => {}, [selectedDish, selectedDrink]);
-
-  const handleSelectedDish = (selection) => {
-    setSelectedDish(selection);
-  };
-  const handleSelectedDrink = (selection) => {
-    setSelectedDrink(selection);
-  };
-
-  const optionsFood = [
-    {
-      label: "Penne alla carbonara",
-      value: "penne",
-    },
-    {
-      label: "Gnocchi ai funghi porcini",
-      value: "gnocchi",
-    },
-    {
-      label: "Spaghetti alla bolognese",
-      value: "spaghetti",
-    },
-  ];
-  const optionsDrink = [
-    {
-      label: "Aperol Spritz",
-      value: "spritz",
-    },
-    {
-      label: "Martini on the rock",
-      value: "martini",
-    },
-    {
-      label: "White russian",
-      value: "russian",
-    },
-  ];
-
   return (
-    <div style={{ display: "flex", gap: "32px" }}>
-      <Dropdown
-        value={selectedDish}
-        options={optionsFood}
-        onChange={handleSelectedDish}
-      >
-        Select a dish
-      </Dropdown>
-      <Dropdown
-        value={selectedDrink}
-        options={optionsDrink}
-        onChange={handleSelectedDrink}
-      >
-        Select a drink
-      </Dropdown>
+    <div>
+      <Link to="/dropdown">Go to Dropdown</Link>
+      <Link to="/accordion">Go to Accordion</Link>
+      <Link to="/button">Go to Button</Link>
+      <Route path="/dropdown">
+        <DropdownPage />
+      </Route>
+      <Route path="/accordion">
+        <AccordionPage />
+      </Route>
+      <Route path="/button">
+        <ButtonPage />
+      </Route>
     </div>
   );
 }
