@@ -1,12 +1,10 @@
 import Button from "./Button";
+import ReactDOM from "react-dom";
 
 function Modal({ onClose }) {
-  const handleClick = () => {
-    onClose();
-  };
-
-  return (
-    <div className="ModalBackground">
+  return ReactDOM.createPortal(
+    <div>
+      <div className="ModalBackground" onClick={onClose}></div>
       <div className="Modal md">
         <h3>This is a modal</h3>
         <p>
@@ -15,11 +13,13 @@ function Modal({ onClose }) {
           error consectetur sed nisi ratione. Laboriosam rem laborum quos
           repellat, consequatur quisquam.
         </p>
-        <Button primary outline onClick={() => handleClick()}>
+        <Button primary outline onClick={onClose}>
           Close modal
         </Button>
       </div>
-    </div>
+    </div>,
+
+    document.querySelector("#modal-root")
   );
 }
 
