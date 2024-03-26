@@ -7,6 +7,7 @@ function Sidebar() {
       <SidebarLink to="/">Dropdown</SidebarLink>
       <SidebarLink to="/accordion">Accordion</SidebarLink>
       <SidebarLink to="/button">Button</SidebarLink>
+      <SidebarLink to="/modal">Modal</SidebarLink>
     </div>
   );
 }
