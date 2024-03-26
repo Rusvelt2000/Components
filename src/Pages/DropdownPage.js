@@ -44,21 +44,24 @@ function App() {
   ];
 
   return (
-    <div style={{ display: "flex", gap: "32px" }}>
-      <Dropdown
-        value={selectedDish}
-        options={optionsFood}
-        onChange={handleSelectedDish}
-      >
-        Select a dish
-      </Dropdown>
-      <Dropdown
-        value={selectedDrink}
-        options={optionsDrink}
-        onChange={handleSelectedDrink}
-      >
-        Select a drink
-      </Dropdown>
+    <div>
+      <h2 className="section-title">Dropdowns</h2>
+      <div className="DropdownContainer">
+        <Dropdown
+          value={selectedDish}
+          options={optionsFood}
+          onChange={handleSelectedDish}
+        >
+          Select a dish
+        </Dropdown>
+        <Dropdown
+          value={selectedDrink}
+          options={optionsDrink}
+          onChange={handleSelectedDrink}
+        >
+          Select a drink
+        </Dropdown>
+      </div>
     </div>
   );
 }

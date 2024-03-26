@@ -32,6 +32,7 @@ function AccordionPage() {
 
   return (
     <div>
+      <h2 className="section-title">Accordions</h2>
       <Accordion items={accordionContent}></Accordion>
     </div>
   );

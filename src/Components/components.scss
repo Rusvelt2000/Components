@@ -1,5 +1,52 @@
 @import "../index.scss";
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  padding: 0;
+  display: flex;
+  gap: 32px;
+}
+
+.Content {
+  padding: 32px 16px 0 0;
+  .section-title {
+    margin: 0 auto 16px;
+  }
+}
+
+/* ------------------
+   --- SIDEBAR ---
+--------------------*/
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: $alt-bg;
+  height: 100vh;
+  min-width: 180px;
+  padding: 16px 0 0 16px;
+
+  .SidebarLink {
+    padding: 12px 32px 12px 16px;
+    transition: all 0.05s ease-in;
+    color: $primary;
+    text-decoration: none;
+    overflow: hidden;
+    &:hover {
+      background-color: lighten($primary, 45);
+      color: darken($primary, 10);
+    }
+    &.active {
+      border-left: 4px solid $primary;
+      background-color: lighten($primary, 45);
+    }
+  }
+}
+
 /* ------------------
    --- BUTTON ---
 --------------------*/
@@ -12,7 +59,7 @@
   font-size: 16px;
   background-color: $white;
   border: 0.5px solid $white;
-  margin-top: 16px;
+  margin-bottom: 16px;
   margin-right: 16px;
   transition: all 0.05s ease-in;
   &:hover {
@@ -73,8 +120,13 @@
    --- ACCORDION ---
 --------------------*/
 
+.Content {
+  width: 100%;
+}
+
 .Accordion {
   height: auto;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto 8px;
   .AccordionLabel {
@@ -113,12 +165,18 @@
    --- DROPDOWN ---
 --------------------*/
 
+.DropdownContainer {
+  display: flex;
+  gap: 16px;
+}
+
 .Panel {
   position: relative;
   padding: 16px;
   border-radius: 4px;
   background-color: $alt-bg;
-  flex-grow: 1;
+  height: fit-content;
+  flex: 1;
   cursor: pointer;
   p {
     margin: 0;
