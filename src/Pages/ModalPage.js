@@ -25,6 +25,9 @@ function ModalPage() {
         mollis nascetur est, litora pellentesque pretium aliquam nisl praesent
         ante maecenas aliquet.
       </p>
+      <Button secondary outline onClick={handleOpenModal}>
+        Open Modal
+      </Button>
       <p>
         Congue quam himenaeos eros massa imperdiet diam hendrerit cum pharetra
         sollicitudin nisi sagittis orci, aliquet vitae nulla pellentesque mus
@@ -49,6 +52,9 @@ function ModalPage() {
         dignissim varius aenean, posuere morbi pretium aptent netus facilisis
         bibendum.
       </p>
+      <Button secondary outline onClick={handleOpenModal}>
+        Open Modal
+      </Button>
       <p>
         Cum morbi ut massa purus vel turpis natoque sapien libero, per pretium
         felis egestas venenatis nam etiam convallis, pulvinar potenti eleifend
@@ -88,9 +94,7 @@ function ModalPage() {
         aenean, donec iaculis volutpat est torquent malesuada conubia rutrum
         eleifend, aliquam pellentesque lectus interdum enim dis fusce pretium.
       </p>
-      <Button secondary outline onClick={handleOpenModal}>
-        Open Modal
-      </Button>
+
       {isOpen && <Modal onClose={closeModal} />}
     </div>
   );

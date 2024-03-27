@@ -238,3 +238,39 @@
     left: calc(50% - 280px);
   }
 }
+
+/* ------------------
+   --- TABLE ---
+--------------------*/
+
+.Table {
+  font-size: 14px;
+  thead {
+    tr {
+      background-color: lighten($primary, 40);
+    }
+  }
+  tr {
+    background-color: $white;
+    &:nth-child(even) {
+      background-color: $alt-bg;
+    }
+  }
+  th {
+    text-align: left;
+    padding: 8px 16px;
+  }
+  td {
+    text-align: left;
+    padding: 8px 16px;
+    &.currency {
+      text-align: right;
+    }
+  }
+  .table-color {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $primary;
+  }
+}
