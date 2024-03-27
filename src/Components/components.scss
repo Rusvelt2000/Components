@@ -1,10 +1,5 @@
 @import "../index.scss";
 
-body {
-  padding: 0;
-  margin: 0;
-}
-
 .App {
   display: flex;
   gap: 32px;
@@ -13,6 +8,7 @@ body {
 .Content {
   padding: 32px 16px 0 0;
   width: 100%;
+
   .section-title {
     margin: 0 auto 16px;
   }
@@ -25,6 +21,9 @@ body {
 .Sidebar {
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 0;
+  bottom: 0;
   background-color: $alt-bg;
   height: calc(100vh - $app-padding);
   min-width: 240px;
@@ -211,7 +210,7 @@ body {
 --------------------*/
 
 .ModalBackground {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -225,7 +224,7 @@ body {
   -webkit-backdrop-filter: blur(2px);
 }
 .Modal {
-  position: absolute;
+  position: fixed;
   z-index: 9999;
   background-color: $white;
   padding: $app-padding;

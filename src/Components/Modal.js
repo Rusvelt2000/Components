@@ -1,7 +1,16 @@
+import { useEffect } from "react";
 import Button from "./Button";
 import ReactDOM from "react-dom";
 
 function Modal({ onClose }) {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   return ReactDOM.createPortal(
     <div>
       <div className="ModalBackground" onClick={onClose}></div>

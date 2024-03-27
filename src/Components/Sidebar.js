@@ -8,6 +8,7 @@ function Sidebar() {
       <SidebarLink to="/accordion">Accordion</SidebarLink>
       <SidebarLink to="/button">Button</SidebarLink>
       <SidebarLink to="/modal">Modal</SidebarLink>
+      <SidebarLink to="/table">Table</SidebarLink>
     </div>
   );
 }
