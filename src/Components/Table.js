@@ -1,30 +1,28 @@
-function Table({ data }) {
-  const renderedData = data.map((debtor) => {
-    return (
-      <tr key={debtor.id}>
-        <td>
-          <img src={debtor.avatar} className="table-color" />
-        </td>
-        <td>{debtor.name}</td>
-        <td>{debtor.email}</td>
-        <td>{debtor.country}</td>
-        <td className="currency">${debtor.amount}</td>
-      </tr>
-    );
+function Table({ data, config, total }) {
+  const renderColumns = config.map((column, index) => {
+    return <th key={index}>{column.label}</th>;
+  });
+
+  const renderedRows = data.map((rowData, index) => {
+    const renderedCells = config.map((column, index) => {
+      return <td key={index}>{column.render(rowData)}</td>;
+    });
+    return <tr key={index}>{renderedCells}</tr>;
   });
 
   return (
     <table className="Table" cellSpacing={0}>
       <thead>
-        <tr>
-          <th colSpan={2}>Name</th>
-
-          <th>Email</th>
-          <th>Country</th>
-          <th align="right">Amount</th>
-        </tr>
+        <tr>{renderColumns}</tr>
       </thead>
-      <tbody>{renderedData}</tbody>
+      <tbody>
+        {renderedRows}
+        <tr>
+          <td colSpan={config.length} className="currency total">
+            <strong>Total: &nbsp; ${total}</strong>
+          </td>
+        </tr>
+      </tbody>
     </table>
   );
 }

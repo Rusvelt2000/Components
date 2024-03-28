@@ -1,6 +1,21 @@
 import Table from "../Components/Table";
 
 function TablePage() {
+  const config = [
+    {
+      label: "",
+      render: (debtors) => (
+        <img className="table-avatar" src={debtors.avatar} alt={debtors.name} />
+      ),
+    },
+    { label: "Full name", render: (debtors) => debtors.name },
+    { label: "Email address", render: (debtors) => debtors.email },
+    { label: "Country", render: (debtors) => debtors.country },
+    {
+      label: "Amount",
+      render: (debtors) => <div className="currency">{debtors.amount}</div>,
+    },
+  ];
   const debtors = [
     {
       id: 1,
@@ -93,9 +108,14 @@ function TablePage() {
       amount: "350.00",
     },
   ];
+
+  const totalAmount = debtors.reduce((total, debtor) => {
+    return total + Number(debtor.amount);
+  }, 0);
+
   return (
     <div>
-      <Table data={debtors} />
+      <Table data={debtors} config={config} total={totalAmount.toFixed(2)} />
     </div>
   );
 }
