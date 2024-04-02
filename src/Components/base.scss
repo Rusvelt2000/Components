@@ -23,7 +23,7 @@ $body-font: "Proxima Nova", sans-serif;
 $regular: 400;
 $heavy: 700;
 
-$low-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+$low-shadow: 0 0 12px -8px transparentize($dark-grey, 0.3);
 
 $bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
 $quick: cubic-bezier(0.17, 0.67, 0.44, 1);

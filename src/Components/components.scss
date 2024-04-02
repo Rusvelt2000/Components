@@ -4,10 +4,11 @@
 .App {
   display: flex;
   gap: 32px;
+  padding: $app-padding $app-padding;
 }
 
 .Content {
-  padding: 32px 16px 0 0;
+  padding: 32px $app-padding 0 $app-padding;
   width: 100%;
 
   .section-title {
@@ -26,10 +27,12 @@
   top: 0;
   bottom: 0;
   background-color: $white;
-  height: calc(100vh - $app-padding);
+  height: calc(100vh - ($app-padding * 3));
   min-width: 240px;
   padding: $app-padding 0 0 $app-padding;
-  box-shadow: -2px -4px 12px -4px transparentize($dark-grey, 0.3);
+  box-shadow: $low-shadow;
+  overflow: hidden;
+  border-radius: $bd-radius * 2;
 
   .SidebarLink {
     padding: 12px 32px 12px 16px;
@@ -37,6 +40,7 @@
     color: $dark-grey;
     text-decoration: none;
     overflow: hidden;
+
     &:hover {
       background-color: lighten($primary, 40);
     }
@@ -45,6 +49,7 @@
       font-weight: 600;
       border-left: 3px solid $primary;
       background-color: lighten($primary, 40);
+      border-radius: $bd-radius 0 0 $bd-radius;
     }
   }
   h4 {
