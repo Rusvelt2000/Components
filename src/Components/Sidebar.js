@@ -4,11 +4,12 @@ function Sidebar() {
   return (
     <div className="Sidebar">
       <h4>Components</h4>
-      <SidebarLink to="/">Dropdown</SidebarLink>
-      <SidebarLink to="/accordion">Accordion</SidebarLink>
-      <SidebarLink to="/button">Button</SidebarLink>
-      <SidebarLink to="/modal">Modal</SidebarLink>
-      <SidebarLink to="/table">Table</SidebarLink>
+      <SidebarLink to="/">Dropdowns</SidebarLink>
+      <SidebarLink to="/accordion">Accordions</SidebarLink>
+      <SidebarLink to="/button">Buttons</SidebarLink>
+      <SidebarLink to="/modal">Modals</SidebarLink>
+      <SidebarLink to="/table">Tables</SidebarLink>
+      <hr />
     </div>
   );
 }

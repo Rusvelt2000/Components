@@ -32,7 +32,7 @@ function Dropdown({ options, onChange, value, children }) {
   const renderedOptions = options.map((option) => {
     return (
       <div
-        className="Panel-option"
+        className="Panel-option expandAccordion"
         key={option.value}
         value={option.value}
         onClick={() => handleSelection(option)}

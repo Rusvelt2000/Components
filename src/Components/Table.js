@@ -19,7 +19,7 @@ function Table({ data, config, total }) {
         {renderedRows}
         <tr>
           <td colSpan={config.length} className="currency total">
-            <strong>Total: &nbsp; ${total}</strong>
+            <strong>Total: &nbsp; $ {total}</strong>
           </td>
         </tr>
       </tbody>

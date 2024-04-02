@@ -22,7 +22,7 @@ function Modal({ onClose }) {
           error consectetur sed nisi ratione. Laboriosam rem laborum quos
           repellat, consequatur quisquam.
         </p>
-        <Button primary outline onClick={onClose}>
+        <Button secondary outline onClick={onClose}>
           Close modal
         </Button>
       </div>

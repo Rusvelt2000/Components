@@ -1,0 +1,81 @@
+$primary: #5649ce;
+$primary-light: #7367d6;
+$ternary: #5996fe;
+$secondary: #80ebe9;
+$secondary-dark: #48c8c3;
+$warning: #fccf48;
+$white: #ffffff;
+$alt-bg: #fafafc;
+$dark-grey: #343a40;
+$text-grey: lighten($dark-grey, 15);
+$light-grey: lighten($dark-grey, 60);
+$app-padding: 16px;
+$bd-radius: 4px;
+
+$small-text: 0.8em;
+$md-text: 0.95em;
+$big-text: 1.1em;
+$h2-text: 1.6em;
+$h3-text: 1.25em;
+$h4-text: 1.15em;
+$title-font: "Poppins", sans-serif;
+$body-font: "Proxima Nova", sans-serif;
+$regular: 400;
+$heavy: 700;
+
+$low-shadow: 0 0 1px rgba(0, 0, 0, 0.6);
+
+$bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
+$quick: cubic-bezier(0.17, 0.67, 0.44, 1);
+
+* {
+  font-family: $body-font;
+  color: $dark-grey;
+}
+
+html {
+  background-color: $alt-bg;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+p,
+a,
+ul,
+li {
+  font-size: $md-text;
+  line-height: 1.6em;
+  color: $text-grey;
+}
+
+h2 {
+  font-size: $h2-text;
+  line-height: 1.2em;
+  font-family: $title-font;
+  font-weight: $heavy;
+}
+
+h3 {
+  font-size: $h3-text;
+  line-height: 1.3em;
+  font-family: $title-font;
+  font-weight: $heavy;
+}
+
+h4 {
+  font-size: $h4-text;
+  line-height: 1.4em;
+  font-family: $title-font;
+  font-weight: $heavy;
+}
+
+hr {
+  border: 0.5px solid darken($alt-bg, 2);
+  margin: 12px;
+}

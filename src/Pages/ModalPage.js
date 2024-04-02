@@ -15,7 +15,7 @@ function ModalPage() {
 
   return (
     <div>
-      <h2 className="section-title">Buttons</h2>
+      <h2 className="section-title">Modals</h2>
       <div className="fade-in-up">
         <p>
           Lorem ipsum dolor sit amet consectetur adipiscing elit himenaeos,
@@ -27,7 +27,7 @@ function ModalPage() {
           ridiculus mollis nascetur est, litora pellentesque pretium aliquam
           nisl praesent ante maecenas aliquet.
         </p>
-        <Button secondary outline onClick={handleOpenModal}>
+        <Button primary outline onClick={handleOpenModal}>
           Open Modal
         </Button>
         <p>
@@ -54,7 +54,7 @@ function ModalPage() {
           mollis, mauris nascetur magnis rutrum tincidunt dignissim varius
           aenean, posuere morbi pretium aptent netus facilisis bibendum.
         </p>
-        <Button secondary outline onClick={handleOpenModal}>
+        <Button primary outline onClick={handleOpenModal}>
           Open Modal
         </Button>
         <p>

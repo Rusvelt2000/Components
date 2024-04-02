@@ -26,7 +26,9 @@ function Accordion({ items }) {
           {icon}
         </div>
 
-        {isExpanded && <p className="AccordionContent">{item.content}</p>}
+        {isExpanded && (
+          <p className="AccordionContent expandAccordion">{item.content}</p>
+        )}
       </div>
     );
   });

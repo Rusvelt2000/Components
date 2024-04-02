@@ -3,17 +3,24 @@ import Table from "../Components/Table";
 function TablePage() {
   const config = [
     {
-      label: "",
+      label: "Name",
       render: (debtors) => (
         <img className="table-avatar" src={debtors.avatar} alt={debtors.name} />
       ),
     },
-    { label: "Full name", render: (debtors) => debtors.name },
+    { label: "", render: (debtors) => debtors.name },
     { label: "Email address", render: (debtors) => debtors.email },
     { label: "Country", render: (debtors) => debtors.country },
     {
       label: "Amount",
-      render: (debtors) => <div className="currency">{debtors.amount}</div>,
+      render: (debtors) => (
+        <div
+          className="currency"
+          style={debtors.amount < 0 ? { color: "red" } : { color: "green" }}
+        >
+          $ {debtors.amount}
+        </div>
+      ),
     },
   ];
   const debtors = [
@@ -33,7 +40,7 @@ function TablePage() {
       name: "Samantha Friesen",
       email: "Eleanor57@gmail.com",
       country: "Cameroon",
-      amount: "119.00",
+      amount: "-119.00",
     },
     {
       id: 3,
@@ -42,7 +49,7 @@ function TablePage() {
       name: "Justin Reinger",
       email: "Alejandro_Hartmann1@gmail.com",
       country: "French Guiana",
-      amount: "862.00",
+      amount: "-862.00",
     },
     {
       id: 4,
@@ -78,7 +85,7 @@ function TablePage() {
       name: "Delores Reilly",
       email: "Philip70@hotmail.com",
       country: "Antigua and Barbuda",
-      amount: "924.00",
+      amount: "-924.00",
     },
     {
       id: 8,

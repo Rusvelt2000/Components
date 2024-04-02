@@ -1,5 +1,3 @@
-import "./index.scss";
-import "./Components/components.scss";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
