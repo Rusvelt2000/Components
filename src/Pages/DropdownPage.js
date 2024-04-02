@@ -46,7 +46,7 @@ function App() {
   return (
     <div>
       <h2 className="section-title">Dropdowns</h2>
-      <div className="DropdownContainer">
+      <div className="DropdownContainer fade-in-up">
         <Dropdown
           value={selectedDish}
           options={optionsFood}

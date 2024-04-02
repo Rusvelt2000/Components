@@ -11,7 +11,7 @@ function Table({ data, config, total }) {
   });
 
   return (
-    <table className="Table" cellSpacing={0}>
+    <table className="Table fade-in-up" cellSpacing={0}>
       <thead>
         <tr>{renderColumns}</tr>
       </thead>

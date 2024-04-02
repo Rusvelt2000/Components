@@ -1,0 +1,18 @@
+/* ------------------
+   --- ANIMATIONS ---
+--------------------*/
+
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s $bouncy;
+}

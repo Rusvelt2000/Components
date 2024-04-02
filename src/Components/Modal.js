@@ -14,7 +14,7 @@ function Modal({ onClose }) {
   return ReactDOM.createPortal(
     <div>
       <div className="ModalBackground" onClick={onClose}></div>
-      <div className="Modal md">
+      <div className="Modal md fade-in-up">
         <h3>This is a modal</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum

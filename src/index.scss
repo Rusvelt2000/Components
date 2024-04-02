@@ -6,6 +6,8 @@ $alt-bg: #ebebeb;
 $dark-grey: #343a40;
 $app-padding: 16px;
 
+$bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
+
 * {
   font-family: "Poppins", sans-serif;
   color: $dark-grey;

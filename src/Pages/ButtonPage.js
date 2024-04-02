@@ -8,12 +8,14 @@ function ButtonPage() {
   return (
     <div>
       <h2 className="section-title">Buttons</h2>
-      <Button warning onClick={handleClick}>
-        Warning
-      </Button>
-      <Button primary outline onClick={handleClick}>
-        Outline
-      </Button>
+      <div className="fade-in-up">
+        <Button warning onClick={handleClick}>
+          Warning
+        </Button>
+        <Button primary outline onClick={handleClick}>
+          Outline
+        </Button>
+      </div>
     </div>
   );
 }

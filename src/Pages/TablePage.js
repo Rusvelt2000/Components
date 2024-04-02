@@ -115,6 +115,7 @@ function TablePage() {
 
   return (
     <div>
+      <h2 className="section-title">Tables</h2>
       <Table data={debtors} config={config} total={totalAmount.toFixed(2)} />
     </div>
   );
