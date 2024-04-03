@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Button from "./Button";
 import ReactDOM from "react-dom";
+import { GoXCircle } from "react-icons/go";
 
 function Modal({ onClose }) {
   useEffect(() => {
@@ -23,6 +24,7 @@ function Modal({ onClose }) {
           repellat, consequatur quisquam.
         </p>
         <Button secondary outline onClick={onClose}>
+          <GoXCircle className="icon" />
           Close modal
         </Button>
       </div>

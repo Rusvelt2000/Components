@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Dropdown from "../Components/Dropdown";
 import Title from "../Components/Title";
+import Container from "../Components/Container";
 
 function App() {
   const [selectedDish, setSelectedDish] = useState(null);
@@ -47,22 +48,24 @@ function App() {
   return (
     <div>
       <Title>Dropdowns</Title>
-      <div className="DropdownContainer fade-in-up">
-        <Dropdown
-          value={selectedDish}
-          options={optionsFood}
-          onChange={handleSelectedDish}
-        >
-          Select a dish
-        </Dropdown>
-        <Dropdown
-          value={selectedDrink}
-          options={optionsDrink}
-          onChange={handleSelectedDrink}
-        >
-          Select a drink
-        </Dropdown>
-      </div>
+      <Container title="Default Dropdowns">
+        <div className="DropdownContainer fade-in-up">
+          <Dropdown
+            value={selectedDish}
+            options={optionsFood}
+            onChange={handleSelectedDish}
+          >
+            Select a dish
+          </Dropdown>
+          <Dropdown
+            value={selectedDrink}
+            options={optionsDrink}
+            onChange={handleSelectedDrink}
+          >
+            Select a drink
+          </Dropdown>
+        </div>
+      </Container>
     </div>
   );
 }

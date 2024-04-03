@@ -6,8 +6,10 @@ function Button({
   primary,
   secondary,
   rounded,
+  favicon,
   outline,
   warning,
+  alert,
   ...rest
 }) {
   const classes = className("button", {
@@ -16,10 +18,14 @@ function Button({
     rounded,
     outline,
     warning,
+    alert,
+    favicon,
   });
 
-  if (primary && secondary && warning) {
-    throw new Error("Buttons can't be both primary and secondary");
+  if (primary && secondary && warning && alert) {
+    throw new Error(
+      "Buttons can't be both primary, secondary, alert or warning"
+    );
   }
 
   return (

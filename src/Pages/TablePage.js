@@ -1,5 +1,6 @@
 import Table from "../Components/Table";
 import Title from "../Components/Title";
+import Container from "../Components/Container";
 
 function TablePage() {
   const config = [
@@ -24,6 +25,7 @@ function TablePage() {
       ),
     },
   ];
+
   const debtors = [
     {
       id: 1,
@@ -117,6 +119,104 @@ function TablePage() {
     },
   ];
 
+  const vehicleConfig = [
+    {
+      label: "Name",
+      render: (vehicles) => vehicles.name,
+    },
+    {
+      label: "Make",
+      render: (vehicles) => vehicles.make,
+    },
+    {
+      label: "Model",
+      render: (vehicles) => vehicles.model,
+    },
+    {
+      label: "Colour",
+      render: (vehicles) => (
+        <div
+          className="color"
+          style={{ backgroundColor: vehicles.color }}
+        ></div>
+      ),
+    },
+  ];
+  const vehicles = [
+    {
+      id: 1,
+      avatar:
+        "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/757.jpg",
+      name: "Teri Runolfsdottir Sr.",
+      make: "Mazda",
+      model: "CX-5",
+      color: "#B2B09B",
+    },
+    {
+      id: 2,
+      name: "Dr. Misty Ullrich",
+      make: "Chrysler",
+      model: "V90",
+      color: "darkblue",
+    },
+    {
+      id: 3,
+      name: "Jeanette Oberbrunner",
+      make: "Cadillac",
+      model: "Model S",
+      color: "pink",
+    },
+    {
+      id: 4,
+      name: "Billie Smith",
+      make: "Mini",
+      model: "Model 3",
+      color: "#ED254E",
+    },
+    {
+      id: 5,
+      name: "Jenny Yundt",
+      make: "Aston Martin",
+      model: "Malibu",
+      color: "#42273B",
+    },
+    {
+      id: 6,
+      name: "Luke Kuhic",
+      make: "Kia",
+      model: "Charger",
+      color: "#C1DBE3",
+    },
+    {
+      id: 7,
+      name: "Edgar Ebert",
+      make: "Volkswagen",
+      model: "Altima",
+      color: "#C7DFC5",
+    },
+    {
+      id: 8,
+      name: "Norma Berge",
+      make: "Hyundai",
+      model: "Focus",
+      color: "#F9DC5C",
+    },
+    {
+      id: 9,
+      name: "Chris Kreiger",
+      make: "Chrysler",
+      model: "XC90",
+      color: "#465362",
+    },
+    {
+      id: 10,
+      name: "Rudolph Breitenberg",
+      make: "Polestar",
+      model: "Civic",
+      color: "grey",
+    },
+  ];
+
   const totalAmount = debtors.reduce((total, debtor) => {
     return total + Number(debtor.amount);
   }, 0);
@@ -124,7 +224,18 @@ function TablePage() {
   return (
     <div>
       <Title>Tables</Title>
-      <Table data={debtors} config={config} total={totalAmount.toFixed(2)} />
+      <div className="fade-in-up col-2">
+        <Container title="Debtors">
+          <Table
+            data={debtors}
+            config={config}
+            total={totalAmount.toFixed(2)}
+          />
+        </Container>
+        <Container>
+          <Table data={vehicles} config={vehicleConfig} />
+        </Container>
+      </div>
     </div>
   );
 }

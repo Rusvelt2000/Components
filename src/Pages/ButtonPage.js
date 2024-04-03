@@ -1,6 +1,15 @@
+import Container from "../Components/Container";
 import Button from "../Components/Button";
 import Title from "../Components/Title";
-import { GoCheckCircleFill, GoBookmarkFill, GoAlertFill } from "react-icons/go";
+import {
+  GoCheckCircle,
+  GoBookmark,
+  GoAlert,
+  GoEye,
+  GoMoveToBottom,
+  GoMute,
+  GoRocket,
+} from "react-icons/go";
 
 function ButtonPage() {
   const handleClick = () => {
@@ -10,37 +19,64 @@ function ButtonPage() {
   return (
     <div>
       <Title>Buttons</Title>
-      <div className="fade-in-up">
-        <Button primary onClick={handleClick}>
-          Primary
-        </Button>
-        <Button primary outline onClick={handleClick}>
-          Outline
-        </Button>
-        <Button secondary onClick={handleClick}>
-          Secondary
-        </Button>
-        <Button secondary outline onClick={handleClick}>
-          Outline
-        </Button>
-        <Button warning onClick={handleClick}>
-          Warning
-        </Button>
-        <Button warning outline onClick={handleClick}>
-          Outline
-        </Button>
-        <Button primary onClick={handleClick}>
-          <GoCheckCircleFill className="icon" />
-          Icon button
-        </Button>
-        <Button secondary onClick={handleClick}>
-          <GoBookmarkFill className="icon" />
-          Icon button
-        </Button>
-        <Button warning outline onClick={handleClick}>
-          <GoAlertFill className="icon" />
-          Outline
-        </Button>
+      <div className="fade-in-up col-2">
+        <Container title="Default">
+          <Button primary onClick={handleClick}>
+            Primary
+          </Button>
+          <Button primary outline onClick={handleClick}>
+            Outline
+          </Button>
+
+          <Button secondary onClick={handleClick}>
+            Secondary
+          </Button>
+          <Button secondary outline onClick={handleClick}>
+            Outline
+          </Button>
+        </Container>
+        <Container title="Warning and Alert">
+          <Button warning onClick={handleClick}>
+            Warning
+          </Button>
+          <Button warning outline onClick={handleClick}>
+            Outline
+          </Button>
+          <Button alert onClick={handleClick}>
+            Alert
+          </Button>
+          <Button alert outline onClick={handleClick}>
+            Outline
+          </Button>
+        </Container>
+        <Container title="Icon Buttons">
+          <Button primary onClick={handleClick}>
+            <GoCheckCircle className="icon" />
+            Icon button
+          </Button>
+          <Button secondary onClick={handleClick}>
+            <GoBookmark className="icon" />
+            Icon button
+          </Button>
+          <Button warning outline onClick={handleClick}>
+            <GoAlert className="icon" />
+            Outline
+          </Button>
+        </Container>
+        <Container title="Favicon">
+          <Button primary favicon>
+            <GoEye />
+          </Button>
+          <Button secondary favicon>
+            <GoMoveToBottom />
+          </Button>
+          <Button primary outline favicon>
+            <GoMute />
+          </Button>
+          <Button secondary outline favicon>
+            <GoRocket />
+          </Button>
+        </Container>
       </div>
     </div>
   );

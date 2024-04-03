@@ -4,6 +4,7 @@ $ternary: #5996fe;
 $secondary: #80ebe9;
 $secondary-dark: #48c8c3;
 $warning: #fccf48;
+$alert: #f55252;
 $white: #ffffff;
 $alt-bg: #fafafc;
 $dark-grey: #343a40;
@@ -32,7 +33,6 @@ $quick: cubic-bezier(0.17, 0.67, 0.44, 1);
 
 * {
   font-family: $body-font;
-  color: $dark-grey;
 }
 
 html {
@@ -73,11 +73,39 @@ h3 {
 h4 {
   font-size: $h4-text;
   line-height: 1.4em;
-  font-family: $title-font;
+  font-family: $body-font;
   font-weight: $heavy;
 }
 
 hr {
   border: 0.5px solid darken($alt-bg, 2);
   margin: 12px;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $app-paddingL;
+}
+
+.col-3 {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr) minmax(
+      320px,
+      1fr
+    );
+  column-gap: $app-paddingL;
+}
+
+@media screen and (max-width: 1420px) {
+  .col-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .col-3,
+  .col-2 {
+    grid-template-columns: 1fr;
+  }
 }

@@ -11,17 +11,19 @@ function Table({ data, config, total }) {
   });
 
   return (
-    <table className="Table fade-in-up" cellSpacing={0}>
+    <table className="Table " cellSpacing={0}>
       <thead>
         <tr>{renderColumns}</tr>
       </thead>
       <tbody>
         {renderedRows}
-        <tr>
-          <td colSpan={config.length} className="currency total">
-            <strong>Total: &nbsp; $ {total}</strong>
-          </td>
-        </tr>
+        {total && (
+          <tr>
+            <td colSpan={config.length} className="currency total">
+              <strong>Total: &nbsp; $ {total}</strong>
+            </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

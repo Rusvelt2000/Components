@@ -22,14 +22,6 @@
   z-index: 1;
 }
 
-.Content {
-  padding: $app-paddingL;
-
-  .section-title {
-    margin: 0 auto 16px;
-  }
-}
-
 /* ------------------
    --- SIDEBAR ---
 --------------------*/
@@ -70,6 +62,39 @@
 }
 
 /* ------------------
+  --- PAGE CONTENT ---
+--------------------*/
+
+.Content {
+  padding: $app-paddingL;
+
+  gap: $app-paddingL;
+
+  .section-title {
+    margin: 0 auto 16px;
+  }
+}
+
+/* ------------------
+   --- CONTAINER ---
+--------------------*/
+.Container {
+  background-color: $white;
+  padding: $app-padding;
+  border-radius: $bd-radiusL;
+  box-shadow: $low-shadow;
+  margin-bottom: $app-paddingL;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+  h4 {
+    margin-top: 0;
+    margin-bottom: $app-padding;
+    color: $text-grey;
+  }
+}
+
+/* ------------------
    --- BUTTON ---
 --------------------*/
 
@@ -90,12 +115,18 @@
   &.rounded {
     border-radius: 999px;
   }
+  &.favicon {
+    padding: $app-padding;
+    display: inline-flex;
+    border-radius: 50%;
+    font-size: $big-text;
+  }
   .icon {
-    margin-right: $app-padding / 2;
+    margin-right: calc($app-padding / 2);
     fill: inherit;
     position: relative;
-    top: 1px;
-    font-size: $md-text;
+    top: 2px;
+    font-size: $big-text;
   }
 }
 
@@ -110,7 +141,11 @@
   }
   &.outline {
     color: $primary;
-    border-color: $primary;
+    fill: $primary;
+    .favicon {
+      fill: $primary;
+      font-size: $big-text;
+    }
   }
 }
 
@@ -125,7 +160,7 @@
   }
   &.outline {
     color: $secondary-dark;
-    border-color: $secondary-dark;
+    fill: $secondary-dark;
   }
 }
 
@@ -141,6 +176,21 @@
   &.outline {
     color: $warning;
     fill: $warning;
+  }
+}
+
+.alert {
+  color: $white;
+  fill: $white;
+  background-color: $alert;
+  border: 0.5px solid $alert;
+  &:hover {
+    background-color: darken($alert, 5);
+    border: 0.5px solid darken($alert, 5);
+  }
+  &.outline {
+    color: $alert;
+    fill: $alert;
   }
 }
 
@@ -306,10 +356,10 @@
         }
       }
       th:first-child {
-        border-radius: $app-padding 0 0 0;
+        border-radius: $bd-radius 0 0 0;
       }
       th:last-child {
-        border-radius: 0 $app-padding 0 0;
+        border-radius: 0 $bd-radius 0 0;
       }
     }
   }
@@ -341,7 +391,7 @@
       background-color: lighten($secondary, 20);
       padding: 16px;
       font-size: $h3-text;
-      border-radius: 0 0 $app-padding $app-padding;
+      border-radius: 0 0 $bd-radius $bd-radius;
     }
   }
   .table-avatar {
@@ -349,5 +399,10 @@
     height: 32px;
     border-radius: 50%;
     border: 1px solid $primary;
+  }
+  .color {
+    width: $app-padding;
+    height: $app-padding;
+    border-radius: 50%;
   }
 }
