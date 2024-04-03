@@ -10,22 +10,25 @@ function App() {
   return (
     <div className="App">
       <Sidebar />
-      <div className="Content">
-        <Route path="/">
-          <DropdownPage />
-        </Route>
-        <Route path="/accordion">
-          <AccordionPage />
-        </Route>
-        <Route path="/button">
-          <ButtonPage />
-        </Route>
-        <Route path="/modal">
-          <ModalPage />
-        </Route>
-        <Route path="/table">
-          <TablePage />
-        </Route>
+      <div className="content-wrapper">
+        <div className="navigation-bar"></div>
+        <div className="Content">
+          <Route path="/">
+            <DropdownPage />
+          </Route>
+          <Route path="/accordion">
+            <AccordionPage />
+          </Route>
+          <Route path="/button">
+            <ButtonPage />
+          </Route>
+          <Route path="/modal">
+            <ModalPage />
+          </Route>
+          <Route path="/table">
+            <TablePage />
+          </Route>
+        </div>
       </div>
     </div>
   );

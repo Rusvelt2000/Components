@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Dropdown from "../Components/Dropdown";
+import Title from "../Components/Title";
 
 function App() {
   const [selectedDish, setSelectedDish] = useState(null);
@@ -45,7 +46,7 @@ function App() {
 
   return (
     <div>
-      <h2 className="section-title">Dropdowns</h2>
+      <Title>Dropdowns</Title>
       <div className="DropdownContainer fade-in-up">
         <Dropdown
           value={selectedDish}

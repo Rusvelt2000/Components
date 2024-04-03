@@ -1,4 +1,5 @@
 import Accordion from "../Components/Accordion";
+import Title from "../Components/Title";
 
 function AccordionPage() {
   const accordionContent = [
@@ -32,7 +33,7 @@ function AccordionPage() {
 
   return (
     <div>
-      <h2 className="section-title">Accordions</h2>
+      <Title>Accordions</Title>
       <div className="fade-in-up">
         <Accordion items={accordionContent}></Accordion>
       </div>

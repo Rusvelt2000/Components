@@ -3,13 +3,27 @@
 
 .App {
   display: flex;
-  gap: 32px;
-  padding: $app-padding $app-padding;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.navigation-bar {
+  position: sticky;
+  top: 0;
+  right: 0;
+  background-color: $white;
+  height: 48px;
+  box-shadow: $low-shadow;
+  padding: $app-padding;
+  z-index: 1;
 }
 
 .Content {
-  padding: 32px $app-padding 0 $app-padding;
-  width: 100%;
+  padding: $app-paddingL;
 
   .section-title {
     margin: 0 auto 16px;
@@ -26,13 +40,11 @@
   position: sticky;
   top: 0;
   bottom: 0;
+  height: calc(100vh - $app-paddingL);
   background-color: $white;
-  height: calc(100vh - ($app-padding * 3));
   min-width: 240px;
-  padding: $app-padding 0 0 $app-padding;
+  padding: $app-padding 0 $app-padding $app-padding;
   box-shadow: $low-shadow;
-  overflow: hidden;
-  border-radius: $bd-radius * 2;
 
   .SidebarLink {
     padding: 12px 32px 12px 16px;
@@ -78,10 +90,18 @@
   &.rounded {
     border-radius: 999px;
   }
+  .icon {
+    margin-right: $app-padding / 2;
+    fill: inherit;
+    position: relative;
+    top: 1px;
+    font-size: $md-text;
+  }
 }
 
 .primary {
   color: $white;
+  fill: $white;
   background-color: $primary;
   border: 0.5px solid $primary;
   &:hover {
@@ -96,6 +116,7 @@
 
 .secondary {
   color: $white;
+  fill: $white;
   background-color: $secondary-dark;
   border: 0.5px solid $secondary-dark;
   &:hover {
@@ -110,6 +131,7 @@
 
 .warning {
   color: $white;
+  fill: $white;
   background-color: $warning;
   border: 0.5px solid $warning;
   &:hover {
@@ -118,6 +140,7 @@
   }
   &.outline {
     color: $warning;
+    fill: $warning;
   }
 }
 
@@ -271,6 +294,23 @@
   thead {
     tr {
       background-color: lighten($primary, 40);
+      th {
+        text-align: left;
+        font-size: $big-text;
+        padding: 16px;
+        &:first-child {
+          padding-right: 0;
+        }
+        &:nth-child(2) {
+          padding-left: 0;
+        }
+      }
+      th:first-child {
+        border-radius: $app-padding 0 0 0;
+      }
+      th:last-child {
+        border-radius: 0 $app-padding 0 0;
+      }
     }
   }
   tr {
@@ -279,17 +319,7 @@
       background-color: $alt-bg;
     }
   }
-  th {
-    text-align: left;
-    font-size: $big-text;
-    padding: 16px;
-    &:first-child {
-      padding-right: 0;
-    }
-    &:nth-child(2) {
-      padding-left: 0;
-    }
-  }
+
   td {
     text-align: left;
     padding: 12px 24px;
@@ -311,6 +341,7 @@
       background-color: lighten($secondary, 20);
       padding: 16px;
       font-size: $h3-text;
+      border-radius: 0 0 $app-padding $app-padding;
     }
   }
   .table-avatar {

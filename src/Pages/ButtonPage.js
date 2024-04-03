@@ -1,4 +1,6 @@
 import Button from "../Components/Button";
+import Title from "../Components/Title";
+import { GoCheckCircleFill, GoBookmarkFill, GoAlertFill } from "react-icons/go";
 
 function ButtonPage() {
   const handleClick = () => {
@@ -7,7 +9,7 @@ function ButtonPage() {
 
   return (
     <div>
-      <h2 className="section-title">Buttons</h2>
+      <Title>Buttons</Title>
       <div className="fade-in-up">
         <Button primary onClick={handleClick}>
           Primary
@@ -25,6 +27,18 @@ function ButtonPage() {
           Warning
         </Button>
         <Button warning outline onClick={handleClick}>
+          Outline
+        </Button>
+        <Button primary onClick={handleClick}>
+          <GoCheckCircleFill className="icon" />
+          Icon button
+        </Button>
+        <Button secondary onClick={handleClick}>
+          <GoBookmarkFill className="icon" />
+          Icon button
+        </Button>
+        <Button warning outline onClick={handleClick}>
+          <GoAlertFill className="icon" />
           Outline
         </Button>
       </div>

@@ -1,4 +1,5 @@
 import Table from "../Components/Table";
+import Title from "../Components/Title";
 
 function TablePage() {
   const config = [
@@ -122,7 +123,7 @@ function TablePage() {
 
   return (
     <div>
-      <h2 className="section-title">Tables</h2>
+      <Title>Tables</Title>
       <Table data={debtors} config={config} total={totalAmount.toFixed(2)} />
     </div>
   );

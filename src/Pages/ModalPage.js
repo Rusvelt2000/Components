@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Modal from "../Components/Modal";
 import Button from "../Components/Button";
+import Title from "../Components/Title";
 
 function ModalPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ function ModalPage() {
 
   return (
     <div>
-      <h2 className="section-title">Modals</h2>
+      <Title>Modals</Title>
       <div className="fade-in-up">
         <p>
           Lorem ipsum dolor sit amet consectetur adipiscing elit himenaeos,
