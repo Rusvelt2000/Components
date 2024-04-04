@@ -5,6 +5,7 @@ import ButtonPage from "./Pages/ButtonPage";
 import ModalPage from "./Pages/ModalPage";
 import TablePage from "./Pages/TablePage";
 import Sidebar from "./Components/Sidebar";
+import TooltipPage from "./Pages/TooltipPage";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/table">
             <TablePage />
+          </Route>
+          <Route path="/tooltip">
+            <TooltipPage />
           </Route>
         </div>
       </div>

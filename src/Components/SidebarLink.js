@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import useNavigation from "../Hooks/use-navigation";
 
-function SidebarLink({ to, children, className }) {
+function SidebarLink({ to, children, className, icon }) {
   const { currentPath, navigate } = useNavigation();
 
   const classes = classNames(
@@ -18,9 +18,10 @@ function SidebarLink({ to, children, className }) {
   };
 
   return (
-    <a className={classes} href={to} onClick={handleClick}>
-      {children}
-    </a>
+    <div className={classes} onClick={handleClick}>
+      {icon && <div className="icon">{icon}</div>}
+      <a href={to}>{children}</a>
+    </div>
   );
 }
 

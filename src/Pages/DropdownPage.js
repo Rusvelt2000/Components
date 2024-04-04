@@ -94,7 +94,7 @@ function App() {
     <div>
       <Title>Dropdowns</Title>
       <div className="fade-in-up">
-        <Container classes="col-4" title="Default Dropdowns">
+        <Container className="col-4" title="Default Dropdowns">
           <Dropdown
             label="Pasta"
             value={selectedPasta}
@@ -130,7 +130,7 @@ function App() {
         </Container>
       </div>
       <div className="fade-in-up col-2">
-        <Container classes="col-2" title="No Label Dropdowns">
+        <Container className="col-2" title="No Label Dropdowns">
           <Dropdown
             value={selectedDrink}
             options={optionsDrink}
