@@ -1,5 +1,6 @@
 import Accordion from "../Components/Accordion";
 import Title from "../Components/Title";
+import Container from "../Components/Container";
 
 function AccordionPage() {
   const accordionContent = [
@@ -34,8 +35,10 @@ function AccordionPage() {
   return (
     <div>
       <Title>Accordions</Title>
-      <div className="fade-in-up">
-        <Accordion items={accordionContent}></Accordion>
+      <div className="fade-in-up col-2">
+        <Container title="Default Accordion">
+          <Accordion items={accordionContent}></Accordion>
+        </Container>
       </div>
     </div>
   );

@@ -8,10 +8,13 @@ $alert: #f55252;
 $white: #ffffff;
 $alt-bg: #fafafc;
 $dark-grey: #343a40;
+$title-grey: lighten($dark-grey, 5);
 $text-grey: lighten($dark-grey, 15);
-$light-grey: lighten($dark-grey, 60);
-$app-padding: 16px;
-$app-paddingL: 32px;
+$light-grey: lighten($dark-grey, 50);
+$ultraLight-grey: lighten($dark-grey, 70);
+$default-spacing: 16px;
+$half-spacing: calc($default-spacing / 2);
+$double-spacing: calc($default-spacing * 2);
 $bd-radius: 4px;
 $bd-radiusL: 8px;
 
@@ -24,9 +27,11 @@ $h4-text: 1.15em;
 $title-font: "Poppins", sans-serif;
 $body-font: "Proxima Nova", sans-serif;
 $regular: 400;
+$book: 600;
 $heavy: 700;
 
 $low-shadow: 0 0 12px -8px transparentize($dark-grey, 0.3);
+$high-shadow: 0 4px 24px -12px transparentize($dark-grey, 0.3);
 
 $bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
 $quick: cubic-bezier(0.17, 0.67, 0.44, 1);
@@ -74,7 +79,7 @@ h4 {
   font-size: $h4-text;
   line-height: 1.4em;
   font-family: $body-font;
-  font-weight: $heavy;
+  font-weight: $book;
 }
 
 hr {
@@ -85,7 +90,7 @@ hr {
 .col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: $app-paddingL;
+  column-gap: $double-spacing;
 }
 
 .col-3 {
@@ -94,18 +99,28 @@ hr {
       320px,
       1fr
     );
-  column-gap: $app-paddingL;
+  column-gap: $double-spacing;
+}
+
+.col-4 {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr)
+    minmax(240px, 1fr);
+  column-gap: $double-spacing;
 }
 
 @media screen and (max-width: 1420px) {
-  .col-3 {
+  .col-3,
+  .col-4 {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (max-width: 900px) {
+  .col-2,
   .col-3,
-  .col-2 {
+  .col-4 {
     grid-template-columns: 1fr;
   }
 }

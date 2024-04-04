@@ -2,10 +2,10 @@ import Container from "../Components/Container";
 import Button from "../Components/Button";
 import Title from "../Components/Title";
 import {
-  GoCheckCircle,
-  GoBookmark,
-  GoAlert,
-  GoEye,
+  GoCheckCircleFill,
+  GoBookmarkFill,
+  GoAlertFill,
+  GoHeartFill,
   GoMoveToBottom,
   GoMute,
   GoRocket,
@@ -51,21 +51,21 @@ function ButtonPage() {
         </Container>
         <Container title="Icon Buttons">
           <Button primary onClick={handleClick}>
-            <GoCheckCircle className="icon" />
+            <GoCheckCircleFill className="icon" />
             Icon button
           </Button>
           <Button secondary onClick={handleClick}>
-            <GoBookmark className="icon" />
+            <GoBookmarkFill className="icon" />
             Icon button
           </Button>
-          <Button warning outline onClick={handleClick}>
-            <GoAlert className="icon" />
+          <Button warning onClick={handleClick}>
+            <GoAlertFill className="icon" />
             Outline
           </Button>
         </Container>
         <Container title="Favicon">
           <Button primary favicon>
-            <GoEye />
+            <GoHeartFill />
           </Button>
           <Button secondary favicon>
             <GoMoveToBottom />

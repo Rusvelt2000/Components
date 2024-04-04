@@ -4,19 +4,32 @@ import Title from "../Components/Title";
 import Container from "../Components/Container";
 
 function App() {
-  const [selectedDish, setSelectedDish] = useState(null);
+  const [selectedPasta, setSelectedPasta] = useState(null);
+  const [selectedMain, setSelectedMain] = useState(null);
   const [selectedDrink, setSelectedDrink] = useState(null);
+  const [selectedDessert, setSelectedDessert] = useState(null);
 
-  useEffect(() => {}, [selectedDish, selectedDrink]);
+  useEffect(() => {}, [
+    selectedPasta,
+    selectedDrink,
+    selectedDrink,
+    selectedDessert,
+  ]);
 
-  const handleSelectedDish = (selection) => {
-    setSelectedDish(selection);
+  const handleSelectedPasta = (selection) => {
+    setSelectedPasta(selection);
+  };
+  const handleSelectedMain = (selection) => {
+    setSelectedMain(selection);
   };
   const handleSelectedDrink = (selection) => {
     setSelectedDrink(selection);
   };
+  const handleSelectedDessert = (selection) => {
+    setSelectedDessert(selection);
+  };
 
-  const optionsFood = [
+  const optionsPasta = [
     {
       label: "Penne alla carbonara",
       value: "penne",
@@ -28,6 +41,24 @@ function App() {
     {
       label: "Spaghetti alla bolognese",
       value: "spaghetti",
+    },
+  ];
+  const optionsMain = [
+    {
+      label: "200gr Steak",
+      value: "steak",
+    },
+    {
+      label: "Rump Stew",
+      value: "rumpStew",
+    },
+    {
+      label: "Chicken Stew",
+      value: "chickenStew",
+    },
+    {
+      label: "Lamb Skews",
+      value: "lambSkews",
     },
   ];
   const optionsDrink = [
@@ -44,18 +75,68 @@ function App() {
       value: "russian",
     },
   ];
+  const optionsDessert = [
+    {
+      label: "Tiramisu'",
+      value: "tiramisu",
+    },
+    {
+      label: "Chocolate Brownie",
+      value: "brownie",
+    },
+    {
+      label: "Ice Cream",
+      value: "iceCream",
+    },
+  ];
 
   return (
     <div>
       <Title>Dropdowns</Title>
-      <Container title="Default Dropdowns">
-        <div className="DropdownContainer fade-in-up">
+      <div className="fade-in-up">
+        <Container classes="col-4" title="Default Dropdowns">
           <Dropdown
-            value={selectedDish}
-            options={optionsFood}
-            onChange={handleSelectedDish}
+            label="Pasta"
+            value={selectedPasta}
+            options={optionsPasta}
+            onChange={handleSelectedPasta}
           >
-            Select a dish
+            Select Pasta
+          </Dropdown>
+          <Dropdown
+            label="Main"
+            value={selectedMain}
+            options={optionsMain}
+            onChange={handleSelectedMain}
+          >
+            Select Main
+          </Dropdown>
+          <Dropdown
+            label="Drink"
+            value={selectedDrink}
+            options={optionsDrink}
+            onChange={handleSelectedDrink}
+          >
+            Select Drink
+          </Dropdown>
+          <Dropdown
+            label="Dessert"
+            value={selectedDessert}
+            options={optionsDessert}
+            onChange={handleSelectedDessert}
+          >
+            Select Dessert
+          </Dropdown>
+        </Container>
+      </div>
+      <div className="fade-in-up col-2">
+        <Container classes="col-2" title="No Label Dropdowns">
+          <Dropdown
+            value={selectedDrink}
+            options={optionsDrink}
+            onChange={handleSelectedDrink}
+          >
+            Select a drink
           </Dropdown>
           <Dropdown
             value={selectedDrink}
@@ -64,8 +145,8 @@ function App() {
           >
             Select a drink
           </Dropdown>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </div>
   );
 }

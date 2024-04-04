@@ -1,9 +1,12 @@
 import { useEffect } from "react";
+import classNames from "classnames";
 import Button from "./Button";
 import ReactDOM from "react-dom";
 import { GoXCircle } from "react-icons/go";
 
-function Modal({ onClose }) {
+function Modal({ onClose, modalSize }) {
+  const addedClasses = classNames("Modal fade-in-up", modalSize);
+
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
 
@@ -15,7 +18,7 @@ function Modal({ onClose }) {
   return ReactDOM.createPortal(
     <div>
       <div className="ModalBackground" onClick={onClose}></div>
-      <div className="Modal md fade-in-up">
+      <div className={addedClasses}>
         <h3>This is a modal</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum

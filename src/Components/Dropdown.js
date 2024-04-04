@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
-function Dropdown({ options, onChange, value, children }) {
+function Dropdown({ options, onChange, value, children, label }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const dropdownRef = useRef();
@@ -42,13 +42,16 @@ function Dropdown({ options, onChange, value, children }) {
     );
   });
   return (
-    <div ref={dropdownRef} className="Panel" onClick={handleExpansion}>
-      <div className="Panel-title">
-        <p>{value?.label || children}</p>
-        {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
-      </div>
-      <div className="Panel-options-container">
-        {isExpanded && <div>{renderedOptions}</div>}
+    <div className="Dropdown" ref={dropdownRef}>
+      {label && <label>{label}</label>}
+      <div className="Panel" onClick={handleExpansion}>
+        <div className="Panel-title">
+          <p>{value?.label || children}</p>
+          {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
+        </div>
+        <div className="Panel-options-container">
+          {isExpanded && <div>{renderedOptions}</div>}
+        </div>
       </div>
     </div>
   );

@@ -6,19 +6,26 @@ import Title from "../Components/Title";
 
 function ModalPage() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLargeOpen, setIsLargeOpen] = useState(false);
   const handleOpenModal = () => {
     setIsOpen(true);
+  };
+  const handleOpenLargeModal = () => {
+    setIsLargeOpen(true);
   };
 
   const closeModal = () => {
     setIsOpen(false);
+  };
+  const closeLargeModal = () => {
+    setIsLargeOpen(false);
   };
 
   return (
     <div>
       <Title>Modals</Title>
       <div className="fade-in-up col-3">
-        <Container>
+        <Container title="Small Modal">
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit himenaeos,
             laoreet lacus dictum dapibus morbi congue euismod turpis ac,
@@ -30,10 +37,10 @@ function ModalPage() {
             pellentesque pretium aliquam nisl praesent ante maecenas aliquet.
           </p>
           <Button primary outline onClick={handleOpenModal}>
-            Open Modal
+            Open Small Modal
           </Button>
         </Container>
-        <Container>
+        <Container title="Large Modal">
           <p>
             Congue quam himenaeos eros massa imperdiet diam hendrerit cum
             pharetra sollicitudin nisi sagittis orci, aliquet vitae nulla
@@ -59,8 +66,8 @@ function ModalPage() {
             rutrum tincidunt dignissim varius aenean, posuere morbi pretium
             aptent netus facilisis bibendum.
           </p>
-          <Button primary outline onClick={handleOpenModal}>
-            Open Modal
+          <Button primary onClick={handleOpenLargeModal}>
+            Open Large Modal
           </Button>
         </Container>
         <Container>
@@ -79,7 +86,7 @@ function ModalPage() {
             imperdiet.
           </p>
           <Button primary outline onClick={handleOpenModal}>
-            Open Modal
+            Open Small Modal
           </Button>
         </Container>
       </div>
@@ -100,8 +107,8 @@ function ModalPage() {
             sed, nascetur ultricies aenean proin auctor montes eget cum,
             bibendum ante sollicitudin erat mi euismod suspendisse.
           </p>
-          <Button primary outline onClick={handleOpenModal}>
-            Open Modal
+          <Button primary onClick={handleOpenLargeModal}>
+            Open Large Modal
           </Button>
         </Container>
         <Container>
@@ -119,7 +126,12 @@ function ModalPage() {
           </p>
         </Container>
 
-        {isOpen && <Modal key={Math.random()} onClose={closeModal} />}
+        {isOpen && (
+          <Modal key={Math.random()} onClose={closeModal} modalSize="md" />
+        )}
+        {isLargeOpen && (
+          <Modal key={Math.random()} onClose={closeLargeModal} modalSize="lg" />
+        )}
       </div>
     </div>
   );

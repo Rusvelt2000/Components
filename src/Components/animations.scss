@@ -4,7 +4,7 @@
 
 @keyframes fade-in-up {
   0% {
-    transform: translateY(8px);
+    transform: translateY($default-spacing);
     opacity: 0;
   }
   100% {
@@ -14,12 +14,12 @@
 }
 
 .fade-in-up {
-  animation: fade-in-up 0.6s $bouncy;
+  animation: fade-in-up 0.8s $bouncy;
 }
 
 @keyframes side-entrance {
   0% {
-    transform: translateX($app-padding);
+    transform: translateX(16px);
     opacity: 0;
   }
   100% {
