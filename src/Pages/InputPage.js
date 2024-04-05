@@ -1,50 +1,71 @@
+import { useState } from "react";
 import Title from "../Components/Title";
 import Container from "../Components/Container";
 import Input from "../Components/Input";
 
 function InputPage() {
+  let [errorMessage, setErrorMessage] = useState("");
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    if (e.target.value !== "") {
+      setErrorMessage = "Error message will override helper text";
+    } else {
+      setErrorMessage = "";
+    }
+  };
+
   return (
     <div>
       <Title>Inputs</Title>
       <div className="fade-in-up">
         <Container direction={"horizontal"} title="Inputs by type">
           <Input
-            size="xs"
+            size="sm"
             label="Default text input"
+            placeholder="Text goes here"
+          ></Input>
+          <Input
+            size="sm"
+            label="Input with tooltip"
             tooltip="This input is for common text"
             placeholder="Text goes here"
           ></Input>
           <Input
             type={"number"}
-            size="xxs"
+            size="xs"
             label="Default number"
-            tooltip="This input is for numbers"
             placeholder="12345"
           ></Input>
           <Input
             type={"password"}
-            size="xs"
+            size="sm"
             label="Hidden password"
-            tooltip="This input won't display the content"
             placeholder="• • • • •"
           ></Input>
           <Input
             type={"range"}
-            size="xs"
+            size="sm"
             label="Default number"
             tooltip="This is the default range input"
           ></Input>
         </Container>
       </div>
-      <div className="fade-in-up">
-        <Container title={"Input helpers and errors"}>
+      <div className="fade-in-up   ">
+        <Container direction={"horizontal"} title={"Input helpers and errors"}>
           <Input
             size="md"
             label="Input with helper text"
-            tooltip={"This input has helper text"}
-            placeholder="e.g: Average size input field"
-            helperText="Helper text"
-            errorText="This is a message of error"
+            placeholder="Placeholder text"
+            helperText="Helper text will show if no error text is provided"
+            errorText=""
+          ></Input>
+          <Input
+            size="md"
+            label="Input with error text"
+            placeholder="Placeholder text"
+            helperText="This input has an helper text"
+            errorText={errorMessage}
+            onChange={handleChange}
           ></Input>
         </Container>
       </div>

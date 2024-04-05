@@ -311,43 +311,59 @@
 --------------------*/
 
 .Input-container {
-  flex-shrink: 1;
-  &.xxs {
+  flex: 1 1 auto;
+
+  &.xs {
     max-width: 160px;
   }
-  &.xs {
+  &.sm {
     max-width: 240px;
   }
-  &.sm {
+  &.md {
     max-width: 320px;
   }
-  &.md {
+  &.lg {
     max-width: 400px;
   }
-  &.lg {
+  &.xl {
     max-width: 480px;
   }
-  &.xl {
+  &.xxl {
     max-width: 560px;
   }
 
-  .Input {
-    width: calc(100% - $double-spacing);
-    padding: 12px $default-spacing;
-    border-radius: $bd-radius;
-    background-color: $white;
-    border: 0.5px solid $light-grey;
-    height: fit-content;
-    font-size: $md-text;
-    flex-grow: 1;
-    color: $text-grey;
-    margin-bottom: $default-spacing;
-
-    &::placeholder {
-      color: $light-grey;
+  .Input-wrapper {
+    position: relative;
+    &:has(.Input-error) .Input {
+      border: 0.5px solid $alert;
     }
-    &:focus {
-      outline: 0.5px solid $secondary;
+    .Input {
+      width: calc(100% - $default-spacing);
+      padding: 12px $half-spacing;
+      border-radius: $bd-radius;
+      background-color: $white;
+      border: 0.5px solid $light-grey;
+      height: fit-content;
+      font-size: $md-text;
+      flex-grow: 1;
+      color: $text-grey;
+      margin-bottom: $default-spacing;
+
+      &::placeholder {
+        color: $light-grey;
+      }
+      &:focus {
+        outline: 0.5px solid $secondary;
+      }
+    }
+    small {
+      position: absolute;
+      left: 4px;
+
+      top: 48px;
+    }
+    .Input-error {
+      color: $alert;
     }
   }
 }
@@ -359,7 +375,7 @@
 .Dropdown {
   .Panel {
     position: relative;
-    padding: 12px 16px;
+    padding: 12px $default-spacing;
     border-radius: $bd-radius;
     background-color: $white;
     border: 0.5px solid $light-grey;

@@ -3,8 +3,8 @@ $primary-light: #7367d6;
 $ternary: #5996fe;
 $secondary: #80ebe9;
 $secondary-dark: #48c8c3;
-$warning: #fccf48;
-$alert: #f55252;
+$warning: #f7cf5a;
+$alert: #f55260;
 $white: #ffffff;
 $alt-bg: #fafafc;
 $dark-grey: #343a40;
@@ -61,6 +61,11 @@ li {
   color: $text-grey;
 }
 
+small {
+  font-size: $small-text;
+  color: $light-grey;
+}
+
 h2 {
   font-size: $h2-text;
   line-height: 1.2em;
@@ -90,12 +95,14 @@ hr {
 .horizontal {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: $double-spacing;
 }
 
 .vertical {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   grid-area: $default-spacing;
 }
 
