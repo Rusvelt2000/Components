@@ -6,6 +6,7 @@ import ModalPage from "./Pages/ModalPage";
 import TablePage from "./Pages/TablePage";
 import Sidebar from "./Components/Sidebar";
 import TooltipPage from "./Pages/TooltipPage";
+import InputPage from "./Pages/InputPage";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/tooltip">
             <TooltipPage />
+          </Route>
+          <Route path="/input">
+            <InputPage />
           </Route>
         </div>
       </div>

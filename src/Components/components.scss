@@ -39,6 +39,11 @@
   padding: $default-spacing;
   box-shadow: $low-shadow;
   z-index: 2;
+  .logo {
+    width: fit-content;
+    max-height: 40px;
+    padding-left: $half-spacing;
+  }
 
   .SidebarLink {
     display: flex;
@@ -105,7 +110,6 @@
   margin-bottom: $double-spacing;
   display: flex;
   flex-direction: column;
-  break-inside: avoid;
   .title-container {
     display: flex;
     gap: $default-spacing;
@@ -287,17 +291,72 @@
 }
 
 /* ------------------
-   --- DROPDOWN ---
+   --- LABEL ---
 --------------------*/
 
-.Dropdown {
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   label {
     color: $text-grey;
     font-weight: $heavy;
     display: block;
-    margin: 4px;
+    margin: 4px 4px 8px;
+  }
+}
+
+/* ------------------
+   --- INPUT ---
+--------------------*/
+
+.Input-container {
+  flex-shrink: 1;
+  &.xxs {
+    max-width: 160px;
+  }
+  &.xs {
+    max-width: 240px;
+  }
+  &.sm {
+    max-width: 320px;
+  }
+  &.md {
+    max-width: 400px;
+  }
+  &.lg {
+    max-width: 480px;
+  }
+  &.xl {
+    max-width: 560px;
   }
 
+  .Input {
+    width: calc(100% - $double-spacing);
+    padding: 12px $default-spacing;
+    border-radius: $bd-radius;
+    background-color: $white;
+    border: 0.5px solid $light-grey;
+    height: fit-content;
+    font-size: $md-text;
+    flex-grow: 1;
+    color: $text-grey;
+    margin-bottom: $default-spacing;
+
+    &::placeholder {
+      color: $light-grey;
+    }
+    &:focus {
+      outline: 0.5px solid $secondary;
+    }
+  }
+}
+
+/* ------------------
+   --- DROPDOWN ---
+--------------------*/
+
+.Dropdown {
   .Panel {
     position: relative;
     padding: 12px 16px;
@@ -307,12 +366,16 @@
     height: fit-content;
     flex: 1;
     color: $text-grey;
-    margin-bottom: $double-spacing;
+    margin-bottom: $default-spacing;
+
     cursor: pointer;
     p {
       margin: 0;
       font-size: $md-text;
       flex-grow: 1;
+    }
+    &:focus {
+      outline: 0.5px solid $secondary;
     }
     &:hover {
       background-color: lighten($primary, 40);
@@ -396,13 +459,16 @@
 --------------------*/
 
 .Table {
+  width: 100%;
   font-size: $md-text;
   thead {
     tr {
-      background-color: lighten($primary, 40);
+      background-color: $ultraLight-grey;
+      color: $text-grey;
+      text-transform: uppercase;
       th {
         text-align: left;
-        font-size: $big-text;
+        font-size: $md-text;
         padding: 16px;
         &:first-child {
           padding-right: 0;
@@ -471,9 +537,14 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
-  &:hover .Tooltip-icon {
-    color: $secondary;
+  &:focus {
+    outline: none;
   }
+  &:hover .Tooltip-icon,
+  &:focus .Tooltip-icon {
+    color: $primary-light;
+  }
+
   .Tooltip-icon {
     color: $secondary-dark;
 

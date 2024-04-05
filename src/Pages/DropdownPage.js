@@ -132,18 +132,40 @@ function App() {
       <div className="fade-in-up col-2">
         <Container className="col-2" title="No Label Dropdowns">
           <Dropdown
-            value={selectedDrink}
-            options={optionsDrink}
-            onChange={handleSelectedDrink}
+            value={selectedPasta}
+            options={optionsPasta}
+            onChange={handleSelectedPasta}
           >
-            Select a drink
+            Select Pasta
           </Dropdown>
           <Dropdown
             value={selectedDrink}
             options={optionsDrink}
             onChange={handleSelectedDrink}
           >
-            Select a drink
+            Select Drink
+          </Dropdown>
+        </Container>
+      </div>
+      <div className="fade-in-up col-2">
+        <Container className="col-2" title="Dropdowns with tooltips">
+          <Dropdown
+            label="Pasta"
+            tooltip="Pasta is only offered for lunch"
+            value={selectedPasta}
+            options={optionsPasta}
+            onChange={handleSelectedPasta}
+          >
+            Select Pasta
+          </Dropdown>
+          <Dropdown
+            label="Main "
+            tooltip="Please select your desired main dish"
+            value={selectedMain}
+            options={optionsMain}
+            onChange={handleSelectedMain}
+          >
+            Select Main
           </Dropdown>
         </Container>
       </div>

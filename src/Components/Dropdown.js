@@ -1,8 +1,9 @@
 // import className from "classnames";
 import { useState, useEffect, useRef } from "react";
 import { GoChevronDown, GoChevronLeft } from "react-icons/go";
+import Label from "./Label";
 
-function Dropdown({ options, onChange, value, children, label }) {
+function Dropdown({ options, onChange, value, children, label, tooltip }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const dropdownRef = useRef();
@@ -43,8 +44,8 @@ function Dropdown({ options, onChange, value, children, label }) {
   });
   return (
     <div className="Dropdown" ref={dropdownRef}>
-      {label && <label>{label}</label>}
-      <div className="Panel" onClick={handleExpansion}>
+      {label && <Label tooltip={tooltip}>{label}</Label>}
+      <div className="Panel" onClick={handleExpansion} tabIndex={0}>
         <div className="Panel-title">
           <p>{value?.label || children}</p>
           {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}

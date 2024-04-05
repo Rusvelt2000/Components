@@ -15,6 +15,7 @@ function Tooltip({ children }) {
   return (
     <div
       className="Tooltip-container"
+      tabIndex={0}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

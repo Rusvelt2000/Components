@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
-function Container({ children, title, className, icon }) {
-  const addedClasses = classNames("flex", className);
+function Container({ children, title, className, icon, direction }) {
+  const addedClasses = classNames(direction, className);
   return (
     <div className="Container">
       <div className="title-container">

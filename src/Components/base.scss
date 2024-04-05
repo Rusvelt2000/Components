@@ -87,6 +87,18 @@ hr {
   margin: 12px;
 }
 
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: $double-spacing;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  grid-area: $default-spacing;
+}
+
 .col-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -114,6 +126,9 @@ hr {
   .col-3,
   .col-4 {
     grid-template-columns: 1fr 1fr;
+  }
+  .col-2:has(.Table) {
+    grid-template-columns: 1fr;
   }
 }
 
