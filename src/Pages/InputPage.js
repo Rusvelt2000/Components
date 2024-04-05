@@ -4,13 +4,13 @@ import Container from "../Components/Container";
 import Input from "../Components/Input";
 
 function InputPage() {
-  let [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (e) => {
-    console.log(e.target.value);
     if (e.target.value !== "") {
-      setErrorMessage = "Error message will override helper text";
+      console.log(e.target.value);
+      setErrorMessage("Error message will override helper text");
     } else {
-      setErrorMessage = "";
+      setErrorMessage("");
     }
   };
 
@@ -56,14 +56,14 @@ function InputPage() {
             size="md"
             label="Input with helper text"
             placeholder="Placeholder text"
-            helperText="Helper text will show if no error text is provided"
+            helperText="Helper text to provide more information"
             errorText=""
           ></Input>
           <Input
             size="md"
             label="Input with error text"
-            placeholder="Placeholder text"
-            helperText="This input has an helper text"
+            placeholder="Type to see changes"
+            helperText="Try to type something here"
             errorText={errorMessage}
             onChange={handleChange}
           ></Input>

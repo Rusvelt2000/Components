@@ -1,6 +1,5 @@
 import Label from "./Label";
 import classNames from "classnames";
-import Tooltip from "./Tooltip";
 
 function Input({
   label,
@@ -17,7 +16,7 @@ function Input({
   return (
     <div className={addedClasses}>
       {label && <Label tooltip={tooltip}>{label}</Label>}
-      {tooltip && <Tooltip>{tooltip}</Tooltip>}
+
       <div className="Input-wrapper">
         <input
           {...rest}

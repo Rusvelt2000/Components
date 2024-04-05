@@ -334,9 +334,7 @@
 
   .Input-wrapper {
     position: relative;
-    &:has(.Input-error) .Input {
-      border: 0.5px solid $alert;
-    }
+    
     .Input {
       width: calc(100% - $default-spacing);
       padding: 12px $half-spacing;
@@ -356,6 +354,10 @@
         outline: 0.5px solid $secondary;
       }
     }
+    &:has(.Input-error) .Input {
+        border: 0.5px solid $alert;
+        outline: 0.5px solid $alert;
+      }
     small {
       position: absolute;
       left: 4px;
@@ -364,6 +366,9 @@
     }
     .Input-error {
       color: $alert;
+      &:focus {
+        outline: .5px solid $alert;
+      }
     }
   }
 }
