@@ -7,29 +7,33 @@ import { TfiLayoutAccordionSeparated } from "react-icons/tfi";
 import { TbHandClick } from "react-icons/tb";
 import { GrTooltip } from "react-icons/gr";
 import { RxInput } from "react-icons/rx";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
 
 function Sidebar() {
   return (
     <div className="Sidebar">
       <img className="logo" src={logo} alt="RctCompt Logo" />
       <h4>Components</h4>
-      <SidebarLink icon={<CgList />} to="/">
-        Dropdowns
-      </SidebarLink>
-      <SidebarLink icon={<TbHandClick />} to="/button">
-        Buttons
-      </SidebarLink>
-      <SidebarLink icon={<BiSolidWindowAlt />} to="/modal">
-        Modals
+      <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/">
+        Dashboard
       </SidebarLink>
       <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="/accordion">
         Accordions
       </SidebarLink>
-      <SidebarLink icon={<TbTableColumn />} to="/table">
-        Tables
+      <SidebarLink icon={<TbHandClick />} to="/button">
+        Buttons
+      </SidebarLink>
+      <SidebarLink icon={<CgList />} to="/dropdown">
+        Dropdowns
       </SidebarLink>
       <SidebarLink icon={<RxInput />} to="/input">
         Inputs
+      </SidebarLink>
+      <SidebarLink icon={<BiSolidWindowAlt />} to="/modal">
+        Modals
+      </SidebarLink>
+      <SidebarLink icon={<TbTableColumn />} to="/table">
+        Tables
       </SidebarLink>
       <SidebarLink icon={<GrTooltip />} to="/tooltip">
         Tooltips

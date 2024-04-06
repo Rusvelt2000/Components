@@ -77,6 +77,10 @@ function ButtonPage() {
             <GoRocket />
           </Button>
         </Container>
+        <Container title={"Button Cards"}>
+          <Button cardBtn>Buttons</Button>
+          <Button cardBtn>Dropdowns</Button>
+        </Container>
       </div>
     </div>
   );

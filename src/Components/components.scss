@@ -136,6 +136,17 @@
 }
 
 /* ------------------
+   --- HOMEPAGE ---
+--------------------*/
+ .HomePage {
+    .icon {
+        color: $ternary;
+        font-size: 32px;
+    }
+ }
+
+
+/* ------------------
    --- BUTTON ---
 --------------------*/
 
@@ -239,6 +250,22 @@
   background-color: $white;
   &:hover {
     background-color: darken($white, 5);
+  }
+}
+
+.cardBtnLink {
+  background-color: $white;
+  padding: $default-spacing $double-spacing;
+  border-radius: $bd-radiusL;
+  box-shadow: $high-shadow;
+  margin-bottom: $default-spacing;
+  color: $text-grey;
+  font-family: $title-font;
+  font-weight: $book;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: lighten($primary, 40);
   }
 }
 

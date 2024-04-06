@@ -7,6 +7,7 @@ import TablePage from "./Pages/TablePage";
 import Sidebar from "./Components/Sidebar";
 import TooltipPage from "./Pages/TooltipPage";
 import InputPage from "./Pages/InputPage";
+import HomePage from "./Pages/HomePage";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <div className="navigation-bar"></div>
         <div className="Content">
           <Route path="/">
+            <HomePage />
+          </Route>
+          <Route path="/dropdown">
             <DropdownPage />
           </Route>
           <Route path="/accordion">
