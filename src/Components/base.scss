@@ -30,8 +30,8 @@ $regular: 400;
 $book: 600;
 $heavy: 700;
 
-$low-shadow: 0 0 12px -8px transparentize($dark-grey, 0.3);
-$high-shadow: 0 4px 24px -12px transparentize($dark-grey, 0.3);
+$low-shadow: 0 2px 6px -4px transparentize($light-grey, 0.4);
+$high-shadow: 0 4px 24px -12px transparentize($light-grey, 0.4);
 
 $bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
 $quick: cubic-bezier(0.17, 0.67, 0.44, 1);

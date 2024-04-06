@@ -255,17 +255,23 @@
 
 .cardBtnLink {
   background-color: $white;
-  padding: $default-spacing $double-spacing;
   border-radius: $bd-radiusL;
-  box-shadow: $high-shadow;
+  box-shadow: $low-shadow;
   margin-bottom: $default-spacing;
-  color: $text-grey;
-  font-family: $title-font;
-  font-weight: $book;
+  border: 1px solid $ultraLight-grey;
+  max-width: 240px;
   cursor: pointer;
-  
   &:hover {
     background-color: lighten($primary, 40);
+  }
+  .caption {
+    padding: $default-spacing;
+    h4 {
+        font-family: $title-font;
+        color: $text-grey;
+        font-weight: $book;
+        margin: 0 0 4px;
+    }
   }
 }
 

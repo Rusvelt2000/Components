@@ -1,6 +1,6 @@
 import useNavigation from "../Hooks/use-navigation";
 
-function CardButtonLink({ to, children }) {
+function CardButtonLink({ to, title, caption, image }) {
   const { navigate } = useNavigation();
 
   const handleClick = (event) => {
@@ -12,7 +12,11 @@ function CardButtonLink({ to, children }) {
   };
   return (
     <div className="cardBtnLink" onClick={handleClick}>
-      {children}
+      {image}
+      <div className="caption">
+        <h4>{title}</h4>
+        <small>{caption}</small>
+      </div>
     </div>
   );
 }

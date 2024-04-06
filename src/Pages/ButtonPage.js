@@ -10,6 +10,7 @@ import {
   GoMute,
   GoRocket,
 } from "react-icons/go";
+import CardButtonLink from "../Components/CardButtonLink";
 
 function ButtonPage() {
   const handleClick = () => {
@@ -78,8 +79,10 @@ function ButtonPage() {
           </Button>
         </Container>
         <Container title={"Button Cards"}>
-          <Button cardBtn>Buttons</Button>
-          <Button cardBtn>Dropdowns</Button>
+          <CardButtonLink
+            caption={"Some descriptive text goes here"}
+            title={"Card Button"}
+          />
         </Container>
       </div>
     </div>
