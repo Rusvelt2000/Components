@@ -1,13 +1,8 @@
 import Title from "../Components/Title";
 import CardButtonLink from "../Components/CardButtonLink";
 import DropdownThumb from "../Assets/Thumbs/Dropdowns.svg";
-// import { TbTableColumn } from "react-icons/tb";
-// import { BiSolidWindowAlt } from "react-icons/bi";
-// import { TfiLayoutAccordionSeparated } from "react-icons/tfi";
-// import { TbHandClick } from "react-icons/tb";
-// import { GrTooltip } from "react-icons/gr";
-// import { RxInput } from "react-icons/rx";
-// import { MdOutlineSpaceDashboard } from "react-icons/md";
+import AccordionThumb from "../Assets/Thumbs/accordion.svg";
+import ButtonsThumb from "../Assets/Thumbs/button.svg";
 
 function HomePage() {
   return (
@@ -19,6 +14,18 @@ function HomePage() {
           title={"Dropdowns"}
           caption={"This is some text to describe the card"}
           image={DropdownThumb}
+        />
+        <CardButtonLink
+          to="/accordion"
+          title={"Accordions"}
+          caption={"This is some text to describe the card"}
+          image={AccordionThumb}
+        />
+        <CardButtonLink
+          to="/button"
+          title={"Buttons"}
+          caption={"This is some text to describe the card"}
+          image={ButtonsThumb}
         />
       </div>
     </div>
