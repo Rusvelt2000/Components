@@ -26,7 +26,7 @@ function Input({
           placeholder={placeholder}
         />
         {errorText ? (
-          <small className="Input-error">{errorText}</small>
+          <small className="Input-error error-shake">{errorText}</small>
         ) : helperText ? (
           <small className="Input-helper">{helperText}</small>
         ) : null}

@@ -13,10 +13,10 @@ function Sidebar() {
   return (
     <div className="Sidebar">
       <img className="logo" src={logo} alt="RctCompt Logo" />
-      <h4>Components</h4>
       <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/">
         Dashboard
       </SidebarLink>
+      <h4>Components</h4>
       <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="/accordion">
         Accordions
       </SidebarLink>

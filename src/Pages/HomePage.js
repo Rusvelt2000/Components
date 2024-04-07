@@ -1,6 +1,6 @@
 import Title from "../Components/Title";
 import CardButtonLink from "../Components/CardButtonLink";
-import { CgList } from "react-icons/cg";
+import DropdownThumb from "../Assets/Thumbs/Dropdowns.svg";
 // import { TbTableColumn } from "react-icons/tb";
 // import { BiSolidWindowAlt } from "react-icons/bi";
 // import { TfiLayoutAccordionSeparated } from "react-icons/tfi";
@@ -18,7 +18,7 @@ function HomePage() {
           to="/dropdown"
           title={"Dropdowns"}
           caption={"This is some text to describe the card"}
-          image={<CgList />}
+          image={DropdownThumb}
         />
       </div>
     </div>

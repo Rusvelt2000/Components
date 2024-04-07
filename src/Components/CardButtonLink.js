@@ -12,7 +12,9 @@ function CardButtonLink({ to, title, caption, image }) {
   };
   return (
     <div className="cardBtnLink" onClick={handleClick}>
-      {image}
+      <div className="thumb-container">
+        <img src={image} alt={title} />
+      </div>
       <div className="caption">
         <h4>{title}</h4>
         <small>{caption}</small>
