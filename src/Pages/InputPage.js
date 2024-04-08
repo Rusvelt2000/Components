@@ -7,7 +7,6 @@ function InputPage() {
   const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (e) => {
     if (e.target.value !== "") {
-      console.log(e.target.value);
       setErrorMessage("Error message will override helper text");
     } else {
       setErrorMessage("");
