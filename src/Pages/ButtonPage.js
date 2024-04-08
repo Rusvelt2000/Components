@@ -1,6 +1,8 @@
 import Container from "../Components/Container";
 import Button from "../Components/Button";
 import Title from "../Components/Title";
+import DefaultThumb from "../Assets/Thumbs/defaultThumb.svg";
+
 import {
   GoCheckCircleFill,
   GoBookmarkFill,
@@ -78,10 +80,20 @@ function ButtonPage() {
             <GoRocket />
           </Button>
         </Container>
-        <Container title={"Button Cards"}>
+      </div>
+      <div className="fade-in-up col-2">
+        <Container className={"col-2"} title={"Button Cards"}>
           <CardButtonLink
             caption={"Some descriptive text goes here"}
             title={"Card Button"}
+            image={DefaultThumb}
+            to={"/button"}
+          />
+          <CardButtonLink
+            caption={"Some descriptive text goes here"}
+            title={"Card Button"}
+            image={DefaultThumb}
+            to={"/button"}
           />
         </Container>
       </div>

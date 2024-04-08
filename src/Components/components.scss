@@ -42,7 +42,7 @@
   .logo {
     width: fit-content;
     max-height: 40px;
-    padding: 0 0 $default-spacing  $half-spacing ;
+    padding: 0 0 $default-spacing $half-spacing;
   }
 
   .SidebarLink {
@@ -138,13 +138,12 @@
 /* ------------------
    --- HOMEPAGE ---
 --------------------*/
- .HomePage {
-    .icon {
-        color: $ternary;
-        font-size: 32px;
-    }
- }
-
+.HomePage {
+  .icon {
+    color: $ternary;
+    font-size: 32px;
+  }
+}
 
 /* ------------------
    --- BUTTON ---
@@ -254,58 +253,62 @@
 }
 
 .cardBtnLink {
-  background-color: $white;
-  border-radius: $bd-radiusL;
-  box-shadow: $low-shadow;
-  margin-bottom: $default-spacing;
-  border: 1px solid $ultraLight-grey;
-  max-width: 240px;
+  background-color: none;
+  border-radius: $bd-radius;
+  box-shadow: none;
+  border: 1px solid transparent;
+  margin-bottom: $double-spacing;
+  transition: all 0.4s $quick;
   cursor: pointer;
   &:hover {
+    background-color: $white;
+    box-shadow: $low-shadow;
+    border: 1px solid $ultraLight-grey;
+    .thumb-container {
+      border-radius: $bd-radius $bd-radius 0 0;
+      background-color: darken($alt-bg, 4);
+    }
     .caption h4 {
-        color: $primary;
+      color: $primary;
     }
     img {
-        transform: scale(1.1);
-        
+      transform: scale(1.1);
     }
     .thumb-container::after {
-        width: 143%;
-        height: 160%;
-        transition: all .1s $quick;
+      width: 120%;
+      height: 240%;
+      opacity: 1;
+      transition: all 0.4s $bouncy 0.1s;
     }
   }
   .thumb-container {
-      width: 100%;
-      height: 160px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      &:after {
-        content: "";
-        position: absolute;
-        width: 0px;
-        height: 0px;
-        border-radius: 50%;
-        background-color: lighten($primary, 40);
-        
-      }
-      img {
-        width: 120px;
-        height: auto;
-        z-index: 1;
-        transition: all 0.4s $bouncy;
+    width: 100%;
+    height: 180px;
+    border-radius: $bd-radius;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: darken($alt-bg, 2);
+
+    img {
+      width: 160px;
+      height: auto;
+      z-index: 1;
+      transition: all 0.4s $bouncy;
     }
   }
   .caption {
-    padding: $default-spacing;
+    padding: $default-spacing $default-spacing $double-spacing;
     h4 {
-        font-family: $title-font;
-        color: $text-grey;
-        font-weight: $book;
-        margin: 0 0 4px;
+      font-family: $title-font;
+      color: $text-grey;
+      font-weight: $book;
+      margin: 0 0 4px;
+    }
+    small {
+      color: $medium-grey;
     }
   }
 }
@@ -402,7 +405,7 @@
 
   .Input-wrapper {
     position: relative;
-    
+
     .Input {
       width: calc(100% - $default-spacing);
       padding: 12px $half-spacing;
@@ -423,9 +426,9 @@
       }
     }
     &:has(.Input-error) .Input {
-        border: 0.5px solid $alert;
-        outline: 0.5px solid $alert;
-      }
+      border: 0.5px solid $alert;
+      outline: 0.5px solid $alert;
+    }
     small {
       position: absolute;
       left: 4px;
@@ -434,9 +437,9 @@
     }
     .Input-error {
       color: $alert;
-      
+
       &:focus {
-        outline: .5px solid $alert;
+        outline: 0.5px solid $alert;
       }
     }
   }

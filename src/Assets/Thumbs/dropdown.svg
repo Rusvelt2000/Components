@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 122 76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e5e5e5;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #5649ce;
+      }
+
+      .cls-3 {
+        filter: url(#drop-shadow-2);
+      }
+
+      .cls-3, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #80ebe9;
+      }
+
+      .cls-5 {
+        filter: url(#drop-shadow-1);
+      }
+    </style>
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1"/>
+      <feGaussianBlur result="blur" stdDeviation="1"/>
+      <feFlood flood-color="#686868" flood-opacity=".25"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="drop-shadow-2" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1"/>
+      <feGaussianBlur result="blur-2" stdDeviation="1"/>
+      <feFlood flood-color="#686868" flood-opacity=".25"/>
+      <feComposite in2="blur-2" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-5" x="2.95" y="2.16" width="114.84" height="11.94" rx="4" ry="4"/>
+      <rect class="cls-3" x="2.95" y="16.51" width="114.84" height="55.34" rx="4" ry="4"/>
+      <rect class="cls-2" x="7.65" y="5.93" width="37.21" height="4.69" rx="2.34" ry="2.34"/>
+      <rect class="cls-1" x="7.65" y="22.04" width="73.74" height="4.69" rx="2.34" ry="2.34"/>
+      <rect class="cls-1" x="7.65" y="35.1" width="68.54" height="4.69" rx="2.34" ry="2.34"/>
+      <rect class="cls-1" x="7.65" y="48.16" width="88.17" height="4.69" rx="2.34" ry="2.34"/>
+      <rect class="cls-1" x="7.65" y="61.22" width="35.35" height="4.69" rx="2.34" ry="2.34"/>
+      <rect class="cls-1" x="94.42" y="39.27" width="41.55" height="2.34" rx="1.17" ry="1.17" transform="translate(74.75 155.64) rotate(-90)"/>
+      <rect class="cls-4" x="114.02" y="19.67" width="2.34" height="14.84" rx="1.17" ry="1.17"/>
+      <polygon class="cls-1" points="112.86 10.05 110.22 7.41 110.83 6.8 112.86 8.83 114.89 6.79 115.51 7.4 112.86 10.05"/>
+    </g>
+  </g>
+</svg>
