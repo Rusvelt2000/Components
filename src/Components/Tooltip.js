@@ -14,9 +14,20 @@ function Tooltip({ children }) {
 
   const handleTooltipDirection = () => {
     const tooltip = document.querySelector(".Tooltip-container");
+    const tooltipBubble = document.querySelector(".Tooltip");
+    //Get the size of the window
     const windowWidth = window.innerWidth;
+    //Get the rightest positon of the tooltip
     const tooltipRightSide = tooltip.getBoundingClientRect().right;
-    console.log(windowWidth - tooltipRightSide > 260);
+    if (tooltipBubble) {
+      if (windowWidth - tooltipRightSide <= 260) {
+        tooltipBubble.style.left = "auto";
+        tooltipBubble.style.right = "32px";
+      } else {
+        tooltipBubble.style.right = "auto";
+        tooltipBubble.style.left = "32px";
+      }
+    }
   };
 
   return (
