@@ -19,9 +19,10 @@ $double-spacing: calc($default-spacing * 2);
 $bd-radius: 4px;
 $bd-radiusL: 8px;
 
-$small-text: 0.9em;
+$small-text: 0.85em;
 $md-text: 0.95em;
 $big-text: 1.1em;
+$h1-text: 2em;
 $h2-text: 1.6em;
 $h3-text: 1.25em;
 $h4-text: 1.15em;
@@ -66,6 +67,13 @@ small {
   font-size: $small-text;
   color: $light-grey;
   line-height: 1.4;
+}
+
+h1 {
+  font-size: $h1-text;
+  line-height: 1.2em;
+  font-family: $title-font;
+  font-weight: $heavy;
 }
 
 h2 {

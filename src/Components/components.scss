@@ -92,10 +92,11 @@
 --------------------*/
 
 .Content {
-  padding: $double-spacing;
+  padding: $double-spacing ($double-spacing * 2);
 
   .section-title {
-    margin: 0 auto 16px;
+    margin: $default-spacing auto $double-spacing $default-spacing;
+    color: $dark-grey;
   }
 }
 
@@ -640,7 +641,6 @@
 
   .Tooltip-icon {
     color: $secondary-dark;
-
     font-size: $big-text;
   }
 
@@ -648,7 +648,7 @@
     position: absolute;
     left: $double-spacing;
     top: -16px;
-    min-width: 320px;
+    min-width: 240px;
     background-color: $primary;
     color: $white;
     box-shadow: $high-shadow;
