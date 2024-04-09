@@ -12,22 +12,23 @@ function Tooltip({ children }) {
     setIsHovered(false);
   };
 
-  const handleTooltipDirection = () => {
-    const tooltip = document.querySelector(".Tooltip-container");
-    const tooltipBubble = document.querySelector(".Tooltip");
-    //Get the size of the window
+  const handleTooltipDirection = (e) => {
+    const tooltipIcon = e.target;
+    //Get the width of the window
     const windowWidth = window.innerWidth;
-    //Get the rightest positon of the tooltip
-    const tooltipRightSide = tooltip.getBoundingClientRect().right;
-    if (tooltipBubble) {
-      if (windowWidth - tooltipRightSide <= 260) {
-        tooltipBubble.style.left = "auto";
-        tooltipBubble.style.right = "32px";
-      } else {
-        tooltipBubble.style.right = "auto";
-        tooltipBubble.style.left = "32px";
+    //Get the rightest position of the tooltip
+    const tooltipRightSide = tooltipIcon.getBoundingClientRect().right;
+    //SetTimeout gives time to the tooltip to exist before applying the direction
+    setTimeout(() => {
+      const tooltip = tooltipIcon.querySelector(".tooltip-handler");
+      if (tooltip) {
+        if (windowWidth - tooltipRightSide <= 320) {
+          tooltip.classList.add("Tooltip", "side-entrance", "right");
+        } else {
+          tooltip.classList.add("Tooltip", "side-entrance-left", "left");
+        }
       }
-    }
+    }, 0);
   };
 
   return (
@@ -38,8 +39,8 @@ function Tooltip({ children }) {
       onMouseLeave={handleMouseLeave}
       onMouseOver={handleTooltipDirection}
     >
+      {isHovered && <div className="tooltip-handler">{children}</div>}
       <BsInfoCircle className="Tooltip-icon" />
-      {isHovered && <div className="Tooltip side-entrance">{children}</div>}
     </div>
   );
 }

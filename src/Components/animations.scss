@@ -19,6 +19,17 @@
 
 @keyframes side-entrance {
   0% {
+    transform: translateX(-16px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes side-entrance-left {
+  0% {
     transform: translateX(16px);
     opacity: 0;
   }
@@ -30,6 +41,9 @@
 
 .side-entrance {
   animation: side-entrance 0.4s $quick;
+}
+.side-entrance-left {
+  animation: side-entrance-left 0.4s $quick;
 }
 
 @keyframes expandAccordion {

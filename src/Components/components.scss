@@ -642,20 +642,32 @@
   .Tooltip-icon {
     color: $secondary-dark;
     font-size: $big-text;
+    pointer-events: none;
   }
 
   .Tooltip {
     position: absolute;
-    // left: $double-spacing;
     top: -16px;
-    min-width: 240px;
+    min-width: 200px;
     background-color: $primary;
     color: $white;
     box-shadow: $high-shadow;
     border-radius: $bd-radius;
     padding: $default-spacing;
     font-size: $small-text;
-    z-index: 999;
+    z-index: 98;
+    &.left {
+      left: $double-spacing;
+      &:before {
+        left: -4px;
+      }
+    }
+    &.right {
+      right: $double-spacing;
+      &:before {
+        right: -4px;
+      }
+    }
     &:before {
       content: "";
       width: 8px;
@@ -663,7 +675,6 @@
       transform: rotate(45deg);
       background-color: inherit;
       position: absolute;
-      left: -4px;
       top: 20px;
     }
   }
