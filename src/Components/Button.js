@@ -1,5 +1,5 @@
 import "./components.scss";
-import className from "classnames";
+import classNames from "classnames";
 
 function Button({
   children,
@@ -10,9 +10,10 @@ function Button({
   outline,
   warning,
   alert,
+  className,
   ...rest
 }) {
-  const classes = className("button", {
+  const classes = classNames("button", className, {
     primary,
     secondary,
     rounded,

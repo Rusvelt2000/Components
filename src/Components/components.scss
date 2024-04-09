@@ -18,14 +18,23 @@
   background-color: $white;
   height: 36px;
   box-shadow: $low-shadow;
-  padding: $default-spacing;
-  z-index: 99;
+  padding: 20px $double-spacing;
+  z-index: 3;
 }
 
 /* ------------------
    --- SIDEBAR ---
 --------------------*/
-
+.SidebarWrapper {
+  position: relative;
+  z-index: 4;
+  &:has(.Sidebar) {
+    .sidebar-toggle-button {
+      right: -30px;
+      left: auto;
+    }
+  }
+}
 .Sidebar {
   display: flex;
   flex-direction: column;
@@ -35,10 +44,22 @@
   bottom: 0;
   height: calc(100vh - $double-spacing);
   background-color: $white;
-  min-width: 240px;
+  min-width: 200px;
   padding: $default-spacing;
   box-shadow: $low-shadow;
-  z-index: 2;
+  transition: padding 0.4s $quick;
+  &.collapsed {
+    background-color: $primary;
+    min-width: $default-spacing;
+    padding: $default-spacing $half-spacing;
+    transition: padding 0.4s $bouncy, background-color 0.6s $quick 0.2s;
+    cursor: e-resize;
+    &:hover {
+      background-color: lighten($primary, 5);
+      padding: $default-spacing ($half-spacing + 4);
+      transition: all 0.4s $quick;
+    }
+  }
   .logo {
     width: fit-content;
     max-height: 40px;
@@ -84,6 +105,21 @@
     font-size: $small-text;
     margin: $default-spacing 0 0 $half-spacing;
     text-transform: uppercase;
+  }
+}
+
+.sidebar-toggle-button {
+  position: absolute;
+  padding: 4px !important;
+  left: 30px;
+  right: auto;
+  top: 20px;
+  box-shadow: $high-shadow;
+  z-index: 5;
+  &:hover + .collapsed {
+    background-color: lighten($primary, 5);
+    padding: $default-spacing ($half-spacing + 4);
+    transition: all 0.4s $quick;
   }
 }
 
@@ -676,6 +712,41 @@
       background-color: inherit;
       position: absolute;
       top: 20px;
+    }
+  }
+}
+
+/* ------------------
+   --- SWITCH ---
+--------------------*/
+
+.Switch {
+  position: relative;
+  background-color: $ultraLight-grey;
+  width: 48px;
+  height: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  &:hover .Switch-handle {
+    background-color: darken($light-grey, 10);
+  }
+  .Switch-handle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    top: -1px;
+    background-color: $primary;
+    color: $white;
+    border-radius: 50%;
+    transition: all 0.4s $bouncy;
+    &.light {
+      left: 2px;
+    }
+    &.dark {
+      left: 24px;
     }
   }
 }

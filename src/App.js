@@ -1,20 +1,21 @@
 import Route from "./Components/Route";
-import DropdownPage from "./Pages/DropdownPage";
+import HomePage from "./Pages/HomePage";
+import NavigationBar from "./Components/NavigationBar";
 import AccordionPage from "./Pages/AccordionPage";
 import ButtonPage from "./Pages/ButtonPage";
-import ModalPage from "./Pages/ModalPage";
-import TablePage from "./Pages/TablePage";
-import Sidebar from "./Components/Sidebar";
-import TooltipPage from "./Pages/TooltipPage";
+import DropdownPage from "./Pages/DropdownPage";
 import InputPage from "./Pages/InputPage";
-import HomePage from "./Pages/HomePage";
+import ModalPage from "./Pages/ModalPage";
+import Sidebar from "./Components/Sidebar";
+import TablePage from "./Pages/TablePage";
+import TooltipPage from "./Pages/TooltipPage";
 
 function App() {
   return (
     <div className="App">
       <Sidebar />
       <div className="content-wrapper">
-        <div className="navigation-bar"></div>
+        <NavigationBar />
         <div className="Content">
           <Route path="/">
             <HomePage />
