@@ -4,6 +4,7 @@ import logotype from "../Assets/Logotype.svg";
 const SharedContext = createContext();
 
 function SharedProvider({ children }) {
+  //The following updates the logo based on the theme
   const [logoImage, setLogoImage] = useState(logotype);
   const updateLogoImage = (logo) => {
     setLogoImage(logo);
@@ -15,7 +16,7 @@ function SharedProvider({ children }) {
   };
 
   return (
-    <SharedContext.Provider value={sharedContextValue}>
+    <SharedContext.Provider value={{ logoImage, updateLogoImage }}>
       {children}
     </SharedContext.Provider>
   );
