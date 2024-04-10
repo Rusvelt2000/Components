@@ -20,7 +20,9 @@ function TablePage() {
       render: (debtors) => (
         <div
           className="currency"
-          style={debtors.amount < 0 ? { color: "red" } : { color: "green" }}
+          style={
+            debtors.amount < 0 ? { color: "#f55260" } : { color: "#38c138" }
+          }
         >
           $ {debtors.amount}
         </div>

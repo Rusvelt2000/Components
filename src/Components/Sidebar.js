@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import SharedContext from "../Context/Shared";
 import SidebarLink from "./SidebarLink";
 import Button from "./Button";
-import logotype from "../Assets/Logotype.svg";
 import logo from "../Assets/Logo.svg";
 import { CgList } from "react-icons/cg";
 import { TbTableColumn } from "react-icons/tb";
@@ -15,6 +15,7 @@ import { PiCaretLeftBold } from "react-icons/pi";
 import { PiCaretRightBold } from "react-icons/pi";
 
 function Sidebar() {
+  const { logoImage } = useContext(SharedContext);
   const [isCollapsedSidebar, setCollapsedSidebar] = useState(true);
   const toggleSidebar = () => {
     setCollapsedSidebar(!isCollapsedSidebar);
@@ -32,7 +33,7 @@ function Sidebar() {
       </Button>
       {isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
-          <img className="logo" src={logotype} alt="RctCompt Logo" />
+          <img className="logo" src={logoImage} alt="RctCompt Logo" />
           <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/">
             Dashboard
           </SidebarLink>

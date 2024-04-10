@@ -1,0 +1,313 @@
+@mixin dark-theme-styles {
+  background-color: $darker-grey;
+  color: $white;
+  p,
+  a,
+  ul,
+  li {
+    color: $white;
+  }
+  hr {
+    background-color: $medium-grey;
+  }
+  /* ------------------
+    --- NAVBAR ---
+    --------------------*/
+  .navigation-bar {
+    background-color: $dark-grey;
+    box-shadow: $dt-low-shadow;
+  }
+  /* ------------------
+    --- SIDEBAR ---
+    --------------------*/
+  .Sidebar {
+    background-color: $dark-grey;
+    box-shadow: $dt-low-shadow;
+    .SidebarLink {
+      a {
+        color: $white;
+      }
+      &.active {
+        border-left: 4px solid $secondary;
+        background-color: $primary-light;
+        a,
+        .icon {
+          color: $white;
+        }
+      }
+      &:hover {
+        background-color: $primary-light;
+      }
+    }
+    &.collapsed {
+      .SidebarLink {
+        &.active {
+          border-left: 4px solid $secondary;
+        }
+      }
+    }
+  }
+  /* ------------------
+    --- PAGE CONTENT ---
+    --------------------*/
+  .section-title {
+    color: $white;
+  }
+  /* ------------------
+    --- CONTAINER ---
+    --------------------*/
+  .Container {
+    background-color: $dark-grey;
+    box-shadow: $dt-low-shadow;
+    .icon {
+      background-color: $primary;
+      color: lighten($primary, 30);
+    }
+    h3 {
+      color: $ultraLight-grey;
+    }
+  }
+  /* ------------------
+    --- BUTTON ---
+    --------------------*/
+  .button {
+    .icon {
+      background-color: transparent;
+    }
+  }
+  .primary {
+    background-color: $primary-light;
+    border: 1px solid $primary-light;
+    &:hover {
+      background-color: lighten($primary-light, 10);
+      border: 1px solid lighten($primary-light, 10);
+    }
+    &.outline {
+      color: $primary-light;
+      fill: $primary-light;
+      background-color: transparent;
+      &:hover {
+        color: lighten($primary-light, 10);
+        .icon {
+          fill: lighten($primary-light, 10);
+          color: lighten($primary-light, 10);
+        }
+      }
+      .favicon {
+        fill: $primary-light;
+      }
+    }
+  }
+  .secondary {
+    border: 1px solid $secondary-dark;
+    &:hover {
+      background-color: $secondary;
+      border: 1px solid $secondary;
+    }
+    &.outline {
+      background-color: transparent;
+      &:hover {
+        color: $secondary;
+        .icon {
+          fill: $secondary;
+          color: $secondary;
+        }
+      }
+    }
+    .favicon {
+      fill: $secondary-dark;
+    }
+  }
+  .warning {
+    border: 1px solid $warning;
+    &:hover {
+      background-color: lighten($warning, 5);
+      border: 1px solid lighten($warning, 5);
+    }
+    &.outline {
+      background-color: transparent;
+      &:hover {
+        color: lighten($warning, 10);
+        .icon {
+          color: lighten($warning, 5);
+          fill: lighten($warning, 5);
+        }
+      }
+    }
+  }
+  .alert {
+    border: 1px solid $alert;
+    &:hover {
+      background-color: lighten($alert, 5);
+      border: 1px solid lighten($alert, 5);
+    }
+    &.outline {
+      background-color: transparent;
+      &:hover {
+        color: lighten($alert, 10);
+        .icon {
+          color: lighten($alert, 5);
+          fill: lighten($alert, 5);
+        }
+      }
+    }
+  }
+  .cardBtnLink {
+    &:hover {
+      background-color: $dark-grey;
+      box-shadow: $dt-high-shadow;
+      border: 1px solid $medium-grey;
+      .thumb-container {
+        background-color: lighten($dark-grey, 4);
+      }
+      .caption h4 {
+        color: $white;
+      }
+    }
+  }
+  .thumb-container {
+    background-color: lighten($dark-grey, 2);
+  }
+  .caption {
+    h4 {
+      color: $primary-light;
+    }
+    small {
+      color: $light-grey;
+    }
+  }
+  /* ------------------
+    --- ACCORDION ---
+    --------------------*/
+  .Accordion {
+    &:has(.AccordionContent) .AccordionLabel {
+      background-color: lighten($secondary, 10);
+      border-radius: $bd-radius $bd-radius 0 0;
+    }
+    &:has(.AccordionContent) .AccordionLabel:hover {
+      background-color: lighten($secondary, 15);
+    }
+    .AccordionLabel {
+      background-color: lighten($primary-light, 25);
+      &:hover {
+        background-color: lighten($primary-light, 30);
+      }
+    }
+    .AccordionContent {
+      border: 0.5px solid $medium-grey;
+      background-color: $dark-grey;
+      color: $ultraLight-grey;
+    }
+  }
+  /* ------------------
+    --- LABEL ---
+    --------------------*/
+  .label-container {
+    label {
+      color: $light-grey;
+    }
+  }
+  /* ------------------
+    --- INPUT ---
+    --------------------*/
+  .Input-container {
+    .Input {
+      background-color: lighten($dark-grey, 4);
+      border: 0.5px solid $medium-grey;
+      color: $white;
+
+      &::placeholder {
+        color: $medium-grey;
+      }
+    }
+    small {
+      color: $medium-grey;
+    }
+  }
+  /* ------------------
+    --- DROPDOWN ---
+    --------------------*/
+  .Dropdown {
+    .Panel {
+      background-color: lighten($dark-grey, 4);
+      border: 0.5px solid $medium-grey;
+      color: $white;
+      &:hover {
+        background-color: lighten($dark-grey, 8);
+      }
+    }
+    .Panel-options-container {
+      box-shadow: $dt-low-shadow;
+      &:has(.Panel-option) {
+        border: 0.5px solid $medium-grey;
+      }
+    }
+    .Panel-option {
+      background-color: lighten($dark-grey, 4);
+      &:hover {
+        background-color: lighten($dark-grey, 8);
+      }
+    }
+  }
+  /* ------------------
+    --- MODAL ---
+    --------------------*/
+  .ModalBackground {
+    background-color: transparentize(darken($primary, 50), 0.4);
+  }
+  .Modal {
+    background-color: $dark-grey;
+    box-shadow: $dt-high-shadow;
+    border: 1px solid $medium-grey;
+  }
+  /* ------------------
+    --- TABLE ---
+    --------------------*/
+  .Table {
+    thead {
+      tr {
+        background-color: lighten($dark-grey, 4);
+        color: $white;
+      }
+    }
+    tbody {
+      tr {
+        background-color: $dark-grey;
+        &:nth-child(even) {
+          background-color: darken($dark-grey, 4);
+        }
+      }
+    }
+    .currency {
+      &.total {
+        background-color: lighten($primary-light, 10);
+      }
+    }
+    .table-avatar {
+      border: 2px solid $secondary;
+    }
+  }
+  /* ------------------
+    --- TOOLTIP ---
+    --------------------*/
+  .Tooltip-container {
+    &:hover .Tooltip-icon,
+    &:focus .Tooltip-icon {
+      color: lighten($primary, 10);
+    }
+    .Tooltip-icon {
+      color: $secondary;
+    }
+    .Tooltip {
+      background-color: $primary-light;
+      box-shadow: $dt-high-shadow;
+    }
+  }
+  /* ------------------
+    --- SWITCH ---
+    --------------------*/
+  .Switch {
+    background-color: $darker-grey;
+    box-shadow: $dt-low-shadow;
+  }
+}

@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { NavigationProvider } from "./Context/Navigation";
+import { SharedProvider } from "./Context/Shared";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <NavigationProvider>
-    <App />
-  </NavigationProvider>
+  <SharedProvider>
+    <NavigationProvider>
+      <App />
+    </NavigationProvider>
+  </SharedProvider>
 );

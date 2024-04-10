@@ -123,8 +123,8 @@
     box-shadow: $high-shadow;
     margin: 0 !important;
     z-index: 5;
-    &:hover + .collapsed {
-      padding: $default-spacing ($default-spacing + 2);
+    &:hover {
+      padding: $default-spacing ($default-spacing + 4);
       transition: padding 0.4s $quick 0.05s;
     }
   }
@@ -189,11 +189,9 @@
   border-radius: $bd-radius;
   font-weight: 600;
   font-size: $md-text;
-
   margin-bottom: 16px;
   margin-right: 16px;
   transition: all 0.05s ease-in;
-
   &.rounded {
     border-radius: 999px;
   }
@@ -463,7 +461,6 @@
     small {
       position: absolute;
       left: 4px;
-
       top: 48px;
     }
     .Input-error {
@@ -491,7 +488,6 @@
     flex: 1;
     color: $text-grey;
     margin-bottom: $default-spacing;
-
     cursor: pointer;
     p {
       margin: 0;
@@ -563,7 +559,7 @@
   background-color: $white;
   padding: $default-spacing;
   border-radius: $bd-radius;
-  box-shadow: 2px 4px 32px -8px transparentize(darken($primary, 35), 0.4);
+  box-shadow: $high-shadow;
   top: 30%;
 
   &.md {
@@ -609,23 +605,25 @@
       }
     }
   }
-  tr {
-    background-color: $white;
-    &:nth-child(even) {
-      background-color: $alt-bg;
+  tbody {
+    tr {
+      background-color: $white;
+      &:nth-child(even) {
+        background-color: $alt-bg;
+      }
     }
-  }
 
-  td {
-    text-align: left;
-    padding: 12px 24px;
-    font-size: $md-text;
-    &:has(.table-avatar) {
-      padding-right: 8px;
-      padding-bottom: 4px;
-    }
-    &:nth-child(2) {
-      padding-left: 8px;
+    td {
+      text-align: left;
+      padding: 12px 24px;
+      font-size: $md-text;
+      &:has(.table-avatar) {
+        padding-right: 8px;
+        padding-bottom: 4px;
+      }
+      &:nth-child(2) {
+        padding-left: 8px;
+      }
     }
   }
   .currency {
@@ -644,7 +642,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid $primary;
+    border: 2px solid $primary;
   }
   .color {
     width: $default-spacing;
