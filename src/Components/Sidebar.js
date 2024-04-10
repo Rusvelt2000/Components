@@ -1,7 +1,7 @@
 import { useState } from "react";
-
 import SidebarLink from "./SidebarLink";
 import Button from "./Button";
+import logotype from "../Assets/Logotype.svg";
 import logo from "../Assets/Logo.svg";
 import { CgList } from "react-icons/cg";
 import { TbTableColumn } from "react-icons/tb";
@@ -32,7 +32,7 @@ function Sidebar() {
       </Button>
       {isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
-          <img className="logo" src={logo} alt="RctCompt Logo" />
+          <img className="logo" src={logotype} alt="RctCompt Logo" />
           <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/">
             Dashboard
           </SidebarLink>
@@ -62,7 +62,22 @@ function Sidebar() {
           <h4>Other</h4>
         </div>
       ) : (
-        <div onClick={toggleSidebar} className="Sidebar collapsed"></div>
+        <div className="Sidebar collapsed">
+          <img className="logo" src={logo} alt="RctCompt Logo" />
+          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/"></SidebarLink>
+          <hr />
+          <SidebarLink
+            icon={<TfiLayoutAccordionSeparated />}
+            to="/accordion"
+          ></SidebarLink>
+          <SidebarLink icon={<TbHandClick />} to="/button"></SidebarLink>
+          <SidebarLink icon={<CgList />} to="/dropdown"></SidebarLink>
+          <SidebarLink icon={<RxInput />} to="/input"></SidebarLink>
+          <SidebarLink icon={<BiSolidWindowAlt />} to="/modal"></SidebarLink>
+          <SidebarLink icon={<TbTableColumn />} to="/table"></SidebarLink>
+          <SidebarLink icon={<GrTooltip />} to="/tooltip"></SidebarLink>
+          <hr />
+        </div>
       )}
     </div>
   );

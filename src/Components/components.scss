@@ -13,12 +13,15 @@
 
 .navigation-bar {
   position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   top: 0;
   right: 0;
   background-color: $white;
   height: 36px;
   box-shadow: $low-shadow;
-  padding: 20px $double-spacing;
+  padding: 20px ($double-spacing * 2);
   z-index: 3;
 }
 
@@ -27,99 +30,103 @@
 --------------------*/
 .SidebarWrapper {
   position: relative;
-  z-index: 4;
-  &:has(.Sidebar) {
-    .sidebar-toggle-button {
-      right: -30px;
-      left: auto;
-    }
-  }
-}
-.Sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  height: calc(100vh - $double-spacing);
-  background-color: $white;
-  min-width: 200px;
-  padding: $default-spacing;
-  box-shadow: $low-shadow;
-  transition: padding 0.4s $quick;
-  &.collapsed {
-    background-color: $primary;
-    min-width: $default-spacing;
-    padding: $default-spacing $half-spacing;
-    transition: padding 0.4s $bouncy, background-color 0.6s $quick 0.2s;
-    cursor: e-resize;
-    &:hover {
-      background-color: lighten($primary, 5);
-      padding: $default-spacing ($half-spacing + 4);
-      transition: all 0.4s $quick;
-    }
-  }
-  .logo {
-    width: fit-content;
-    max-height: 40px;
-    padding: 0 0 $default-spacing $half-spacing;
-  }
 
-  .SidebarLink {
+  .Sidebar {
+    position: sticky;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 32px 12px 16px;
-    border-radius: $bd-radius;
-    transition: padding 0.4s $bouncy;
-    cursor: pointer;
-    a {
-      color: $dark-grey;
-      text-decoration: none;
+    flex-direction: column;
+    gap: 2px;
+    top: 0;
+    bottom: 0;
+    height: calc(100vh - $double-spacing);
+    background-color: $white;
+    min-width: 200px;
+    padding: $default-spacing;
+    box-shadow: $low-shadow;
+    transition: padding 0.4s $quick;
+
+    .logo {
+      width: fit-content;
+      max-height: 40px;
+      padding: 0 0 $default-spacing $half-spacing;
     }
-    .icon {
-      color: $light-grey;
-      font-size: $md-text;
-      line-height: 0;
-    }
-    &:hover {
-      background-color: lighten($primary, 40);
-    }
-    &.active {
-      padding: 12px 32px 12px 24px;
-      border-left: 4px solid $primary;
-      background-color: lighten($primary, 40);
+
+    .SidebarLink {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 32px 12px 16px;
+      border-left: 0px solid transparent;
+      border-radius: $bd-radius;
+      transition: padding 0.4s $bouncy;
+      cursor: pointer;
       a {
-        color: $primary;
-        font-weight: 600;
+        color: $dark-grey;
+        text-decoration: none;
       }
       .icon {
-        color: lighten($primary, 10);
+        color: $light-grey;
+        font-size: $md-text;
+        line-height: 0;
+      }
+      &:hover {
+        background-color: lighten($primary, 40);
+      }
+      &.active {
+        padding: 12px 32px 12px 24px;
+        border-left: 4px solid $primary;
+        background-color: lighten($primary, 40);
+        a {
+          color: $primary;
+          font-weight: 600;
+        }
+        .icon {
+          color: lighten($primary, 10);
+        }
+      }
+    }
+    h4 {
+      color: $light-grey;
+      font-family: $title-font;
+      font-size: $small-text;
+      margin: $default-spacing 0 0 $half-spacing;
+      text-transform: uppercase;
+    }
+    &.collapsed {
+      min-width: 64px;
+      padding: $default-spacing;
+      &:hover {
+        transition: all 0.4s $quick;
+      }
+      .SidebarLink {
+        gap: 0;
+        font-size: $h3-text;
+        padding: 12px 16px 12px 20px;
+        border-left: 0px solid transparent;
+        transition: all 0.2s $quick;
+        &.active {
+          border-left: 4px solid $primary;
+        }
+      }
+      .logo {
+        padding: 4px 20px 16px 12px;
       }
     }
   }
-  h4 {
-    color: $light-grey;
-    font-family: $title-font;
-    font-size: $small-text;
-    margin: $default-spacing 0 0 $half-spacing;
-    text-transform: uppercase;
-  }
-}
 
-.sidebar-toggle-button {
-  position: absolute;
-  padding: 4px !important;
-  left: 30px;
-  right: auto;
-  top: 20px;
-  box-shadow: $high-shadow;
-  z-index: 5;
-  &:hover + .collapsed {
-    background-color: lighten($primary, 5);
-    padding: $default-spacing ($half-spacing + 4);
-    transition: all 0.4s $quick;
+  .sidebar-toggle-button {
+    position: sticky;
+    left: 100%;
+    transform: translateX(16px);
+    top: 24px;
+    padding: 4px !important;
+    box-shadow: $high-shadow;
+    margin: 0 !important;
+    z-index: 5;
+    &:hover + .collapsed {
+      padding: $default-spacing ($default-spacing + 2);
+      transition: padding 0.4s $quick 0.05s;
+    }
   }
 }
 
@@ -131,7 +138,7 @@
   padding: $double-spacing ($double-spacing * 2);
 
   .section-title {
-    margin: $default-spacing auto $double-spacing $default-spacing;
+    margin: $default-spacing auto $double-spacing;
     color: $dark-grey;
   }
 }
@@ -173,16 +180,6 @@
 }
 
 /* ------------------
-   --- HOMEPAGE ---
---------------------*/
-.HomePage {
-  .icon {
-    color: $ternary;
-    font-size: 32px;
-  }
-}
-
-/* ------------------
    --- BUTTON ---
 --------------------*/
 
@@ -192,14 +189,11 @@
   border-radius: $bd-radius;
   font-weight: 600;
   font-size: $md-text;
-  background-color: $white;
-  border: 0.5px solid $white;
+
   margin-bottom: 16px;
   margin-right: 16px;
   transition: all 0.05s ease-in;
-  &:hover {
-    background-color: darken($white, 5);
-  }
+
   &.rounded {
     border-radius: 999px;
   }
@@ -555,7 +549,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -723,12 +717,13 @@
 .Switch {
   position: relative;
   background-color: $ultraLight-grey;
-  width: 48px;
+  box-shadow: inset 1px 2px 4px ($light-grey);
+  width: 40px;
   height: 24px;
   border-radius: 12px;
   cursor: pointer;
   &:hover .Switch-handle {
-    background-color: darken($light-grey, 10);
+    background-color: $primary;
   }
   .Switch-handle {
     position: absolute;
@@ -738,7 +733,7 @@
     width: 26px;
     height: 26px;
     top: -1px;
-    background-color: $primary;
+    background-color: $primary-light;
     color: $white;
     border-radius: 50%;
     transition: all 0.4s $bouncy;
@@ -746,7 +741,7 @@
       left: 2px;
     }
     &.dark {
-      left: 24px;
+      left: 16px;
     }
   }
 }

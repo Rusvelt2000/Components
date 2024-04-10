@@ -8,6 +8,8 @@ $alert: #f55260;
 $white: #ffffff;
 $alt-bg: #fafafc;
 $dark-grey: #343a40;
+$darker-grey: darken($dark-grey, 4);
+$black: darken($dark-grey, 8);
 $title-grey: lighten($dark-grey, 5);
 $text-grey: lighten($dark-grey, 15);
 $medium-grey: lighten($dark-grey, 30);
@@ -38,12 +40,182 @@ $high-shadow: 0 4px 24px -12px transparentize($light-grey, 0.4);
 $bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
 $quick: cubic-bezier(0.17, 0.67, 0.44, 1);
 
+//DARK THEME
+
+$dt-low-shadow: 0 2px 6px -4px transparentize($black, 0.2);
+$dt-high-shadow: 0 4px 24px -12px transparentize($black, 0.2);
+
 * {
   font-family: $body-font;
 }
 
 html {
+  transition: all 0.2s $quick;
   background-color: $alt-bg;
+  &.dark-theme {
+    background-color: $darker-grey;
+    color: $white;
+    p,
+    a,
+    ul,
+    li {
+      color: $white;
+    }
+    /* ------------------
+    --- NAVBAR ---
+    --------------------*/
+    .navigation-bar {
+      background-color: $dark-grey;
+      box-shadow: $dt-low-shadow;
+    }
+    /* ------------------
+    --- SIDEBAR ---
+    --------------------*/
+    .Sidebar {
+      background-color: $dark-grey;
+      box-shadow: $dt-low-shadow;
+      .SidebarLink {
+        a {
+          color: $white;
+        }
+        &.active {
+          border-left: 4px solid $secondary;
+          background-color: $primary-light;
+          a,
+          .icon {
+            color: $white;
+          }
+        }
+        &:hover {
+          background-color: $primary-light;
+        }
+      }
+      &.collapsed {
+        .SidebarLink {
+          &.active {
+            border-left: 4px solid $secondary;
+          }
+        }
+      }
+    }
+    /* ------------------
+    --- PAGE CONTENT ---
+    --------------------*/
+    .section-title {
+      color: $white;
+    }
+    /* ------------------
+    --- CONTAINER ---
+    --------------------*/
+    .Container {
+      background-color: $dark-grey;
+      box-shadow: $dt-low-shadow;
+      .icon {
+        background-color: $primary;
+        color: lighten($primary, 30);
+      }
+      h3 {
+        color: $ultraLight-grey;
+      }
+    }
+    /* ------------------
+    --- BUTTON ---
+    --------------------*/
+    .button {
+      .icon {
+        background-color: transparent;
+      }
+    }
+    .primary {
+      background-color: $primary-light;
+      border: 1px solid $primary-light;
+      &:hover {
+        background-color: lighten($primary-light, 10);
+        border: 1px solid lighten($primary-light, 10);
+      }
+      &.outline {
+        color: $primary-light;
+        fill: $primary-light;
+        background-color: transparent;
+        &:hover {
+          color: lighten($primary-light, 10);
+        }
+        .favicon {
+          fill: $primary-light;
+        }
+      }
+    }
+    .secondary {
+      border: 1px solid $secondary-dark;
+      &:hover {
+        background-color: $secondary;
+        border: 1px solid $secondary;
+      }
+      &.outline {
+        background-color: transparent;
+        &:hover {
+          color: $secondary;
+        }
+      }
+      .favicon {
+        fill: $secondary-dark;
+      }
+    }
+    .warning {
+      border: 1px solid $warning;
+      &:hover {
+        background-color: lighten($warning, 5);
+        border: 1px solid lighten($warning, 5);
+      }
+      &.outline {
+        background-color: transparent;
+        &:hover {
+          color: lighten($warning, 10);
+        }
+      }
+    }
+    .alert {
+      border: 1px solid $alert;
+      &:hover {
+        background-color: lighten($alert, 5);
+        border: 1px solid lighten($alert, 5);
+      }
+      &.outline {
+        background-color: transparent;
+        &:hover {
+          color: lighten($alert, 10);
+        }
+      }
+    }
+    .cardBtnLink {
+      &:hover {
+        background-color: $dark-grey;
+        box-shadow: $dt-high-shadow;
+        border: 1px solid $medium-grey;
+        .thumb-container {
+          background-color: lighten($dark-grey, 4);
+        }
+        .caption h4 {
+          color: $primary-light;
+        }
+      }
+    }
+    .thumb-container {
+      background-color: lighten($dark-grey, 2);
+    }
+    .caption {
+      h4 {
+        color: $white;
+      }
+      small {
+        color: $light-grey;
+      }
+    }
+    .Switch {
+      background-color: $darker-grey;
+      box-shadow: $dt-low-shadow;
+    }
+  }
 }
 
 body {
