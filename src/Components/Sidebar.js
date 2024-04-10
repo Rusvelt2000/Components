@@ -34,29 +34,29 @@ function Sidebar() {
       {isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
           <img className="logo" src={logoImage} alt="RctCompt Logo" />
-          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/">
+          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="Home">
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
-          <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="/accordion">
+          <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="Accordion">
             Accordions
           </SidebarLink>
-          <SidebarLink icon={<TbHandClick />} to="/button">
+          <SidebarLink icon={<TbHandClick />} to="Button">
             Buttons
           </SidebarLink>
-          <SidebarLink icon={<CgList />} to="/dropdown">
+          <SidebarLink icon={<CgList />} to="Dropdown">
             Dropdowns
           </SidebarLink>
-          <SidebarLink icon={<RxInput />} to="/input">
+          <SidebarLink icon={<RxInput />} to="Input">
             Inputs
           </SidebarLink>
-          <SidebarLink icon={<BiSolidWindowAlt />} to="/modal">
+          <SidebarLink icon={<BiSolidWindowAlt />} to="Modal">
             Modals
           </SidebarLink>
-          <SidebarLink icon={<TbTableColumn />} to="/table">
+          <SidebarLink icon={<TbTableColumn />} to="Table">
             Tables
           </SidebarLink>
-          <SidebarLink icon={<GrTooltip />} to="/tooltip">
+          <SidebarLink icon={<GrTooltip />} to="Tooltip">
             Tooltips
           </SidebarLink>
           <hr />

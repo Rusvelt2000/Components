@@ -1,3 +1,4 @@
+import "./Components/Styles/components.scss";
 import Route from "./Components/Route";
 import HomePage from "./Pages/HomePage";
 import NavigationBar from "./Components/NavigationBar";
@@ -17,29 +18,32 @@ function App() {
       <div className="content-wrapper">
         <NavigationBar />
         <div className="Content">
-          <Route path="/">
+          <Route path={"/"}>
             <HomePage />
           </Route>
-          <Route path="/dropdown">
+          <Route path="Home">
+            <HomePage />
+          </Route>
+          <Route path="Dropdown">
             <DropdownPage />
           </Route>
-          <Route path="/accordion">
+          <Route path="Accordion">
             <AccordionPage />
           </Route>
-          <Route path="/button">
+          <Route path="Button">
             <ButtonPage />
           </Route>
-          <Route path="/modal">
+          <Route path="Input">
+            <InputPage />
+          </Route>
+          <Route path="Modal">
             <ModalPage />
           </Route>
-          <Route path="/table">
+          <Route path="Table">
             <TablePage />
           </Route>
-          <Route path="/tooltip">
+          <Route path="Tooltip">
             <TooltipPage />
-          </Route>
-          <Route path="/input">
-            <InputPage />
           </Route>
         </div>
       </div>

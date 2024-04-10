@@ -16,7 +16,7 @@ function SharedProvider({ children }) {
   };
 
   return (
-    <SharedContext.Provider value={{ logoImage, updateLogoImage }}>
+    <SharedContext.Provider value={sharedContextValue}>
       {children}
     </SharedContext.Provider>
   );

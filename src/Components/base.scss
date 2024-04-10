@@ -1,4 +1,4 @@
-@import "./dark-theme.scss";
+@import "./Styles/dark-theme.scss";
 $primary: #5649ce;
 $primary-light: #7367d6;
 $ternary: #5996fe;
@@ -53,6 +53,7 @@ $dt-high-shadow: 2px 12px 24px -4px transparentize($black, 0.2);
 
 html {
   transition: all 0.2s $quick;
+  background-color: $alt-bg;
   &.dark-theme {
     @include dark-theme-styles();
   }

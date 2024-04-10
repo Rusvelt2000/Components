@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import SharedContext from "../Context/Shared";
 import Switch from "./Switch";
+import Breadcrumb from "./Breadcrumb";
 import { BsFillSunFill } from "react-icons/bs";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import logotype from "../Assets/Logotype.svg";
@@ -26,7 +27,7 @@ function NavigationBar() {
   };
   return (
     <div className="navigation-bar">
-      <div>Links</div>
+      <Breadcrumb></Breadcrumb>
       <Switch
         onClick={handleTheme}
         image={theme ? <BsFillSunFill /> : <BsFillMoonStarsFill />}

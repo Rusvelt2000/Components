@@ -1,4 +1,3 @@
-import "./components.scss";
 import classNames from "classnames";
 
 function Button({
