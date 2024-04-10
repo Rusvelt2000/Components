@@ -21,28 +21,28 @@ function App() {
           <Route path={"/"}>
             <HomePage />
           </Route>
-          <Route path="Home">
+          <Route path="/Home">
             <HomePage />
           </Route>
-          <Route path="Dropdown">
+          <Route path="/Dropdown">
             <DropdownPage />
           </Route>
-          <Route path="Accordion">
+          <Route path="/Accordion">
             <AccordionPage />
           </Route>
-          <Route path="Button">
+          <Route path="/Button">
             <ButtonPage />
           </Route>
-          <Route path="Input">
+          <Route path="/Input">
             <InputPage />
           </Route>
-          <Route path="Modal">
+          <Route path="/Modal">
             <ModalPage />
           </Route>
-          <Route path="Table">
+          <Route path="/Table">
             <TablePage />
           </Route>
-          <Route path="Tooltip">
+          <Route path="/Tooltip">
             <TooltipPage />
           </Route>
         </div>

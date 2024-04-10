@@ -154,14 +154,21 @@ hr {
   column-gap: $double-spacing;
 }
 
+@media screen and (max-width: 1600px) {
+  .col-2:has(.Table) {
+    grid-template-columns: 1fr;
+  }
+  .col-4 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media screen and (max-width: 1420px) {
   .col-3,
   .col-4 {
     grid-template-columns: 1fr 1fr;
   }
-  .col-2:has(.Table) {
-    grid-template-columns: 1fr;
-  }
+
 }
 
 @media screen and (max-width: 900px) {

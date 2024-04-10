@@ -34,29 +34,29 @@ function Sidebar() {
       {isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
           <img className="logo" src={logoImage} alt="RctCompt Logo" />
-          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="Home">
+          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/Home">
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
-          <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="Accordion">
+          <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="/Accordion">
             Accordions
           </SidebarLink>
-          <SidebarLink icon={<TbHandClick />} to="Button">
+          <SidebarLink icon={<TbHandClick />} to="/Button">
             Buttons
           </SidebarLink>
-          <SidebarLink icon={<CgList />} to="Dropdown">
+          <SidebarLink icon={<CgList />} to="/Dropdown">
             Dropdowns
           </SidebarLink>
-          <SidebarLink icon={<RxInput />} to="Input">
+          <SidebarLink icon={<RxInput />} to="/Input">
             Inputs
           </SidebarLink>
-          <SidebarLink icon={<BiSolidWindowAlt />} to="Modal">
+          <SidebarLink icon={<BiSolidWindowAlt />} to="/Modal">
             Modals
           </SidebarLink>
-          <SidebarLink icon={<TbTableColumn />} to="Table">
+          <SidebarLink icon={<TbTableColumn />} to="/Table">
             Tables
           </SidebarLink>
-          <SidebarLink icon={<GrTooltip />} to="Tooltip">
+          <SidebarLink icon={<GrTooltip />} to="/Tooltip">
             Tooltips
           </SidebarLink>
           <hr />
@@ -65,18 +65,21 @@ function Sidebar() {
       ) : (
         <div className="Sidebar collapsed">
           <img className="logo" src={logo} alt="RctCompt Logo" />
-          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/"></SidebarLink>
+          <SidebarLink
+            icon={<MdOutlineSpaceDashboard />}
+            to="/Home"
+          ></SidebarLink>
           <hr />
           <SidebarLink
             icon={<TfiLayoutAccordionSeparated />}
-            to="/accordion"
+            to="/Accordion"
           ></SidebarLink>
-          <SidebarLink icon={<TbHandClick />} to="/button"></SidebarLink>
-          <SidebarLink icon={<CgList />} to="/dropdown"></SidebarLink>
-          <SidebarLink icon={<RxInput />} to="/input"></SidebarLink>
-          <SidebarLink icon={<BiSolidWindowAlt />} to="/modal"></SidebarLink>
-          <SidebarLink icon={<TbTableColumn />} to="/table"></SidebarLink>
-          <SidebarLink icon={<GrTooltip />} to="/tooltip"></SidebarLink>
+          <SidebarLink icon={<TbHandClick />} to="/Button"></SidebarLink>
+          <SidebarLink icon={<CgList />} to="/Dropdown"></SidebarLink>
+          <SidebarLink icon={<RxInput />} to="/Input"></SidebarLink>
+          <SidebarLink icon={<BiSolidWindowAlt />} to="/Modal"></SidebarLink>
+          <SidebarLink icon={<TbTableColumn />} to="/Table"></SidebarLink>
+          <SidebarLink icon={<GrTooltip />} to="/Tooltip"></SidebarLink>
           <hr />
         </div>
       )}
