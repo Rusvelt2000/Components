@@ -1,0 +1,179 @@
+@import "./Components/base.scss";
+$primary: #5649ce;
+$primary-light: #7367d6;
+$ternary: #5996fe;
+$secondary: #80ebe9;
+$secondary-dark: #48c8c3;
+$warning: #f7cf5a;
+$alert: #f55260;
+$success: #38c138;
+$white: #ffffff;
+$alt-bg: #fafafc;
+$dark-grey: #343a40;
+$darker-grey: darken($dark-grey, 4);
+$black: darken($dark-grey, 8);
+$title-grey: lighten($dark-grey, 5);
+$text-grey: lighten($dark-grey, 15);
+$medium-grey: lighten($dark-grey, 30);
+$light-grey: lighten($dark-grey, 50);
+$ultraLight-grey: lighten($dark-grey, 70);
+$default-spacing: 16px;
+$half-spacing: calc($default-spacing / 2);
+$double-spacing: calc($default-spacing * 2);
+$bd-radius: 4px;
+$bd-radiusL: 8px;
+
+$small-text: 0.85em;
+$md-text: 0.95em;
+$big-text: 1.1em;
+$h1-text: 2em;
+$h2-text: 1.6em;
+$h3-text: 1.25em;
+$h4-text: 1.15em;
+$title-font: "Poppins", sans-serif;
+$body-font: "Proxima Nova", sans-serif;
+$regular: 400;
+$book: 600;
+$heavy: 700;
+
+$low-shadow: 0 2px 6px -4px transparentize($light-grey, 0.4);
+$high-shadow: 0 4px 24px -12px transparentize($light-grey, 0.4);
+
+$bouncy: cubic-bezier(0, 0.94, 0.36, 1.38);
+$quick: cubic-bezier(0.17, 0.67, 0.44, 1);
+
+//DARK THEME
+
+$dt-low-shadow: 1px 4px 6px -4px transparentize($black, 0.2);
+$dt-high-shadow: 2px 12px 24px -4px transparentize($black, 0.2);
+
+* {
+  font-family: $body-font;
+}
+
+html {
+  transition: all 0.2s $quick;
+  background-color: $alt-bg;
+  &.dark-theme {
+    @include components-dark-theme-styles();
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+p,
+a,
+ul,
+li {
+  font-size: $md-text;
+  line-height: 1.6em;
+  color: $text-grey;
+}
+
+small {
+  font-size: $small-text;
+  color: $light-grey;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: $h1-text;
+  line-height: 1.2em;
+  font-family: $title-font;
+  font-weight: $heavy;
+}
+
+h2 {
+  font-size: $h2-text;
+  line-height: 1.2em;
+  font-family: $title-font;
+  font-weight: $heavy;
+}
+
+h3 {
+  font-size: $h3-text;
+  line-height: 1.3em;
+  font-family: $title-font;
+  font-weight: $heavy;
+}
+
+h4 {
+  font-size: $h4-text;
+  line-height: 1.4em;
+  font-family: $body-font;
+  font-weight: $book;
+}
+
+hr {
+  border: none;
+  background-color: $ultraLight-grey;
+  height: 0.5px;
+  margin: 12px;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: $double-spacing;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  grid-area: $default-spacing;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $double-spacing;
+}
+
+.col-3 {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr) minmax(
+      320px,
+      1fr
+    );
+  column-gap: $double-spacing;
+}
+
+.col-4 {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr)
+    minmax(240px, 1fr);
+  column-gap: $double-spacing;
+}
+
+@media screen and (max-width: 1600px) {
+  .col-2:has(.Table) {
+    grid-template-columns: 1fr;
+  }
+  .col-4 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1420px) {
+  .col-3,
+  .col-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .col-2,
+  .col-3,
+  .col-4 {
+    grid-template-columns: 1fr;
+  }
+}
