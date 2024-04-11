@@ -10,6 +10,7 @@ import ModalPage from "./Pages/ModalPage";
 import Sidebar from "./Components/Sidebar";
 import TablePage from "./Pages/TablePage";
 import TooltipPage from "./Pages/TooltipPage";
+import ComponentsPage from "./Pages/ComponentsPage";
 
 function App() {
   return (
@@ -24,25 +25,28 @@ function App() {
           <Route path="/Home">
             <HomePage />
           </Route>
-          <Route path="/Dropdown">
+          <Route path="/Home/Components">
+            <ComponentsPage />
+          </Route>
+          <Route path="/Home/Components/Dropdown">
             <DropdownPage />
           </Route>
-          <Route path="/Accordion">
+          <Route path="/Home/Components/Accordion">
             <AccordionPage />
           </Route>
-          <Route path="/Button">
+          <Route path="/Home/Components/Button">
             <ButtonPage />
           </Route>
-          <Route path="/Input">
+          <Route path="/Home/Components/Input">
             <InputPage />
           </Route>
-          <Route path="/Modal">
+          <Route path="/Home/Components/Modal">
             <ModalPage />
           </Route>
-          <Route path="/Table">
+          <Route path="/Home/Components/Table">
             <TablePage />
           </Route>
-          <Route path="/Tooltip">
+          <Route path="/Home/Components/Tooltip">
             <TooltipPage />
           </Route>
         </div>

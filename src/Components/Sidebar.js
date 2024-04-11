@@ -38,25 +38,28 @@ function Sidebar() {
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
-          <SidebarLink icon={<TfiLayoutAccordionSeparated />} to="/Accordion">
+          <SidebarLink
+            icon={<TfiLayoutAccordionSeparated />}
+            to="/Home/Components/Accordion"
+          >
             Accordions
           </SidebarLink>
-          <SidebarLink icon={<TbHandClick />} to="/Button">
+          <SidebarLink icon={<TbHandClick />} to="/Home/Components/Button">
             Buttons
           </SidebarLink>
-          <SidebarLink icon={<CgList />} to="/Dropdown">
+          <SidebarLink icon={<CgList />} to="/Home/Components/Dropdown">
             Dropdowns
           </SidebarLink>
-          <SidebarLink icon={<RxInput />} to="/Input">
+          <SidebarLink icon={<RxInput />} to="/Home/Components/Input">
             Inputs
           </SidebarLink>
-          <SidebarLink icon={<BiSolidWindowAlt />} to="/Modal">
+          <SidebarLink icon={<BiSolidWindowAlt />} to="/Home/Components/Modal">
             Modals
           </SidebarLink>
-          <SidebarLink icon={<TbTableColumn />} to="/Table">
+          <SidebarLink icon={<TbTableColumn />} to="/Home/Components/Table">
             Tables
           </SidebarLink>
-          <SidebarLink icon={<GrTooltip />} to="/Tooltip">
+          <SidebarLink icon={<GrTooltip />} to="/Home/Components/Tooltip">
             Tooltips
           </SidebarLink>
           <hr />
@@ -72,14 +75,32 @@ function Sidebar() {
           <hr />
           <SidebarLink
             icon={<TfiLayoutAccordionSeparated />}
-            to="/Accordion"
+            to="/Home/Components/Accordion"
           ></SidebarLink>
-          <SidebarLink icon={<TbHandClick />} to="/Button"></SidebarLink>
-          <SidebarLink icon={<CgList />} to="/Dropdown"></SidebarLink>
-          <SidebarLink icon={<RxInput />} to="/Input"></SidebarLink>
-          <SidebarLink icon={<BiSolidWindowAlt />} to="/Modal"></SidebarLink>
-          <SidebarLink icon={<TbTableColumn />} to="/Table"></SidebarLink>
-          <SidebarLink icon={<GrTooltip />} to="/Tooltip"></SidebarLink>
+          <SidebarLink
+            icon={<TbHandClick />}
+            to="/Home/Components/Button"
+          ></SidebarLink>
+          <SidebarLink
+            icon={<CgList />}
+            to="/Home/Components/Dropdown"
+          ></SidebarLink>
+          <SidebarLink
+            icon={<RxInput />}
+            to="/Home/Components/Input"
+          ></SidebarLink>
+          <SidebarLink
+            icon={<BiSolidWindowAlt />}
+            to="/Home/Components/Modal"
+          ></SidebarLink>
+          <SidebarLink
+            icon={<TbTableColumn />}
+            to="/Home/Components/Table"
+          ></SidebarLink>
+          <SidebarLink
+            icon={<GrTooltip />}
+            to="/Home/Components/Tooltip"
+          ></SidebarLink>
           <hr />
         </div>
       )}
