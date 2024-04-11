@@ -52,8 +52,8 @@ $dt-high-shadow: 2px 12px 24px -4px transparentize($black, 0.2);
 }
 
 html {
-  transition: all 0.2s $quick;
   background-color: $alt-bg;
+  transition: all 0.2s $quick;
   &.dark-theme {
     @include components-dark-theme-styles();
   }

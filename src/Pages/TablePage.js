@@ -1,4 +1,5 @@
 import Table from "../Components/Table";
+import SortableTable from "../Components/SortableTable";
 import Title from "../Components/Title";
 import Container from "../Components/Container";
 import { ImAddressBook } from "react-icons/im";
@@ -27,6 +28,7 @@ function TablePage() {
           $ {debtors.amount}
         </div>
       ),
+      isSortable: (debtors) => debtors.amount,
     },
   ];
 
@@ -230,7 +232,7 @@ function TablePage() {
       <Title>Tables</Title>
       <div className="fade-in-up col-2">
         <Container title="Debtors" icon={<ImAddressBook />}>
-          <Table
+          <SortableTable
             data={debtors}
             config={config}
             total={totalAmount.toFixed(2)}
