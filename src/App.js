@@ -18,7 +18,7 @@ function App() {
       <div className="content-wrapper">
         <NavigationBar />
         <div className="Content">
-          <Route path={"/"}>
+          <Route path="/">
             <HomePage />
           </Route>
           <Route path="/Home">

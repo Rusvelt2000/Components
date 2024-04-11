@@ -310,4 +310,21 @@
     background-color: $darker-grey;
     box-shadow: $dt-low-shadow;
   }
+  /* ------------------
+   --- BREADCRUMB ---
+  --------------------*/
+  .BreadcrumbContainer {
+    .BreadcrumbLink {
+      a {
+        text-decoration: none;
+        color: $secondary;
+        &:hover {
+          color: lighten($secondary, 10);
+        }
+      }
+    }
+    p {
+      margin: 0;
+    }
+  }
 }

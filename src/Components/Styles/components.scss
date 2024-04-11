@@ -743,3 +743,28 @@
     }
   }
 }
+
+/* ------------------
+   --- BREADCRUMB ---
+--------------------*/
+.BreadcrumbContainer {
+  display: flex;
+  gap: 8px;
+  color: $light-grey;
+  .BreadcrumbLink {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    a {
+      text-decoration: none;
+      color: $primary;
+      &:hover {
+        color: $primary-light;
+      }
+    }
+  }
+  p {
+    margin: 0;
+    color: $text-grey;
+  }
+}
