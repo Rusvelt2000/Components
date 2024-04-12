@@ -12,8 +12,12 @@ function TablePage() {
       render: (debtors) => (
         <img className="table-avatar" src={debtors.avatar} alt={debtors.name} />
       ),
+      isSortable: (debtors) => debtors.name,
     },
-    { label: "", render: (debtors) => debtors.name },
+    {
+      label: "",
+      render: (debtors) => debtors.name,
+    },
     { label: "Email address", render: (debtors) => debtors.email },
     { label: "Country", render: (debtors) => debtors.country },
     {

@@ -590,6 +590,12 @@
         text-align: left;
         font-size: $md-text;
         padding: 16px;
+        &.sortable {
+          cursor: ns-resize;
+          &:hover {
+            color: $primary;
+          }
+        }
         &:first-child {
           padding-right: 0;
         }
