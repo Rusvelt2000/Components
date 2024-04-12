@@ -6,13 +6,12 @@ function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
   const { config } = props;
   const handleClick = (label) => {
-    console.log(`if ${sortBy} !== ${label}`);
-    if (sortBy !== label) {
-      setSortOrder("asc");
-    }
-
-    setSortBy(label);
-    console.log(sortOrder);
+    setSortBy((current) => {
+      if (current !== label) {
+        setSortOrder("asc");
+      }
+      return label;
+    });
 
     if (sortOrder === "asc") {
       setSortOrder("desc");
@@ -22,6 +21,7 @@ function SortableTable(props) {
       setSortOrder("asc");
     }
   };
+
   const sortableConfig = config.map((column, index) => {
     if (column.isSortable) {
       return {
@@ -44,7 +44,7 @@ function SortableTable(props) {
   return (
     <div>
       {sortOrder} - {sortBy}
-      <Table {...props} config={sortableConfig} />;
+      <Table {...props} config={sortableConfig} />
     </div>
   );
 }
