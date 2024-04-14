@@ -4,7 +4,8 @@ import Table from "./Table";
 function SortableTable(props) {
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState(null);
-  const { config } = props;
+  const { config, data } = props;
+
   const handleClick = (label) => {
     setSortBy((current) => {
       if (current !== label) {
@@ -40,6 +41,8 @@ function SortableTable(props) {
       return column;
     }
   });
+
+  let sortedData = data;
 
   return (
     <div>
