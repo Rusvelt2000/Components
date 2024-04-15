@@ -586,21 +586,27 @@
       background-color: $ultraLight-grey;
       color: $text-grey;
       text-transform: uppercase;
+
       th {
         text-align: left;
         font-size: $md-text;
         padding: 16px;
-        &.sortable {
-          cursor: ns-resize;
-          &:hover {
-            color: $primary;
+        background-color: inherit;
+
+        &:has(.sortable):hover {
+          background-color: darken($ultraLight-grey, 2);
+          cursor: pointer;
+        }
+        &:hover .sortable {
+          color: $primary-light;
+        }
+        .sortable {
+          display: flex;
+          gap: 4px;
+
+          &.active {
+            color: $primary-light;
           }
-        }
-        &:first-child {
-          padding-right: 0;
-        }
-        &:nth-child(2) {
-          padding-left: 0;
         }
       }
       th:first-child {
@@ -626,9 +632,6 @@
       &:has(.table-avatar) {
         padding-right: 8px;
         padding-bottom: 4px;
-      }
-      &:nth-child(2) {
-        padding-left: 8px;
       }
     }
   }

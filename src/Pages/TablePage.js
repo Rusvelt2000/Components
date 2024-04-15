@@ -1,4 +1,3 @@
-import Table from "../Components/Table";
 import SortableTable from "../Components/SortableTable";
 import Title from "../Components/Title";
 import Container from "../Components/Container";
@@ -8,15 +7,15 @@ import { AiFillCar } from "react-icons/ai";
 function TablePage() {
   const config = [
     {
-      label: "Name",
+      label: "",
       render: (debtors) => (
         <img className="table-avatar" src={debtors.avatar} alt={debtors.name} />
       ),
-      isSortable: (debtors) => debtors.name,
     },
     {
-      label: "",
+      label: "Name",
       render: (debtors) => debtors.name,
+      sortableValue: (debtors) => debtors.name,
     },
     { label: "Email address", render: (debtors) => debtors.email },
     { label: "Country", render: (debtors) => debtors.country },
@@ -32,7 +31,7 @@ function TablePage() {
           $ {debtors.amount}
         </div>
       ),
-      isSortable: (debtors) => debtors.amount,
+      sortableValue: (debtors) => debtors.amount,
     },
   ];
 
@@ -133,10 +132,12 @@ function TablePage() {
     {
       label: "Name",
       render: (vehicles) => vehicles.name,
+      sortableValue: (vehicles) => vehicles.name,
     },
     {
       label: "Make",
       render: (vehicles) => vehicles.make,
+      sortableValue: (vehicles) => vehicles.make,
     },
     {
       label: "Model",
@@ -243,7 +244,7 @@ function TablePage() {
           />
         </Container>
         <Container title="Vehicles" icon={<AiFillCar />}>
-          <Table data={vehicles} config={vehicleConfig} />
+          <SortableTable data={vehicles} config={vehicleConfig} />
         </Container>
       </div>
     </div>

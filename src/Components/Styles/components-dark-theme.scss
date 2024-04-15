@@ -268,9 +268,18 @@
       tr {
         background-color: lighten($dark-grey, 4);
         color: $white;
+
         th {
-          &.sortable {
-            &:hover {
+          &:has(.sortable):hover {
+            background-color: lighten($dark-grey, 2);
+            color: $secondary;
+          }
+          &:hover .sortable {
+            color: $secondary;
+          }
+
+          .sortable {
+            &.active {
               color: $secondary;
             }
           }
