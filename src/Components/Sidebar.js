@@ -16,7 +16,7 @@ import { PiCaretRightBold } from "react-icons/pi";
 
 function Sidebar() {
   const { logoImage } = useContext(SharedContext);
-  const [isCollapsedSidebar, setCollapsedSidebar] = useState(true);
+  const [isCollapsedSidebar, setCollapsedSidebar] = useState(false);
   const toggleSidebar = () => {
     setCollapsedSidebar(!isCollapsedSidebar);
   };
@@ -60,11 +60,15 @@ function Sidebar() {
   ];
 
   const renderLinks = links.map((link) => {
-    return (
-      <SidebarLink key={link.label} icon={link.icon} to={link.to}>
-        {link.label}
-      </SidebarLink>
-    );
+    if (!isCollapsedSidebar) {
+      return (
+        <SidebarLink key={link.label} icon={link.icon} to={link.to}>
+          {link.label}
+        </SidebarLink>
+      );
+    } else {
+      return <SidebarLink key={link.label} icon={link.icon} to={link.to} />;
+    }
   });
 
   return (
@@ -75,9 +79,9 @@ function Sidebar() {
         secondary
         favicon
       >
-        {isCollapsedSidebar ? <PiCaretLeftBold /> : <PiCaretRightBold />}
+        {!isCollapsedSidebar ? <PiCaretLeftBold /> : <PiCaretRightBold />}
       </Button>
-      {isCollapsedSidebar ? (
+      {!isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
           <img className="logo" src={logoImage} alt="RctCompt Logo" />
           <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/Home">
@@ -96,34 +100,7 @@ function Sidebar() {
             to="/Home"
           ></SidebarLink>
           <hr />
-          <SidebarLink
-            icon={<TfiLayoutAccordionSeparated />}
-            to="/Home/Components/Accordion"
-          ></SidebarLink>
-          <SidebarLink
-            icon={<TbHandClick />}
-            to="/Home/Components/Button"
-          ></SidebarLink>
-          <SidebarLink
-            icon={<CgList />}
-            to="/Home/Components/Dropdown"
-          ></SidebarLink>
-          <SidebarLink
-            icon={<RxInput />}
-            to="/Home/Components/Input"
-          ></SidebarLink>
-          <SidebarLink
-            icon={<BiSolidWindowAlt />}
-            to="/Home/Components/Modal"
-          ></SidebarLink>
-          <SidebarLink
-            icon={<TbTableColumn />}
-            to="/Home/Components/Table"
-          ></SidebarLink>
-          <SidebarLink
-            icon={<GrTooltip />}
-            to="/Home/Components/Tooltip"
-          ></SidebarLink>
+          {renderLinks}
           <hr />
         </div>
       )}

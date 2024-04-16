@@ -1,40 +1,20 @@
-import { useState } from "react";
 import Table from "./Table";
-import { FaSort, FaSortUp, FaSortDown } from "react-icons/fa6";
+import { FaSort } from "react-icons/fa6";
+import useSort from "../Hooks/use-sort";
 
 function SortableTable(props) {
-  const [sortBy, setSortBy] = useState(null);
-  const [sortOrder, setSortOrder] = useState(null);
-  const [sortImage, setSortImage] = useState(<FaSort />);
   const { config, data } = props;
-
-  const handleClick = (label) => {
-    setSortBy((current) => {
-      if (current !== label) {
-        setSortOrder("asc");
-        setSortImage(<FaSortUp />);
-      }
-      return label;
-    });
-
-    if (sortOrder === "asc") {
-      setSortOrder("desc");
-      setSortImage(<FaSortDown />);
-    } else if (sortOrder === "desc") {
-      setSortOrder(null);
-      setSortImage(<FaSort />);
-    } else if (sortOrder === null) {
-      setSortOrder("asc");
-      setSortImage(<FaSortUp />);
-    }
-  };
+  const { sortBy, sortOrder, sortImage, setSortColumn, sortedData } = useSort({
+    config,
+    data,
+  });
 
   const sortableConfig = config.map((column, index) => {
     if (column.sortableValue) {
       return {
         ...column,
         header: () => (
-          <th key={index} onClick={() => handleClick(column.label)}>
+          <th key={index} onClick={() => setSortColumn(column.label)}>
             <div
               className={
                 column.label === sortBy && sortOrder
@@ -52,22 +32,6 @@ function SortableTable(props) {
       return column;
     }
   });
-
-  let sortedData = data;
-  if (sortBy && sortOrder) {
-    const { sortableValue } = config.find((column) => column.label === sortBy);
-    sortedData = [...data].sort((a, b) => {
-      const valueA = sortableValue(a);
-      const valueB = sortableValue(b);
-
-      const reverseOrder = sortOrder === "asc" ? 1 : -1;
-      if (typeof valueA === "string") {
-        return valueA.localeCompare(valueB) * reverseOrder;
-      } else {
-        return (valueA - valueB) * reverseOrder;
-      }
-    });
-  }
 
   return <Table {...props} data={sortedData} config={sortableConfig} />;
 }
