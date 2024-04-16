@@ -21,6 +21,52 @@ function Sidebar() {
     setCollapsedSidebar(!isCollapsedSidebar);
   };
 
+  const links = [
+    {
+      label: "Accordions",
+      icon: <TfiLayoutAccordionSeparated />,
+      to: "/Home/Components/Accordion",
+    },
+    {
+      label: "Buttons",
+      icon: <TbHandClick />,
+      to: "/Home/Components/Button",
+    },
+    {
+      label: "Dropdowns",
+      icon: <CgList />,
+      to: "/Home/Components/Dropdown",
+    },
+    {
+      label: "Inputs",
+      icon: <RxInput />,
+      to: "/Home/Components/Input",
+    },
+    {
+      label: "Modals",
+      icon: <BiSolidWindowAlt />,
+      to: "/Home/Components/Modal",
+    },
+    {
+      label: "Tables",
+      icon: <TbTableColumn />,
+      to: "/Home/Components/Table",
+    },
+    {
+      label: "Tooltips",
+      icon: <GrTooltip />,
+      to: "/Home/Components/Tooltip",
+    },
+  ];
+
+  const renderLinks = links.map((link) => {
+    return (
+      <SidebarLink key={link.label} icon={link.icon} to={link.to}>
+        {link.label}
+      </SidebarLink>
+    );
+  });
+
   return (
     <div className="SidebarWrapper ">
       <Button
@@ -38,30 +84,7 @@ function Sidebar() {
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
-          <SidebarLink
-            icon={<TfiLayoutAccordionSeparated />}
-            to="/Home/Components/Accordion"
-          >
-            Accordions
-          </SidebarLink>
-          <SidebarLink icon={<TbHandClick />} to="/Home/Components/Button">
-            Buttons
-          </SidebarLink>
-          <SidebarLink icon={<CgList />} to="/Home/Components/Dropdown">
-            Dropdowns
-          </SidebarLink>
-          <SidebarLink icon={<RxInput />} to="/Home/Components/Input">
-            Inputs
-          </SidebarLink>
-          <SidebarLink icon={<BiSolidWindowAlt />} to="/Home/Components/Modal">
-            Modals
-          </SidebarLink>
-          <SidebarLink icon={<TbTableColumn />} to="/Home/Components/Table">
-            Tables
-          </SidebarLink>
-          <SidebarLink icon={<GrTooltip />} to="/Home/Components/Tooltip">
-            Tooltips
-          </SidebarLink>
+          {renderLinks}
           <hr />
           <h4>Other</h4>
         </div>

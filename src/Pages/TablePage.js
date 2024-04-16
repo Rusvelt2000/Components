@@ -7,14 +7,13 @@ import { AiFillCar } from "react-icons/ai";
 function TablePage() {
   const config = [
     {
-      label: "",
-      render: (debtors) => (
-        <img className="table-avatar" src={debtors.avatar} alt={debtors.name} />
-      ),
-    },
-    {
       label: "Name",
-      render: (debtors) => debtors.name,
+      render: (debtors) => (
+        <div className="table-avatar">
+          <img src={debtors.avatar} alt={debtors.name} />
+          {debtors.name}
+        </div>
+      ),
       sortableValue: (debtors) => debtors.name,
     },
     { label: "Email address", render: (debtors) => debtors.email },
@@ -40,7 +39,7 @@ function TablePage() {
       id: 1,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/720.jpg",
-      name: "Frances Weissnat",
+      name: "Frances Weiss",
       email: "Tanya.Rempel@yahoo.com",
       country: "Austria",
       amount: "8.00",
@@ -49,7 +48,7 @@ function TablePage() {
       id: 2,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/640.jpg",
-      name: "Samantha Friesen",
+      name: "Samantha Greisen",
       email: "Eleanor57@gmail.com",
       country: "Cameroon",
       amount: "-119.00",
@@ -58,7 +57,7 @@ function TablePage() {
       id: 3,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/522.jpg",
-      name: "Justin Reinger",
+      name: "Justin Reinter",
       email: "Alejandro_Hartmann1@gmail.com",
       country: "French Guiana",
       amount: "-862.00",
@@ -76,7 +75,7 @@ function TablePage() {
       id: 5,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/123.jpg",
-      name: "Jason Gulgowski",
+      name: "Jason Huey",
       email: "Maureen_Leuschke29@gmail.com",
       country: "Saint Vincent and the Grenadines",
       amount: "336.00",
@@ -103,7 +102,7 @@ function TablePage() {
       id: 8,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/640.jpg",
-      name: "Phil Kautzer",
+      name: "Phil Klutzes",
       email: "Tanya65@gmail.com",
       country: "Paraguay",
       amount: "904.00",
@@ -112,16 +111,16 @@ function TablePage() {
       id: 9,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1223.jpg",
-      name: "Dr. Melanie Wiza III",
+      name: "Dr. Melanie Liza III",
       email: "Glenn.Gleason59@hotmail.com",
-      country: "Saint Barthelemy",
+      country: "Saint Bels",
       amount: "312.00",
     },
     {
       id: 10,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/380.jpg",
-      name: "Donna Bednar",
+      name: "Donna Bender",
       email: "Jack_Harber13@gmail.com",
       country: "Monaco",
       amount: "350.00",
@@ -144,7 +143,7 @@ function TablePage() {
       render: (vehicles) => vehicles.model,
     },
     {
-      label: "Colour",
+      label: "Cloud",
       render: (vehicles) => (
         <div
           className="color"
@@ -158,21 +157,21 @@ function TablePage() {
       id: 1,
       avatar:
         "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/757.jpg",
-      name: "Teri Runolfsdottir Sr.",
+      name: "Teri Smith Sr.",
       make: "Mazda",
       model: "CX-5",
       color: "#B2B09B",
     },
     {
       id: 2,
-      name: "Dr. Misty Ullrich",
+      name: "Dr. Misty Eldrich",
       make: "Chrysler",
       model: "V90",
       color: "darkblue",
     },
     {
       id: 3,
-      name: "Jeanette Oberbrunner",
+      name: "Jeanette Lind",
       make: "Cadillac",
       model: "Model S",
       color: "pink",
@@ -186,14 +185,14 @@ function TablePage() {
     },
     {
       id: 5,
-      name: "Jenny Yundt",
+      name: "Jenny Bundt",
       make: "Aston Martin",
       model: "Malibu",
       color: "#42273B",
     },
     {
       id: 6,
-      name: "Luke Kuhic",
+      name: "Luke Kufic",
       make: "Kia",
       model: "Charger",
       color: "#C1DBE3",
@@ -202,26 +201,26 @@ function TablePage() {
       id: 7,
       name: "Edgar Ebert",
       make: "Volkswagen",
-      model: "Altima",
+      model: "Alma",
       color: "#C7DFC5",
     },
     {
       id: 8,
-      name: "Norma Berge",
+      name: "Norma Berg",
       make: "Hyundai",
       model: "Focus",
       color: "#F9DC5C",
     },
     {
       id: 9,
-      name: "Chris Kreiger",
+      name: "Chris Kresge",
       make: "Chrysler",
       model: "XC90",
       color: "#465362",
     },
     {
       id: 10,
-      name: "Rudolph Breitenberg",
+      name: "Rudolph Hudson",
       make: "Polestar",
       model: "Civic",
       color: "grey",

@@ -300,7 +300,9 @@
       }
     }
     .table-avatar {
-      border: 2px solid $secondary;
+      img {
+        border: 2px solid $secondary;
+      }
     }
   }
   /* ------------------
