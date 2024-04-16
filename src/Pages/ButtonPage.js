@@ -15,53 +15,41 @@ import {
 import CardButtonLink from "../Components/CardButtonLink";
 
 function ButtonPage() {
-  const handleClick = () => {
-    console.log("Clicked");
-  };
-
   return (
     <div>
       <Title>Buttons</Title>
       <div className="fade-in-up col-2">
         <Container title="Default">
-          <Button primary onClick={handleClick}>
-            Primary
-          </Button>
-          <Button primary outline onClick={handleClick}>
+          <Button primary>Primary</Button>
+          <Button primary outline>
             Outline
           </Button>
 
-          <Button secondary onClick={handleClick}>
-            Secondary
-          </Button>
-          <Button secondary outline onClick={handleClick}>
+          <Button secondary>Secondary</Button>
+          <Button secondary outline>
             Outline
           </Button>
         </Container>
         <Container title="Warning and Alert">
-          <Button warning onClick={handleClick}>
-            Warning
-          </Button>
-          <Button warning outline onClick={handleClick}>
+          <Button warning>Warning</Button>
+          <Button warning outline>
             Outline
           </Button>
-          <Button alert onClick={handleClick}>
-            Alert
-          </Button>
-          <Button alert outline onClick={handleClick}>
+          <Button alert>Alert</Button>
+          <Button alert outline>
             Outline
           </Button>
         </Container>
         <Container title="Icon Buttons">
-          <Button primary onClick={handleClick}>
+          <Button primary>
             <GoCheckCircleFill className="icon" />
             Icon button
           </Button>
-          <Button secondary onClick={handleClick}>
+          <Button secondary>
             <GoBookmarkFill className="icon" />
             Icon button
           </Button>
-          <Button warning onClick={handleClick}>
+          <Button warning>
             <GoAlertFill className="icon" />
             Outline
           </Button>
