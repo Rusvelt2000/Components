@@ -13,6 +13,7 @@ import { RxInput } from "react-icons/rx";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { PiCaretLeftBold } from "react-icons/pi";
 import { PiCaretRightBold } from "react-icons/pi";
+import { GoTasklist } from "react-icons/go";
 
 function Sidebar() {
   const { logoImage } = useContext(SharedContext);
@@ -56,6 +57,11 @@ function Sidebar() {
       label: "Tooltips",
       icon: <GrTooltip />,
       to: "/Home/Components/Tooltip",
+    },
+    {
+      label: "Lists",
+      icon: <GoTasklist />,
+      to: "/Home/Components/List",
     },
   ];
 

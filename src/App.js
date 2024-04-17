@@ -11,6 +11,7 @@ import Sidebar from "./Components/Sidebar";
 import TablePage from "./Pages/TablePage";
 import TooltipPage from "./Pages/TooltipPage";
 import ComponentsPage from "./Pages/ComponentsPage";
+import ListPage from "./Pages/ListPage";
 
 function App() {
   return (
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route path="/Home/Components/Tooltip">
             <TooltipPage />
+          </Route>
+          <Route path="/Home/Components/List">
+            <ListPage />
           </Route>
         </div>
       </div>
