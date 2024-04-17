@@ -1,31 +1,89 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import Container from "../Components/Container";
 import Modal from "../Components/Modal";
 import Button from "../Components/Button";
 import Title from "../Components/Title";
+import defaultThumb from "../Assets/Thumbs/defaultThumb.svg";
+
+const OPEN_MODAL = "open-modal";
+const OPEN_SMALL_MODAL = "open-small-modal";
+const OPEN_LARGE_MODAL = "open-large-modal";
+const OPEN_IMAGE_MODAL = "open-image-modal";
+const CLOSE_MODAL = "close-modal";
+
+function reducer(state, action) {
+  switch (action.type) {
+    case OPEN_MODAL:
+      return {
+        ...state,
+        isOpen: true,
+      };
+    case OPEN_SMALL_MODAL:
+      return {
+        ...state,
+        isSmallOpen: true,
+      };
+    case OPEN_LARGE_MODAL:
+      return {
+        ...state,
+        isLargeOpen: true,
+      };
+    case OPEN_IMAGE_MODAL:
+      return {
+        ...state,
+        isImageOpen: true,
+      };
+    case CLOSE_MODAL:
+      return {
+        ...state,
+        isOpen: false,
+        isSmallOpen: false,
+        isLargeOpen: false,
+        isImageOpen: false,
+      };
+    default:
+      return state;
+  }
+}
 
 function ModalPage() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLargeOpen, setIsLargeOpen] = useState(false);
+  const [state, dispatch] = useReducer(reducer, {
+    isOpen: false,
+    isLargeOpen: false,
+    isImageOpen: false,
+  });
   const handleOpenModal = () => {
-    setIsOpen(true);
+    dispatch({
+      type: OPEN_MODAL,
+    });
+  };
+  const handleOpenSmallModal = () => {
+    dispatch({
+      type: OPEN_SMALL_MODAL,
+    });
   };
   const handleOpenLargeModal = () => {
-    setIsLargeOpen(true);
+    dispatch({
+      type: OPEN_LARGE_MODAL,
+    });
+  };
+  const handleOpenImageModal = () => {
+    dispatch({
+      type: OPEN_IMAGE_MODAL,
+    });
   };
 
   const closeModal = () => {
-    setIsOpen(false);
-  };
-  const closeLargeModal = () => {
-    setIsLargeOpen(false);
+    dispatch({
+      type: CLOSE_MODAL,
+    });
   };
 
   return (
     <div>
       <Title>Modals</Title>
       <div className="fade-in-up col-3">
-        <Container title="Small Modal">
+        <Container title="Regular Modal">
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit himenaeos,
             laoreet lacus dictum dapibus morbi congue euismod turpis ac,
@@ -37,7 +95,7 @@ function ModalPage() {
             pellentesque pretium aliquam nisl praesent ante maecenas aliquet.
           </p>
           <Button primary outline onClick={handleOpenModal}>
-            Open Small Modal
+            Open Regular Modal
           </Button>
         </Container>
         <Container title="Large Modal">
@@ -70,7 +128,7 @@ function ModalPage() {
             Open Large Modal
           </Button>
         </Container>
-        <Container>
+        <Container title="Modal with image">
           <p>
             Cum morbi ut massa purus vel turpis natoque sapien libero, per
             pretium felis egestas venenatis nam etiam convallis, pulvinar
@@ -85,8 +143,8 @@ function ModalPage() {
             facilisi nam pretium in, tincidunt auctor risus ornare sollicitudin
             imperdiet.
           </p>
-          <Button primary outline onClick={handleOpenModal}>
-            Open Small Modal
+          <Button primary outline onClick={handleOpenImageModal}>
+            Open Image Modal
           </Button>
         </Container>
       </div>
@@ -107,8 +165,8 @@ function ModalPage() {
             sed, nascetur ultricies aenean proin auctor montes eget cum,
             bibendum ante sollicitudin erat mi euismod suspendisse.
           </p>
-          <Button primary onClick={handleOpenLargeModal}>
-            Open Large Modal
+          <Button primary onClick={handleOpenSmallModal}>
+            Open Small Modal
           </Button>
         </Container>
         <Container>
@@ -126,11 +184,64 @@ function ModalPage() {
           </p>
         </Container>
 
-        {isOpen && (
-          <Modal key={Math.random()} onClose={closeModal} modalSize="md" />
+        {state.isOpen && (
+          <Modal
+            key={Math.random()}
+            onClose={closeModal}
+            title="Regular size modal"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              deleniti officiis quia eveniet ipsa fugit beatae, aliquid,
+              nesciunt error consectetur sed nisi ratione. Laboriosam rem
+              laborum quos repellat, consequatur quisquam.
+            </p>
+          </Modal>
         )}
-        {isLargeOpen && (
-          <Modal key={Math.random()} onClose={closeLargeModal} modalSize="lg" />
+        {state.isSmallOpen && (
+          <Modal
+            key={Math.random()}
+            onClose={closeModal}
+            modalSize="sm"
+            title="Small size modal"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              deleniti officiis quia eveniet ipsa fugit beatae, aliquid,
+              nesciunt error consectetur sed nisi ratione. Laboriosam rem
+              laborum quos repellat, consequatur quisquam.
+            </p>
+          </Modal>
+        )}
+        {state.isLargeOpen && (
+          <Modal
+            key={Math.random()}
+            onClose={closeModal}
+            modalSize="lg"
+            title="Large size modal"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              deleniti officiis quia eveniet ipsa fugit beatae, aliquid,
+              nesciunt error consectetur sed nisi ratione. Laboriosam rem
+              laborum quos repellat, consequatur quisquam.
+            </p>
+          </Modal>
+        )}
+        {state.isImageOpen && (
+          <Modal
+            key={Math.random()}
+            onClose={closeModal}
+            image={defaultThumb}
+            title="Modal with image"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
+              deleniti officiis quia eveniet ipsa fugit beatae, aliquid,
+              nesciunt error consectetur sed nisi ratione.
+            </p>
+            <p>Laboriosam rem laborum quos repellat, consequatur quisquam.</p>
+          </Modal>
         )}
       </div>
     </div>

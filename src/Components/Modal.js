@@ -4,7 +4,7 @@ import Button from "./Button";
 import ReactDOM from "react-dom";
 import { GoXCircle } from "react-icons/go";
 
-function Modal({ onClose, modalSize }) {
+function Modal({ onClose, modalSize, image, title, children }) {
   const addedClasses = classNames("Modal fade-in-up", modalSize);
 
   useEffect(() => {
@@ -19,13 +19,13 @@ function Modal({ onClose, modalSize }) {
     <div>
       <div className="ModalBackground" onClick={onClose}></div>
       <div className={addedClasses}>
-        <h3>This is a modal</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum
-          deleniti officiis quia eveniet ipsa fugit beatae, aliquid, nesciunt
-          error consectetur sed nisi ratione. Laboriosam rem laborum quos
-          repellat, consequatur quisquam.
-        </p>
+        {image && (
+          <div className="ModalImageContainer">
+            <img src={image} alt={title} />
+          </div>
+        )}
+        <h3>{title}</h3>
+        <p>{children}</p>
         <Button secondary outline onClick={onClose}>
           <GoXCircle className="icon" />
           Close modal

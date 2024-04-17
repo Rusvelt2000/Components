@@ -560,12 +560,15 @@
   padding: $default-spacing;
   border-radius: $bd-radius;
   box-shadow: $high-shadow;
-  top: 30%;
+  top: 10%;
+  width: 60%;
+  max-width: 560px;
+  left: calc(50% - 280px);
 
-  &.md {
+  &.sm {
     width: 60%;
-    max-width: 560px;
-    left: calc(50% - 280px);
+    max-width: 320px;
+    left: calc(50% - 160px);
   }
   &.lg {
     width: 80%;
