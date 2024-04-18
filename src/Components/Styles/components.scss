@@ -295,7 +295,7 @@
     border: 1px solid lighten($primary, 20);
     .thumb-container {
       border-radius: $bd-radius $bd-radius 0 0;
-      background-color: darken($alt-bg, 4);
+      background-color: darken($alt-bg, 2);
     }
     .caption h4 {
       color: $primary;
@@ -319,7 +319,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: darken($alt-bg, 2);
+    background-color: darken($alt-bg, 4);
 
     img {
       width: 160px;
@@ -470,6 +470,87 @@
         outline: 0.5px solid $alert;
       }
     }
+  }
+}
+
+/* -------------------------------
+   --- CHECKBOX & RADIO BUTTON ---
+   ------------------------------*/
+.CheckBox,
+.RadioButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: $default-spacing;
+  input[type="checkbox"i],
+  input[type="radio" i] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  &:has(input[type="checkbox"i]:checked) .Box {
+    background-color: $secondary-dark;
+    color: $white;
+    font-size: $md-text;
+  }
+  &:has(input[type="checkbox"i]:focus) .Box,
+  &:has(input[type="radio"i]:focus) .Circle {
+    outline: 1px solid $secondary-dark;
+  }
+  &:has(input[type="radio"i]:checked) .Circle {
+    background-color: transparentize($secondary-dark, 0.8);
+    &:after {
+      background-color: $secondary-dark;
+    }
+  }
+  .Box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: $bd-radius;
+    background-color: transparent;
+    border: 2px solid $secondary-dark;
+    color: transparent;
+    font-size: 1px;
+  }
+  .Circle {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid $secondary-dark;
+    color: transparent;
+    font-size: 1px;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: transparent;
+      border-radius: 50%;
+      top: calc(50% - 6px);
+      left: calc(50% - 6px);
+    }
+  }
+  &:hover {
+    .Box,
+    .Circle {
+      background-color: transparentize($secondary-dark, 0.8);
+    }
+    label {
+      color: lighten($medium-grey, 10);
+    }
+  }
+
+  label {
+    color: $medium-grey;
+    font-size: $small-text;
   }
 }
 
