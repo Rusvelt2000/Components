@@ -1,8 +1,9 @@
+import { useState } from "react";
 import Title from "../Components/Title";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
 import Container from "../Components/Container";
-import { useState } from "react";
+import CheckBox from "../Components/CheckBox";
 
 function ListPage() {
   const [inputValue, setInputValue] = useState("");
@@ -18,7 +19,7 @@ function ListPage() {
   };
 
   const renderItems = listItems.map((item, index) => {
-    return <li key={index}>{item}</li>;
+    return <CheckBox key={index}>{item}</CheckBox>;
   });
 
   return (
@@ -39,9 +40,7 @@ function ListPage() {
             </Button>
           </form>
         </Container>
-        <Container>
-          <ul>{renderItems}</ul>
-        </Container>
+        <Container>{renderItems}</Container>
       </div>
     </div>
   );

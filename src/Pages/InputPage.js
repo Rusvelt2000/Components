@@ -51,6 +51,23 @@ function InputPage() {
           ></Input>
         </Container>
       </div>
+      <div className="fade-in-up col-2">
+        <Container direction={"horizontal"} title={"Checkboxes"}>
+          <CheckBox>This is some content for the checkbox</CheckBox>
+          <CheckBox>This another checkbox</CheckBox>
+        </Container>
+        <Container direction={"horizontal"} title={"Radio buttons"}>
+          <Radio name="Options" value="Option 1">
+            Option 1
+          </Radio>
+          <Radio name="Options" value="Option 2">
+            Option 2
+          </Radio>
+          <Radio name="Options" value="Option 3">
+            Option 3
+          </Radio>
+        </Container>
+      </div>
       <div className="fade-in-up">
         <Container direction={"horizontal"} title={"Input helpers and errors"}>
           <Input
@@ -70,23 +87,7 @@ function InputPage() {
           ></Input>
         </Container>
       </div>
-      <div className="fade-in-up col-2">
-        <Container direction={"horizontal"} title={"Checkboxes"}>
-          <CheckBox>This is some content for the checkbox</CheckBox>
-          <CheckBox>This another checkbox</CheckBox>
-        </Container>
-        <Container direction={"horizontal"} title={"Radio buttons"}>
-          <Radio name="Options" value="Option 1">
-            Option 1
-          </Radio>
-          <Radio name="Options" value="Option 2">
-            Option 2
-          </Radio>
-          <Radio name="Options" value="Option 3">
-            Option 3
-          </Radio>
-        </Container>
-      </div>
+
       <div className="fade-in-up">
         <Container title="Inputs by dimension">
           <Input

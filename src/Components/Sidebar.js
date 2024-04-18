@@ -14,6 +14,7 @@ import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { PiCaretLeftBold } from "react-icons/pi";
 import { PiCaretRightBold } from "react-icons/pi";
 import { GoTasklist } from "react-icons/go";
+import { TfiLayoutMediaLeftAlt } from "react-icons/tfi";
 
 function Sidebar() {
   const { logoImage } = useContext(SharedContext);
@@ -62,6 +63,11 @@ function Sidebar() {
       label: "Lists",
       icon: <GoTasklist />,
       to: "/Home/Components/List",
+    },
+    {
+      label: "Placeholders",
+      icon: <TfiLayoutMediaLeftAlt />,
+      to: "/Home/Components/Placeholder",
     },
   ];
 

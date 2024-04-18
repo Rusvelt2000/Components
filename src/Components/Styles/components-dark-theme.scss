@@ -24,6 +24,9 @@
     background-color: $dark-grey;
     box-shadow: $dt-low-shadow;
     .SidebarLink {
+      &:has(a:focus) {
+        background-color: $primary-light;
+      }
       a {
         color: $white;
       }
@@ -224,6 +227,16 @@
       color: $medium-grey;
     }
   }
+  /* -------------------------------
+   --- CHECKBOX & RADIO BUTTON ---
+   ------------------------------*/
+  .CheckBox,
+  .RadioButton {
+    label {
+      color: $alt-bg;
+    }
+  }
+
   /* ------------------
     --- DROPDOWN ---
     --------------------*/

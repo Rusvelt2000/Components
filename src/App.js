@@ -12,6 +12,7 @@ import TablePage from "./Pages/TablePage";
 import TooltipPage from "./Pages/TooltipPage";
 import ComponentsPage from "./Pages/ComponentsPage";
 import ListPage from "./Pages/ListPage";
+import PlaceholderPage from "./Pages/PlaceholderPage";
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
           </Route>
           <Route path="/Home/Components/List">
             <ListPage />
+          </Route>
+          <Route path="/Home/Components/Placeholder">
+            <PlaceholderPage />
           </Route>
         </div>
       </div>

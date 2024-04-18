@@ -60,9 +60,14 @@
       border-radius: $bd-radius;
       transition: padding 0.4s $bouncy;
       cursor: pointer;
+
+      &:has(a:focus) {
+        background-color: lighten($primary, 40);
+      }
       a {
         color: $dark-grey;
         text-decoration: none;
+        outline: none;
       }
       .icon {
         color: $light-grey;
@@ -550,7 +555,7 @@
 
   label {
     color: $medium-grey;
-    font-size: $small-text;
+    font-size: $md-text;
   }
 }
 
@@ -867,5 +872,52 @@
   p {
     margin: 0;
     color: $text-grey;
+  }
+}
+
+/* ------------------
+   --- PLACEHOLDER ---
+--------------------*/
+.PlaceholderContainer {
+  width: 100%;
+  .Placeholder {
+    height: $double-spacing;
+    border-radius: $bd-radius;
+    margin-bottom: $default-spacing;
+    background: linear-gradient(
+      to right,
+      $ultraLight-grey 0%,
+      $light-grey 20%,
+      $ultraLight-grey 30%,
+      $light-grey 40%,
+      $ultraLight-grey 100%
+    );
+    &.xs {
+      width: 10%;
+      background-size: 600%;
+    }
+    &.sm {
+      width: 25%;
+      background-size: 500%;
+    }
+    &.md {
+      width: 45%;
+      background-size: 400%;
+    }
+    &.lg {
+      width: 65%;
+      background-size: 300%;
+    }
+    &.xl {
+      width: 75%;
+      background-size: 205%;
+    }
+    &.image {
+      height: 240px;
+    }
+    &.button {
+      height: $double-spacing;
+      margin-top: $default-spacing;
+    }
   }
 }
