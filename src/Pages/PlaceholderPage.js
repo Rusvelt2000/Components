@@ -1,12 +1,22 @@
+import Section from "../Components/Section";
 import Title from "../Components/Title";
 import Container from "../Components/Container";
 import Placeholder from "../Components/Placeholder";
 
 function PlaceholderPage() {
+  const sectionsEntrance = () => {
+    const sections = document.querySelectorAll(".section");
+    sections.forEach((section) => {
+      setInterval(() => {
+        section.classList.add("fade-in-up");
+      }, 100 * sections.indexOf(section));
+    });
+  };
+  sectionsEntrance();
   return (
     <div>
       <Title>Placeholders</Title>
-      <div className="fade-in-up col-3">
+      <Section col3>
         <Container title={"Texts"}>
           <Placeholder />
           <Placeholder xl />
@@ -35,7 +45,7 @@ function PlaceholderPage() {
         <Container title={"Images"}>
           <Placeholder image />
         </Container>
-      </div>
+      </Section>
     </div>
   );
 }
