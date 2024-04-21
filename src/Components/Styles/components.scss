@@ -880,8 +880,14 @@
 --------------------*/
 .PlaceholderContainer {
   width: 100%;
+  display: flex;
+
+  &:has(.right) {
+    justify-content: flex-end;
+  }
   .Placeholder {
-    height: $double-spacing;
+    height: 16px;
+    width: 100%;
     border-radius: $bd-radius;
     margin-bottom: $default-spacing;
     background: linear-gradient(
@@ -892,32 +898,96 @@
       $light-grey 40%,
       $ultraLight-grey 100%
     );
-    &.xs {
+    &.image {
+      height: 120px;
+      width: 100%;
+    }
+    &.button {
+      height: 24px;
+      margin-top: $double-spacing;
+    }
+    &.emptyLine {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &.avatar {
+      position: relative;
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      background-size: 800%;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 48px;
+        height: 12px;
+        left: calc(48px + 16px);
+        top: 8px;
+        background: inherit;
+        border-radius: $bd-radius;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 12px;
+        left: calc(48px + 16px);
+        top: 32px;
+        background: inherit;
+        border-radius: $bd-radius;
+      }
+    }
+    &.chat {
+      position: relative;
+      height: 42px;
+      border-radius: 24px;
+      background-size: 600%;
+      &::before {
+        content: "";
+        position: absolute;
+        background: inherit;
+        width: 8px;
+        height: 8px;
+      }
+      &.left::before {
+        left: 4px;
+        bottom: -4px;
+        background-size: 10000%;
+        border-bottom-right-radius: 15px;
+        transform: rotate(30deg);
+      }
+      &.right::before {
+        right: 4px;
+        bottom: -4px;
+        background-size: 10000%;
+        border-bottom-left-radius: 15px;
+        transform: rotate(-30deg);
+      }
+    }
+    &.xs,
+    &:has(.image) {
       width: 10%;
       background-size: 600%;
     }
-    &.sm {
+    &.sm,
+    &:has(.image) {
       width: 25%;
       background-size: 500%;
     }
-    &.md {
+    &.md,
+    &:has(.image) {
       width: 45%;
       background-size: 400%;
     }
-    &.lg {
+    &.lg,
+    &:has(.image) {
       width: 65%;
       background-size: 300%;
     }
-    &.xl {
+    &.xl,
+    &:has(.image) {
       width: 75%;
       background-size: 205%;
-    }
-    &.image {
-      height: 240px;
-    }
-    &.button {
-      height: $double-spacing;
-      margin-top: $default-spacing;
     }
   }
 }
