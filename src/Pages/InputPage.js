@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Title from "../Components/Title";
 import Container from "../Components/Container";
+import Section from "../Components/Section";
 import Input from "../Components/Input";
 import CheckBox from "../Components/CheckBox";
 import Radio from "../Components/Radio";
@@ -18,7 +19,7 @@ function InputPage() {
   return (
     <div>
       <Title>Inputs</Title>
-      <div className="fade-in-up">
+      <Section>
         <Container direction={"horizontal"} title="Inputs by type">
           <Input
             size="sm"
@@ -50,8 +51,8 @@ function InputPage() {
             tooltip="This is the default range input"
           ></Input>
         </Container>
-      </div>
-      <div className="fade-in-up col-2">
+      </Section>
+      <Section col2>
         <Container direction={"horizontal"} title={"Checkboxes"}>
           <CheckBox>This is some content for the checkbox</CheckBox>
           <CheckBox>This another checkbox</CheckBox>
@@ -67,8 +68,8 @@ function InputPage() {
             Option 3
           </Radio>
         </Container>
-      </div>
-      <div className="fade-in-up">
+      </Section>
+      <Section>
         <Container direction={"horizontal"} title={"Input helpers and errors"}>
           <Input
             size="md"
@@ -86,9 +87,9 @@ function InputPage() {
             onChange={handleChange}
           ></Input>
         </Container>
-      </div>
+      </Section>
 
-      <div className="fade-in-up">
+      <Section>
         <Container title="Inputs by dimension">
           <Input
             size="xs"
@@ -120,7 +121,7 @@ function InputPage() {
             placeholder="e.g: This will span the whole parent container"
           ></Input>
         </Container>
-      </div>
+      </Section>
     </div>
   );
 }

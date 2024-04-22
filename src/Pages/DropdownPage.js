@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Section from "../Components/Section";
 import Dropdown from "../Components/Dropdown";
 import Title from "../Components/Title";
 import Container from "../Components/Container";
@@ -93,7 +94,7 @@ function App() {
   return (
     <div>
       <Title>Dropdowns</Title>
-      <div className="fade-in-up">
+      <Section>
         <Container className="col-4" title="Default Dropdowns">
           <Dropdown
             label="Pasta"
@@ -128,8 +129,8 @@ function App() {
             Select Dessert
           </Dropdown>
         </Container>
-      </div>
-      <div className="fade-in-up col-2">
+      </Section>
+      <Section col2>
         <Container className="col-2" title="No Label Dropdowns">
           <Dropdown
             value={selectedPasta}
@@ -146,8 +147,8 @@ function App() {
             Select Drink
           </Dropdown>
         </Container>
-      </div>
-      <div className="fade-in-up col-2">
+      </Section>
+      <Section col2>
         <Container className="col-2" title="Dropdowns with tooltips">
           <Dropdown
             label="Pasta"
@@ -168,7 +169,7 @@ function App() {
             Select Main
           </Dropdown>
         </Container>
-      </div>
+      </Section>
     </div>
   );
 }

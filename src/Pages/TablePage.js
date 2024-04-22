@@ -1,5 +1,6 @@
 import SortableTable from "../Components/SortableTable";
 import Title from "../Components/Title";
+import Section from "../Components/Section";
 import Container from "../Components/Container";
 import { ImAddressBook } from "react-icons/im";
 import { AiFillCar } from "react-icons/ai";
@@ -234,7 +235,7 @@ function TablePage() {
   return (
     <div>
       <Title>Tables</Title>
-      <div className="fade-in-up col-2">
+      <Section col2>
         <Container title="Debtors" icon={<ImAddressBook />}>
           <SortableTable
             data={debtors}
@@ -245,7 +246,7 @@ function TablePage() {
         <Container title="Vehicles" icon={<AiFillCar />}>
           <SortableTable data={vehicles} config={vehicleConfig} />
         </Container>
-      </div>
+      </Section>
     </div>
   );
 }

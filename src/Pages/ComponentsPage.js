@@ -1,4 +1,5 @@
 import Title from "../Components/Title";
+import Section from "../Components/Section";
 import CardButtonLink from "../Components/CardButtonLink";
 import AccordionThumb from "../Assets/Thumbs/accordion.svg";
 import ButtonsThumb from "../Assets/Thumbs/button.svg";
@@ -15,7 +16,7 @@ function ComponentsPage() {
   return (
     <div className="HomePage">
       <Title>Components</Title>
-      <div className="col-4 fade-in-up">
+      <Section col4>
         <CardButtonLink
           to={`${currentPath}/Accordion`}
           title={"Accordions"}
@@ -72,7 +73,7 @@ function ComponentsPage() {
           }
           image={PlaceholderThumb}
         />
-      </div>
+      </Section>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Container from "../Components/Container";
 import Button from "../Components/Button";
+import Section from "../Components/Section";
 import Title from "../Components/Title";
 import DefaultThumb from "../Assets/Thumbs/defaultThumb.svg";
 
@@ -18,7 +19,7 @@ function ButtonPage() {
   return (
     <div>
       <Title>Buttons</Title>
-      <div className="fade-in-up col-2">
+      <Section col2>
         <Container title="Default">
           <Button primary>Primary</Button>
           <Button primary outline>
@@ -40,6 +41,7 @@ function ButtonPage() {
             Outline
           </Button>
         </Container>
+
         <Container title="Icon Buttons">
           <Button primary>
             <GoCheckCircleFill className="icon" />
@@ -68,8 +70,7 @@ function ButtonPage() {
             <GoRocket />
           </Button>
         </Container>
-      </div>
-      <div className="fade-in-up col-2">
+
         <Container className={"col-2"} title={"Button Cards"}>
           <CardButtonLink
             caption={"Some descriptive text goes here"}
@@ -84,7 +85,7 @@ function ButtonPage() {
             to={"/button"}
           />
         </Container>
-      </div>
+      </Section>
     </div>
   );
 }

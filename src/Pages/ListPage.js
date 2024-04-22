@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Section from "../Components/Section";
 import Title from "../Components/Title";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
@@ -25,7 +26,7 @@ function ListPage() {
   return (
     <div>
       <Title>Lists</Title>
-      <div className="fade-in-up col-2">
+      <Section col2>
         <Container title="Default list">
           <form onSubmit={addItem}>
             <Input
@@ -41,7 +42,7 @@ function ListPage() {
           </form>
         </Container>
         <Container>{renderItems}</Container>
-      </div>
+      </Section>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import Container from "../Components/Container";
+import Section from "../Components/Section";
 import Modal from "../Components/Modal";
 import Button from "../Components/Button";
 import Title from "../Components/Title";
@@ -82,7 +83,7 @@ function ModalPage() {
   return (
     <div>
       <Title>Modals</Title>
-      <div className="fade-in-up col-3">
+      <Section col3>
         <Container title="Regular Modal">
           <p>
             Lorem ipsum dolor sit amet consectetur adipiscing elit himenaeos,
@@ -147,8 +148,8 @@ function ModalPage() {
             Open Image Modal
           </Button>
         </Container>
-      </div>
-      <div className="fade-in-up col-2">
+      </Section>
+      <Section col2>
         <Container>
           <p>
             Purus vitae sagittis est neque lectus tortor pulvinar eu, lacinia ut
@@ -243,7 +244,7 @@ function ModalPage() {
             <p>Laboriosam rem laborum quos repellat, consequatur quisquam.</p>
           </Modal>
         )}
-      </div>
+      </Section>
     </div>
   );
 }
