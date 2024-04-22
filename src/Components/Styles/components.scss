@@ -902,7 +902,7 @@
       $light-grey 40%,
       $ultraLight-grey 100%
     );
-    transition: width 0.4s $quick;
+    transition: width 0.2s $quick;
     &.text {
       height: 16px;
     }
@@ -912,7 +912,7 @@
     }
     &.gallery {
       height: 120px;
-      min-width: 30%;
+
       flex-grow: 1;
     }
     &.button {

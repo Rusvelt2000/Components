@@ -15,7 +15,9 @@ function Placeholder({
   const [width, setWidth] = useState(
     Math.floor(Math.random() * (90 - 20) + 20)
   );
-  const classes = classNames("Placeholder glow", {
+  const [isActive, setIsActive] = useState(true);
+  console.log(isActive);
+  const classes = classNames("Placeholder", {
     text,
     emptyLine,
     header,
@@ -25,14 +27,17 @@ function Placeholder({
     right,
     button,
     gallery,
+    glow: isActive,
   });
   function timeout() {
-    setWidth(Math.floor(Math.random() * (90 - 20) + 20));
+    setWidth(Math.floor(Math.random() * (80 - 20) + 20));
+    setIsActive(false);
   }
   useEffect(() => {
     const interval = setInterval(timeout, 2400);
     return () => {
       clearInterval(interval);
+      setIsActive(true);
     };
   });
 
@@ -44,7 +49,7 @@ function Placeholder({
         <div className="PlaceholderGallery">
           <div style={{ width: width / 1.5 + "%" }} className={classes}></div>
           <div style={{ width: width / 2 + "%" }} className={classes}></div>
-          <div style={{ width: width / 1.3 + "%" }} className={classes}></div>
+          <div style={{ width: width / 1.7 + "%" }} className={classes}></div>
         </div>
       ) : (
         <div className={classes}></div>
