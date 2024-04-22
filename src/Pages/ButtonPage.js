@@ -76,13 +76,13 @@ function ButtonPage() {
             caption={"Some descriptive text goes here"}
             title={"Card Button"}
             image={DefaultThumb}
-            to={"/button"}
+            to={"/Home/Components/Button"}
           />
           <CardButtonLink
             caption={"Some descriptive text goes here"}
             title={"Card Button"}
             image={DefaultThumb}
-            to={"/button"}
+            to={"/Home/Components/Button"}
           />
         </Container>
       </Section>
