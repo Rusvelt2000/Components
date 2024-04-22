@@ -9,9 +9,10 @@ function Input({
   type,
   helperText,
   errorText,
+  className,
   ...rest
 }) {
-  const addedClasses = classNames("Input-container", size);
+  const addedClasses = classNames("Input-container", className, size);
 
   return (
     <div className={addedClasses}>

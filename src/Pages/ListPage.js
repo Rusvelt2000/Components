@@ -9,14 +9,18 @@ import CheckBox from "../Components/CheckBox";
 function ListPage() {
   const [inputValue, setInputValue] = useState("");
   const [listItems, setListItems] = useState([]);
+  const inputRef = document.querySelector(".addItem");
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
 
   const addItem = (e) => {
     e.preventDefault();
-    setListItems([...listItems, inputValue]);
+    if (inputValue.trim() !== "") {
+      setListItems([...listItems, inputValue]);
+    }
     setInputValue("");
+    inputRef.focus();
   };
 
   const renderItems = listItems.map((item, index) => {
@@ -35,6 +39,7 @@ function ListPage() {
               label="Add"
               onChange={handleChange}
               value={inputValue}
+              className="addItem"
             />
             <Button primary onClick={addItem}>
               Add item

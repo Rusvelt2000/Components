@@ -4,16 +4,6 @@ import Container from "../Components/Container";
 import Placeholder from "../Components/Placeholder";
 
 function PlaceholderPage() {
-  const containersEntrance = () => {
-    const sections = document.querySelectorAll(".Container");
-    sections.forEach((container, index) => {
-      setInterval(() => {
-        container.classList.add("fade-in-up");
-      }, 300 * index);
-    });
-  };
-
-  containersEntrance();
   return (
     <div>
       <Title>Placeholders</Title>
