@@ -4,29 +4,30 @@ import Container from "../Components/Container";
 import Placeholder from "../Components/Placeholder";
 
 function PlaceholderPage() {
-  const sectionsEntrance = () => {
-    const sections = document.querySelectorAll(".section");
-    sections.forEach((section) => {
+  const containersEntrance = () => {
+    const sections = document.querySelectorAll(".Container");
+    sections.forEach((container, index) => {
       setInterval(() => {
-        section.classList.add("fade-in-up");
-      }, 100 * sections.indexOf(section));
+        container.classList.add("fade-in-up");
+      }, 300 * index);
     });
   };
-  sectionsEntrance();
+
+  containersEntrance();
   return (
     <div>
       <Title>Placeholders</Title>
       <Section col3>
         <Container title={"Texts"}>
-          <Placeholder />
-          <Placeholder xl />
-          <Placeholder md />
+          <Placeholder text xl />
+          <Placeholder text xl />
+          <Placeholder text />
           <Placeholder emptyLine />
-          <Placeholder lg />
-          <Placeholder xs />
+          <Placeholder text />
+          <Placeholder text />
           <Placeholder emptyLine />
-          <Placeholder />
-          <Placeholder md />
+          <Placeholder text />
+          <Placeholder text />
         </Container>
         <Container title={"Chat Bubbles"}>
           <Placeholder chat left />
@@ -38,12 +39,16 @@ function PlaceholderPage() {
 
         <Container title={"Avatar and Buttons"}>
           <Placeholder avatar />
-          <Placeholder button sm />
-          <Placeholder button md />
-          <Placeholder button lg />
+          <Placeholder button />
         </Container>
-        <Container title={"Images"}>
-          <Placeholder image />
+      </Section>
+      <Section col3>
+        <Container title={"Gallery"}>
+          <Placeholder gallery />
+          <Placeholder gallery />
+        </Container>
+        <Container title={"Header"}>
+          <Placeholder header />
         </Container>
       </Section>
     </div>

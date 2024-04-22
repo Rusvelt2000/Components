@@ -1,40 +1,51 @@
 import classNames from "classnames";
+import { useState, useEffect } from "react";
 
 function Placeholder({
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
+  text,
   emptyLine,
-  image,
+  header,
   avatar,
   chat,
   left,
   right,
   button,
-  fix,
+  gallery,
 }) {
-  const classes = classNames("Placeholder", "glow", {
-    xs,
-    sm,
-    md,
-    lg,
-    xl,
+  const [width, setWidth] = useState(
+    Math.floor(Math.random() * (90 - 20) + 20)
+  );
+  const classes = classNames("Placeholder glow", {
+    text,
     emptyLine,
-    image,
+    header,
     avatar,
     chat,
     left,
     right,
     button,
-    fix,
+    gallery,
   });
-  const chatWidth = Math.floor(Math.random() * (280 - 80) + 60);
+  function timeout() {
+    setWidth(Math.floor(Math.random() * (90 - 20) + 20));
+  }
+  useEffect(() => {
+    const interval = setInterval(timeout, 2400);
+    return () => {
+      clearInterval(interval);
+    };
+  });
+
   return (
     <div className="PlaceholderContainer">
-      {chat ? (
-        <div style={{ width: chatWidth }} className={classes}></div>
+      {chat || text || button ? (
+        <div style={{ width: width + "%" }} className={classes}></div>
+      ) : gallery ? (
+        <div className="PlaceholderGallery">
+          <div style={{ width: width / 1.5 + "%" }} className={classes}></div>
+          <div style={{ width: width / 2 + "%" }} className={classes}></div>
+          <div style={{ width: width / 1.3 + "%" }} className={classes}></div>
+        </div>
       ) : (
         <div className={classes}></div>
       )}

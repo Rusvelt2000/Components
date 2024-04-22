@@ -885,9 +885,13 @@
   &:has(.right) {
     justify-content: flex-end;
   }
-  .Placeholder {
-    height: 16px;
+  .PlaceholderGallery {
     width: 100%;
+    display: flex;
+    gap: 0 $default-spacing;
+    flex-wrap: wrap;
+  }
+  .Placeholder {
     border-radius: $bd-radius;
     margin-bottom: $default-spacing;
     background: linear-gradient(
@@ -898,13 +902,23 @@
       $light-grey 40%,
       $ultraLight-grey 100%
     );
-    &.image {
-      height: 120px;
+    transition: width 0.4s $quick;
+    &.text {
+      height: 16px;
+    }
+    &.header {
+      height: 200px;
       width: 100%;
+    }
+    &.gallery {
+      height: 120px;
+      min-width: 30%;
+      flex-grow: 1;
     }
     &.button {
       height: 24px;
       margin-top: $double-spacing;
+      cursor: default;
     }
     &.emptyLine {
       opacity: 0;
@@ -915,7 +929,7 @@
       height: 48px;
       width: 48px;
       border-radius: 50%;
-      background-size: 800%;
+      background-size: 400%;
       &::before {
         content: "";
         position: absolute;
@@ -941,7 +955,7 @@
       position: relative;
       height: 42px;
       border-radius: 24px;
-      background-size: 600%;
+      background-size: 200%;
       &::before {
         content: "";
         position: absolute;
@@ -963,31 +977,6 @@
         border-bottom-left-radius: 15px;
         transform: rotate(-30deg);
       }
-    }
-    &.xs,
-    &:has(.image) {
-      width: 10%;
-      background-size: 600%;
-    }
-    &.sm,
-    &:has(.image) {
-      width: 25%;
-      background-size: 500%;
-    }
-    &.md,
-    &:has(.image) {
-      width: 45%;
-      background-size: 400%;
-    }
-    &.lg,
-    &:has(.image) {
-      width: 65%;
-      background-size: 300%;
-    }
-    &.xl,
-    &:has(.image) {
-      width: 75%;
-      background-size: 205%;
     }
   }
 }

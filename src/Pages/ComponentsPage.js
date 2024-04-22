@@ -7,6 +7,7 @@ import InputThumb from "../Assets/Thumbs/input.svg";
 import ModalThumb from "../Assets/Thumbs/modal.svg";
 import TableThumb from "../Assets/Thumbs/table.svg";
 import TooltipThumb from "../Assets/Thumbs/tooltip.svg";
+import PlaceholderThumb from "../Assets/Thumbs/placeholder.svg";
 import useNavigation from "../Hooks/use-navigation";
 
 function ComponentsPage() {
@@ -62,6 +63,14 @@ function ComponentsPage() {
             "Tooltips are pop-up messages that display information when hovered over"
           }
           image={TooltipThumb}
+        />
+        <CardButtonLink
+          to={`${currentPath}/Placeholder`}
+          title={"Placeholders"}
+          caption={
+            "Placeholders are used to display the layout of a component before it is loaded"
+          }
+          image={PlaceholderThumb}
         />
       </div>
     </div>

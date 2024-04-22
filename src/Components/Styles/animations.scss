@@ -86,9 +86,9 @@
   animation: errorShake 0.4s $bouncy;
 }
 
-@keyframes glowinPlaceholder {
+@keyframes glowingPlaceholder {
   0% {
-    background-position: -200px;
+    background-position: -100px;
     transform: translateY($half-spacing);
     opacity: 0;
   }
@@ -103,7 +103,7 @@
     opacity: 0.1;
   }
   90% {
-    opacity: 0.02;
+    opacity: 0;
     transform: translateY(-8px);
   }
   100% {
@@ -113,32 +113,5 @@
 }
 
 .glow {
-  animation: glowinPlaceholder 2.4s ease-out infinite;
-}
-
-@keyframes fixPlaceholder {
-  0% {
-    background-position: -300px;
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.3;
-  }
-  40% {
-    opacity: 0.2;
-  }
-  70% {
-    opacity: 0.1;
-  }
-  90% {
-    opacity: 0.02;
-  }
-  100% {
-    opacity: 0;
-    background-position: 800px;
-  }
-}
-
-.fix {
-  animation: fixPlaceholder 2.4s ease-out infinite;
+  animation: glowingPlaceholder 2.4s ease-out infinite;
 }
