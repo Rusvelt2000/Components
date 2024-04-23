@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BsInfoCircle } from "react-icons/bs";
+import TooltipMessage from "./TooltipMessage";
 
 function Tooltip({ children }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -14,6 +15,7 @@ function Tooltip({ children }) {
 
   const handleTooltipDirection = (e) => {
     const tooltipIcon = e.target;
+    tooltipIcon.classList.add("Tooltip-container");
     //Get the width of the window
     const windowWidth = window.innerWidth;
     //Get the rightest position of the tooltip
@@ -23,12 +25,12 @@ function Tooltip({ children }) {
       const tooltip = tooltipIcon.querySelector(".tooltip-handler");
       if (tooltip) {
         if (windowWidth - tooltipRightSide <= 320) {
-          tooltip.classList.add("Tooltip", "side-entrance", "right");
+          tooltip.classList.add("Tooltip", "tooltip-right", "right");
         } else {
-          tooltip.classList.add("Tooltip", "side-entrance-left", "left");
+          tooltip.classList.add("Tooltip", "tooltip-left", "left");
         }
       }
-    }, 0);
+    }, 1);
   };
 
   return (
@@ -39,7 +41,7 @@ function Tooltip({ children }) {
       onMouseLeave={handleMouseLeave}
       onMouseOver={handleTooltipDirection}
     >
-      {isHovered && <div className="tooltip-handler">{children}</div>}
+      {isHovered && <TooltipMessage>{children}</TooltipMessage>}
       <BsInfoCircle className="Tooltip-icon" />
     </div>
   );

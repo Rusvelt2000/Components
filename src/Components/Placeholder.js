@@ -16,8 +16,8 @@ function Placeholder({
     Math.floor(Math.random() * (90 - 20) + 20)
   );
   const [isActive, setIsActive] = useState(true);
-  console.log(isActive);
-  const classes = classNames("Placeholder", {
+
+  const classes = classNames("Placeholder", isActive && "glow", {
     text,
     emptyLine,
     header,
@@ -27,7 +27,6 @@ function Placeholder({
     right,
     button,
     gallery,
-    glow: isActive,
   });
   function timeout() {
     setWidth(Math.floor(Math.random() * (80 - 20) + 20));

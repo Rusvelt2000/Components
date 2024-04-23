@@ -42,8 +42,12 @@
 .side-entrance {
   animation: side-entrance 0.4s $quick;
 }
-.side-entrance-left {
-  animation: side-entrance-left 0.4s $quick;
+.tooltip-right {
+  animation: side-entrance 0.4s $quick 0.4s forwards;
+}
+
+.tooltip-left {
+  animation: side-entrance-left 0.4s $quick 0.4s forwards;
 }
 
 @keyframes expandAccordion {

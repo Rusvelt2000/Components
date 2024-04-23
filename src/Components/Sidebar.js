@@ -79,7 +79,14 @@ function Sidebar() {
         </SidebarLink>
       );
     } else {
-      return <SidebarLink key={link.label} icon={link.icon} to={link.to} />;
+      return (
+        <SidebarLink
+          key={link.label}
+          icon={link.icon}
+          to={link.to}
+          tooltip={link.label}
+        />
+      );
     }
   });
 
@@ -110,6 +117,7 @@ function Sidebar() {
           <SidebarLink
             icon={<MdOutlineSpaceDashboard />}
             to="/Home"
+            tooltip="Dashboard"
           ></SidebarLink>
           <hr />
           {renderLinks}
