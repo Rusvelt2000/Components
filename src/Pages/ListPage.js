@@ -23,6 +23,10 @@ function ListPage() {
     inputRef.focus();
   };
 
+  const emptyList = () => {
+    setListItems([]);
+  };
+
   const renderItems = listItems.map((item, index) => {
     return <CheckBox key={index}>{item}</CheckBox>;
   });
@@ -30,7 +34,7 @@ function ListPage() {
   return (
     <div>
       <Title>Lists</Title>
-      <Section col2>
+      <Section col4>
         <Container title="Default list">
           <form onSubmit={addItem}>
             <Input
@@ -43,6 +47,9 @@ function ListPage() {
             />
             <Button primary onClick={addItem}>
               Add item
+            </Button>
+            <Button alert onClick={emptyList}>
+              Empty list
             </Button>
           </form>
         </Container>

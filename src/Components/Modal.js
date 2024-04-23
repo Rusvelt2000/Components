@@ -28,7 +28,7 @@ function Modal({ onClose, modalSize, image, title, children }) {
         <p>{children}</p>
         <Button secondary outline onClick={onClose}>
           <GoXCircle className="icon" />
-          Close modal
+          Cancel
         </Button>
       </div>
     </div>,

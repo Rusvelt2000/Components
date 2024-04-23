@@ -26,6 +26,7 @@ function SharedProvider({ children }) {
     }
   };
 
+  //The following assigns the tooltip direction based ont the position on the screen
   const handleTooltipDirection = (e) => {
     const tooltipIcon = e.target;
     //Get the width of the window

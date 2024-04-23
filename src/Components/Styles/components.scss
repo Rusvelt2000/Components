@@ -791,7 +791,8 @@
   .Tooltip {
     position: absolute;
     top: -16px;
-    min-width: 200px;
+    width: max-content;
+    max-width: 240px;
     background-color: $primary;
     color: $white;
     box-shadow: $high-shadow;
