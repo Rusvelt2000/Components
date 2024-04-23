@@ -1,19 +1,15 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import TooltipMessage from "./TooltipMessage";
-import SharedContext from "../Context/Shared";
+import SharedMouseEventsContext from "../Context/MouseEvents";
 
 function Tooltip({ children }) {
-  const { handleTooltipDirection } = useContext(SharedContext);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  const {
+    handleTooltipDirection,
+    isHovered,
+    handleMouseEnter,
+    handleMouseLeave,
+  } = useContext(SharedMouseEventsContext);
 
   return (
     <div
