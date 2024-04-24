@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import useNavigation from "../Hooks/use-navigation";
 import TooltipMessage from "./TooltipMessage";
-import { useState, useContext } from "react";
-import SharedMouseEventsContext from "../Context/MouseEvents";
+import { useState } from "react";
+import useMouseEvents from "../Hooks/use-MouseEvents";
 
 function SidebarLink({ to, children, className, icon, tooltip }) {
-  const { handleTooltipDirection } = useContext(SharedMouseEventsContext);
+  const { handleTooltipDirection } = useMouseEvents();
   const { currentPath, navigate } = useNavigation();
   const [isHovered, setIsHovered] = useState(false);
 

@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import { BsInfoCircle } from "react-icons/bs";
 import TooltipMessage from "./TooltipMessage";
-import SharedMouseEventsContext from "../Context/MouseEvents";
+import useMouseEvents from "../Hooks/use-MouseEvents";
 
 function Tooltip({ children }) {
   const {
@@ -9,7 +8,7 @@ function Tooltip({ children }) {
     isHovered,
     handleMouseEnter,
     handleMouseLeave,
-  } = useContext(SharedMouseEventsContext);
+  } = useMouseEvents();
 
   return (
     <div

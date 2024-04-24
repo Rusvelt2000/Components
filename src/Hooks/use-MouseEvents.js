@@ -1,8 +1,6 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 
-const SharedMouseEventsContext = createContext();
-
-function MouseEventsProvider({ children }) {
+function useMouseEvents() {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -33,19 +31,12 @@ function MouseEventsProvider({ children }) {
     }, 1);
   };
 
-  const sharedContextValue = {
+  return {
     isHovered,
     handleMouseEnter,
     handleMouseLeave,
     handleTooltipDirection,
   };
-
-  return (
-    <SharedMouseEventsContext.Provider value={sharedContextValue}>
-      {children}
-    </SharedMouseEventsContext.Provider>
-  );
 }
 
-export { MouseEventsProvider };
-export default SharedMouseEventsContext;
+export default useMouseEvents;
