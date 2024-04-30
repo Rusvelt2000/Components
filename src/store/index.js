@@ -10,6 +10,9 @@ const listSlice = createSlice({
     removeItem(state, action) {
       //
     },
+    emptyList(state, action) {
+      return [];
+    },
   },
 });
 
@@ -20,4 +23,4 @@ const store = configureStore({
 });
 
 export { store };
-export const { addItem } = listSlice.actions;
+export const { addItem, emptyList } = listSlice.actions;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../store";
+import { addItem, emptyList } from "../store";
 import Section from "../Components/Section";
 import Title from "../Components/Title";
 import Input from "../Components/Input";
@@ -14,21 +14,24 @@ function ListPage() {
   const listItems = useSelector((state) => {
     return state.list;
   });
-  const inputRef = document.querySelector(".addItem input");
+  const listInput = document.querySelector(".addItem input");
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleAddItem = () => {
+  const handleAddItem = (event) => {
+    event.preventDefault();
     if (inputValue.trim() !== "") {
       dispatch(addItem(inputValue));
+      listInput.focus();
     }
     setInputValue("");
-    inputRef.focus();
   };
 
-  const emptyList = () => {
-    //this will empty the list
+  const handleEmptyList = () => {
+    dispatch(emptyList());
+    setInputValue("");
+    listInput.focus();
   };
 
   const renderItems = listItems.map((item, index) => {
@@ -40,7 +43,7 @@ function ListPage() {
       <Title>Lists</Title>
       <Section col4>
         <Container title="Default list">
-          <form onSubmit={addItem}>
+          <form onSubmit={handleAddItem}>
             <Input
               size="sm"
               placeholder="Add an item to the list"
@@ -52,7 +55,7 @@ function ListPage() {
             <Button primary onClick={handleAddItem}>
               Add item
             </Button>
-            <Button alert onClick={emptyList}>
+            <Button alert onClick={handleEmptyList}>
               Empty list
             </Button>
           </form>
