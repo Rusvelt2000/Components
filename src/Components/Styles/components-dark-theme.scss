@@ -358,4 +358,23 @@
       margin: 0;
     }
   }
+
+  /* ------------------
+   --- PLACEHOLDER ---
+--------------------*/
+  .PlaceholderContainer {
+    .Placeholder {
+      background: linear-gradient(
+        to right,
+        (
+          rgba(233, 233, 233, 0) 0%,
+          rgba(236, 255, 251, 0.28) 90%,
+          rgba(233, 233, 233, 0) 100%
+        )
+      );
+      &.avatar {
+        background-size: 400%;
+      }
+    }
+  }
 }

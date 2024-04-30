@@ -907,11 +907,11 @@
     margin-bottom: $default-spacing;
     background: linear-gradient(
       to right,
-      $ultraLight-grey 0%,
-      $light-grey 20%,
-      $ultraLight-grey 30%,
-      $light-grey 40%,
-      $ultraLight-grey 100%
+      (
+        rgba(44, 44, 44, 0.1) 0%,
+        rgba(245, 245, 245, 0.18) 90%,
+        rgba(44, 44, 44, 0.1) 100%
+      )
     );
     transition: width 0.4s ease-out;
     &.text {
