@@ -1003,7 +1003,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: inherit;
+  border-radius: $bd-radius;
+  padding: $half-spacing;
+  &:hover {
+    background-color: lighten($ultraLight-grey, 5);
+  }
   .favicon {
     padding: $half-spacing;
+    margin: 0;
+  }
+  p {
+    margin: 0;
   }
 }

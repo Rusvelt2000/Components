@@ -377,4 +377,13 @@
       }
     }
   }
+  /* ------------------
+   --- ACTION ROW ---
+  --------------------*/
+
+  .ActionRow {
+    &:hover {
+      background-color: lighten($dark-grey, 5);
+    }
+  }
 }
