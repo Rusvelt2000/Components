@@ -8,7 +8,7 @@ const listSlice = createSlice({
       state.push(action.payload);
     },
     removeItem(state, action) {
-      //
+      state.splice(action.payload, 1);
     },
     emptyList(state, action) {
       return [];
@@ -23,4 +23,4 @@ const store = configureStore({
 });
 
 export { store };
-export const { addItem, emptyList } = listSlice.actions;
+export const { addItem, emptyList, removeItem } = listSlice.actions;

@@ -215,6 +215,10 @@
     border-radius: 50%;
     font-size: $big-text;
   }
+  &.iconOnly {
+    padding: $half-spacing $default-spacing;
+    font-size: $big-text;
+  }
   .icon {
     margin-right: calc($default-spacing / 2);
     fill: inherit;
@@ -988,5 +992,18 @@
         transform: rotate(-30deg);
       }
     }
+  }
+}
+
+/* ------------------
+   --- ACTION ROW ---
+--------------------*/
+
+.ActionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .favicon {
+    padding: $half-spacing;
   }
 }

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, emptyList } from "../store";
+import { addItem, removeItem, emptyList } from "../store";
 import Section from "../Components/Section";
 import Title from "../Components/Title";
 import Input from "../Components/Input";
 import Button from "../Components/Button";
+import ActionRow from "../Components/ActionRow";
 import Container from "../Components/Container";
-import CheckBox from "../Components/CheckBox";
 
 function ListPage() {
   const dispatch = useDispatch();
@@ -34,8 +34,16 @@ function ListPage() {
     listInput.focus();
   };
 
+  const handleDelete = (index) => {
+    dispatch(removeItem(index));
+  };
+
   const renderItems = listItems.map((item, index) => {
-    return <CheckBox key={index}>{item}</CheckBox>;
+    return (
+      <ActionRow key={index} deleteAction={() => handleDelete(index)}>
+        <p>{item}</p>
+      </ActionRow>
+    );
   });
 
   return (
