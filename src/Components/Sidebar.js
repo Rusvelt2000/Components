@@ -109,6 +109,7 @@ function Sidebar() {
           </SidebarLink>
           <h4>Components</h4>
           <SidebarAccordion label="Base" links={renderLinks}></SidebarAccordion>
+          <SidebarAccordion label="Components"></SidebarAccordion>
           <hr />
           <h4>Other</h4>
         </div>

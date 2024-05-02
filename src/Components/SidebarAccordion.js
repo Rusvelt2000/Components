@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
 
 function SidebarAccordion({ label, links }) {
