@@ -28,6 +28,7 @@
 /* ------------------
    --- SIDEBAR ---
 --------------------*/
+
 .SidebarWrapper {
   position: relative;
 
@@ -61,10 +62,11 @@
       border-left: 0px solid transparent;
       border-radius: $bd-radius;
       transition: padding 0.4s $bouncy;
+      margin-left: 4px;
       cursor: pointer;
 
       &:has(a:focus) {
-        background-color: lighten($primary, 40);
+        background-color: transparentize($primary, 0.9);
       }
       a {
         color: $dark-grey;
@@ -77,12 +79,12 @@
         line-height: 0;
       }
       &:hover {
-        background-color: lighten($primary, 40);
+        background-color: transparentize($primary, 0.9);
       }
       &.active {
         padding: 12px 32px 12px 24px;
         border-left: 4px solid $primary;
-        background-color: lighten($primary, 40);
+        background-color: transparentize($primary, 0.9);
         a {
           color: $primary;
           font-weight: 600;
@@ -140,6 +142,21 @@
     &:hover {
       padding: $default-spacing ($default-spacing + 4);
       transition: padding 0.4s $quick 0.05s;
+    }
+  }
+}
+
+.SidebarAccordion {
+  @extend .Accordion;
+  .sidebar-accordion-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    color: $text-grey;
+    cursor: pointer;
+    &:hover {
+      background-color: transparentize($primary, 0.9);
     }
   }
 }
@@ -1010,8 +1027,9 @@
     background-color: lighten($ultraLight-grey, 5);
   }
   .favicon {
-    padding: $half-spacing;
+    padding: 4px;
     margin: 0;
+    border-radius: $bd-radius;
   }
   p {
     margin: 0;

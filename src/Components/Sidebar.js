@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import SharedContext from "../Context/Shared";
+import SidebarAccordion from "./SidebarAccordion";
 import SidebarLink from "./SidebarLink";
 import Button from "./Button";
 import logo from "../Assets/Logo.svg";
@@ -107,7 +108,7 @@ function Sidebar() {
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
-          {renderLinks}
+          <SidebarAccordion label="Base" links={renderLinks}></SidebarAccordion>
           <hr />
           <h4>Other</h4>
         </div>

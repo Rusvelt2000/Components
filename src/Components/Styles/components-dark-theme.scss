@@ -25,21 +25,21 @@
     box-shadow: $dt-low-shadow;
     .SidebarLink {
       &:has(a:focus) {
-        background-color: $primary-light;
+        background-color: transparentize($primary, 0.8);
       }
       a {
         color: $white;
       }
       &.active {
         border-left: 4px solid $secondary;
-        background-color: $primary-light;
+        background-color: transparentize($primary, 0.8);
         a,
         .icon {
           color: $white;
         }
       }
       &:hover {
-        background-color: $primary-light;
+        background-color: transparentize($primary, 0.8);
       }
     }
     &.collapsed {
@@ -200,6 +200,17 @@
       border: 0.5px solid $medium-grey;
       background-color: $dark-grey;
       color: $ultraLight-grey;
+    }
+  }
+
+  .SidebarAccordion {
+    @extend .Accordion;
+    .sidebar-accordion-label {
+      color: $white;
+
+      &:hover {
+        background-color: transparentize($primary, 0.8);
+      }
     }
   }
   /* ------------------
