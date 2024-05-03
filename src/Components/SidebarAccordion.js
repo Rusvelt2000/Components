@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
-import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
+import { useState } from "react";
+import { PiCaretLeftBold, PiCaretDownBold } from "react-icons/pi";
 
-function SidebarAccordion({ label, links }) {
+function SidebarAccordion({ label, children }) {
   const [expandedItem, setExpandedItem] = useState(-1);
   const icon = (
-    <span>{expandedItem ? <GoTriangleDown /> : <GoTriangleLeft />}</span>
+    <span>{expandedItem ? <PiCaretLeftBold /> : <PiCaretDownBold />}</span>
   );
 
   const handleClick = () => {
@@ -18,7 +18,7 @@ function SidebarAccordion({ label, links }) {
         {icon}
       </div>
 
-      {expandedItem && links}
+      {expandedItem && children}
     </div>
   );
 }

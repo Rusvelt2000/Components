@@ -24,71 +24,90 @@ function Sidebar() {
     setCollapsedSidebar(!isCollapsedSidebar);
   };
 
-  const links = [
+  const sidebarGroupLinks = [
     {
-      label: "Accordions",
-      icon: <TfiLayoutAccordionSeparated />,
-      to: "/Home/Components/Accordion",
+      label: "Base",
+      links: [
+        {
+          label: "Accordions",
+          icon: <TfiLayoutAccordionSeparated />,
+          to: "/Home/Components/Accordion",
+        },
+        {
+          label: "Buttons",
+          icon: <TbHandClick />,
+          to: "/Home/Components/Button",
+        },
+        {
+          label: "Dropdowns",
+          icon: <CgList />,
+          to: "/Home/Components/Dropdown",
+        },
+
+        {
+          label: "Modals",
+          icon: <BiSolidWindowAlt />,
+          to: "/Home/Components/Modal",
+        },
+
+        {
+          label: "Tooltips",
+          icon: <GrTooltip />,
+          to: "/Home/Components/Tooltip",
+        },
+        {
+          label: "Placeholders",
+          icon: <TfiLayoutMediaLeftAlt />,
+          to: "/Home/Components/Placeholder",
+        },
+      ],
     },
     {
-      label: "Buttons",
-      icon: <TbHandClick />,
-      to: "/Home/Components/Button",
-    },
-    {
-      label: "Dropdowns",
-      icon: <CgList />,
-      to: "/Home/Components/Dropdown",
-    },
-    {
-      label: "Inputs",
-      icon: <RxInput />,
-      to: "/Home/Components/Input",
-    },
-    {
-      label: "Modals",
-      icon: <BiSolidWindowAlt />,
-      to: "/Home/Components/Modal",
-    },
-    {
-      label: "Tables",
-      icon: <TbTableColumn />,
-      to: "/Home/Components/Table",
-    },
-    {
-      label: "Tooltips",
-      icon: <GrTooltip />,
-      to: "/Home/Components/Tooltip",
-    },
-    {
-      label: "Lists",
-      icon: <GoTasklist />,
-      to: "/Home/Components/List",
-    },
-    {
-      label: "Placeholders",
-      icon: <TfiLayoutMediaLeftAlt />,
-      to: "/Home/Components/Placeholder",
+      label: "Forms",
+      links: [
+        {
+          label: "Lists",
+          icon: <GoTasklist />,
+          to: "/Home/Components/List",
+        },
+        {
+          label: "Tables",
+          icon: <TbTableColumn />,
+          to: "/Home/Components/Table",
+        },
+        {
+          label: "Inputs",
+          icon: <RxInput />,
+          to: "/Home/Components/Input",
+        },
+      ],
     },
   ];
 
-  const renderLinks = links.map((link) => {
-    if (!isCollapsedSidebar) {
-      return (
-        <SidebarLink key={link.label} icon={link.icon} to={link.to}>
-          {link.label}
-        </SidebarLink>
-      );
-    } else {
-      return (
-        <SidebarLink
-          key={link.label}
-          icon={link.icon}
-          to={link.to}
-          tooltip={link.label}
-        />
-      );
-    }
+  const renderGroups = sidebarGroupLinks.map((group) => {
+    const renderLinks = group.links.map((link) => {
+      if (!isCollapsedSidebar) {
+        return (
+          <SidebarLink key={link.label} icon={link.icon} to={link.to}>
+            {link.label}
+          </SidebarLink>
+        );
+      } else {
+        return (
+          <SidebarLink
+            key={link.label}
+            icon={link.icon}
+            to={link.to}
+            tooltip={link.label}
+          />
+        );
+      }
+    });
+    return (
+      <SidebarAccordion key={group.label} label={group.label}>
+        {renderLinks}
+      </SidebarAccordion>
+    );
   });
 
   return (
@@ -108,8 +127,7 @@ function Sidebar() {
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
-          <SidebarAccordion label="Base" links={renderLinks}></SidebarAccordion>
-          <SidebarAccordion label="Components"></SidebarAccordion>
+          {renderGroups}
           <hr />
           <h4>Other</h4>
         </div>
@@ -122,7 +140,7 @@ function Sidebar() {
             tooltip="Dashboard"
           ></SidebarLink>
           <hr />
-          {renderLinks}
+          {renderGroups}
           <hr />
         </div>
       )}
