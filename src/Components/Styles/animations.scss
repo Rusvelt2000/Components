@@ -65,6 +65,23 @@
   animation: expandAccordion 0.2s $quick;
 }
 
+@keyframes expandSidebarAccordion {
+  0% {
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+  }
+  100% {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    opacity: 1;
+  }
+}
+
+.expandSidebarAccordion {
+  animation: expandSidebarAccordion 0.2s $quick;
+}
+
 @keyframes errorShake {
   0% {
     transform: translateX(0);

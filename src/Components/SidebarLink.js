@@ -4,7 +4,7 @@ import TooltipMessage from "./TooltipMessage";
 import { useState } from "react";
 import useMouseEvents from "../Hooks/use-MouseEvents";
 
-function SidebarLink({ to, children, className, icon, tooltip }) {
+function SidebarLink({ to, children, className, icon, tooltip, onLinkClick }) {
   const { handleTooltipDirection } = useMouseEvents();
   const { currentPath, navigate } = useNavigation();
   const [isHovered, setIsHovered] = useState(false);
@@ -18,7 +18,7 @@ function SidebarLink({ to, children, className, icon, tooltip }) {
   };
 
   const classes = classNames(
-    "SidebarLink",
+    "SidebarLink expandSidebarAccordion",
     className,
     currentPath === to && "active",
     isHovered && "Tooltip-container"
@@ -29,6 +29,7 @@ function SidebarLink({ to, children, className, icon, tooltip }) {
     }
     event.preventDefault();
     navigate(to);
+    onLinkClick(children);
   };
 
   return (

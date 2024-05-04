@@ -1,4 +1,5 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
+import useNavigation from "../Hooks/use-navigation";
 import SharedContext from "../Context/Shared";
 import SidebarAccordion from "./SidebarAccordion";
 import SidebarLink from "./SidebarLink";
@@ -22,6 +23,23 @@ function Sidebar() {
   const [isCollapsedSidebar, setCollapsedSidebar] = useState(false);
   const toggleSidebar = () => {
     setCollapsedSidebar(!isCollapsedSidebar);
+  };
+
+  const [expandedAccordion, setExpandedAccordion] = useState(-1);
+  useEffect(() => {
+    console.log("this is triggering");
+    setExpandedAccordion(expandedAccordion);
+  }, []);
+
+  const handleClick = (nextIndex) => {
+    console.log(nextIndex);
+    setExpandedAccordion((current) => {
+      if (current === nextIndex) {
+        return -1;
+      } else {
+        return nextIndex;
+      }
+    });
   };
 
   const sidebarGroupLinks = [
@@ -84,11 +102,16 @@ function Sidebar() {
     },
   ];
 
-  const renderGroups = sidebarGroupLinks.map((group) => {
+  const renderGroups = sidebarGroupLinks.map((group, index) => {
     const renderLinks = group.links.map((link) => {
       if (!isCollapsedSidebar) {
         return (
-          <SidebarLink key={link.label} icon={link.icon} to={link.to}>
+          <SidebarLink
+            key={link.label}
+            icon={link.icon}
+            to={link.to}
+            onLinkClick={handleClick}
+          >
             {link.label}
           </SidebarLink>
         );
@@ -98,13 +121,19 @@ function Sidebar() {
             key={link.label}
             icon={link.icon}
             to={link.to}
+            onLinkClick={handleClick}
             tooltip={link.label}
           />
         );
       }
     });
     return (
-      <SidebarAccordion key={group.label} label={group.label}>
+      <SidebarAccordion
+        key={group.label}
+        label={group.label}
+        onClick={() => handleClick(index)}
+        isOpen={expandedAccordion === index ? true : false}
+      >
         {renderLinks}
       </SidebarAccordion>
     );
@@ -123,7 +152,11 @@ function Sidebar() {
       {!isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
           <img className="logo" src={logoImage} alt="RctCompt Logo" />
-          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/Home">
+          <SidebarLink
+            icon={<MdOutlineSpaceDashboard />}
+            to="/Home"
+            onLinkClick={handleClick}
+          >
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
@@ -138,6 +171,7 @@ function Sidebar() {
             icon={<MdOutlineSpaceDashboard />}
             to="/Home"
             tooltip="Dashboard"
+            onLinkClick={handleClick}
           ></SidebarLink>
           <hr />
           {renderGroups}

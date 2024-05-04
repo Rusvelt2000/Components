@@ -1,24 +1,18 @@
-import { useState } from "react";
 import { PiCaretLeftBold, PiCaretDownBold } from "react-icons/pi";
 
-function SidebarAccordion({ label, children }) {
-  const [expandedItem, setExpandedItem] = useState(-1);
+function SidebarAccordion({ label, children, isOpen, ...rest }) {
   const icon = (
-    <span>{expandedItem ? <PiCaretLeftBold /> : <PiCaretDownBold />}</span>
+    <span>{isOpen ? <PiCaretLeftBold /> : <PiCaretDownBold />}</span>
   );
 
-  const handleClick = () => {
-    setExpandedItem(!expandedItem);
-  };
-
   return (
-    <div className="SidebarAccordion" onClick={() => handleClick()}>
+    <div className="SidebarAccordion" {...rest}>
       <div className="sidebar-accordion-label">
         {label}
         {icon}
       </div>
 
-      {expandedItem && children}
+      {isOpen && children}
     </div>
   );
 }
