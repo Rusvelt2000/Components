@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GoTriangleDown, GoTriangleLeft } from "react-icons/go";
+import { PiCaretLeftBold, PiCaretDownBold } from "react-icons/pi";
 
 function Accordion({ items }) {
   const [expandedItem, setExpandedItem] = useState(-1);
@@ -16,7 +16,7 @@ function Accordion({ items }) {
   const renderedAccordion = items.map((item, index) => {
     const isExpanded = index === expandedItem;
     const icon = (
-      <span>{isExpanded ? <GoTriangleDown /> : <GoTriangleLeft />}</span>
+      <span>{isExpanded ? <PiCaretLeftBold /> : <PiCaretDownBold />}</span>
     );
 
     return (
