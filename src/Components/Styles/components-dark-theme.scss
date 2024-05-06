@@ -184,16 +184,20 @@
     --------------------*/
   .Accordion {
     &:has(.AccordionContent) .AccordionLabel {
-      background-color: lighten($secondary, 10);
+      background-color: lighten($primary-light, 10);
       border-radius: $bd-radius $bd-radius 0 0;
     }
     &:has(.AccordionContent) .AccordionLabel:hover {
-      background-color: lighten($secondary, 15);
+      background-color: lighten($primary-light, 15);
     }
     .AccordionLabel {
-      background-color: lighten($primary-light, 25);
+      background-color: lighten($dark-grey, 10);
+      p,
+      span {
+        color: $white;
+      }
       &:hover {
-        background-color: lighten($primary-light, 30);
+        background-color: lighten($dark-grey, 15);
       }
     }
     .AccordionContent {

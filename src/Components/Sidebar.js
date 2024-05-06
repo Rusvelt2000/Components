@@ -1,5 +1,6 @@
-import { useState, useContext, useEffect } from "react";
-import useNavigation from "../Hooks/use-navigation";
+import { useState, useContext } from "react";
+
+import useSidebarNavigation from "../Hooks/use-sidebarNavigation";
 import SharedContext from "../Context/Shared";
 import SidebarAccordion from "./SidebarAccordion";
 import SidebarLink from "./SidebarLink";
@@ -20,26 +21,15 @@ import { TfiLayoutMediaLeftAlt } from "react-icons/tfi";
 
 function Sidebar() {
   const { logoImage } = useContext(SharedContext);
+  const { expandedAccordion, handleExpandSidebarAccordion } =
+    useSidebarNavigation();
   const [isCollapsedSidebar, setCollapsedSidebar] = useState(false);
   const toggleSidebar = () => {
     setCollapsedSidebar(!isCollapsedSidebar);
   };
 
-  const [expandedAccordion, setExpandedAccordion] = useState(-1);
-  useEffect(() => {
-    console.log("this is triggering");
-    setExpandedAccordion(expandedAccordion);
-  }, []);
-
-  const handleClick = (nextIndex) => {
-    console.log(nextIndex);
-    setExpandedAccordion((current) => {
-      if (current === nextIndex) {
-        return -1;
-      } else {
-        return nextIndex;
-      }
-    });
+  const handleSidebarAccordionClick = (index) => {
+    handleExpandSidebarAccordion(index);
   };
 
   const sidebarGroupLinks = [
@@ -50,33 +40,39 @@ function Sidebar() {
           label: "Accordions",
           icon: <TfiLayoutAccordionSeparated />,
           to: "/Home/Components/Accordion",
+          groupIndex: 0,
         },
         {
           label: "Buttons",
           icon: <TbHandClick />,
           to: "/Home/Components/Button",
+          groupIndex: 0,
         },
         {
           label: "Dropdowns",
           icon: <CgList />,
           to: "/Home/Components/Dropdown",
+          groupIndex: 0,
         },
 
         {
           label: "Modals",
           icon: <BiSolidWindowAlt />,
           to: "/Home/Components/Modal",
+          groupIndex: 0,
         },
 
         {
           label: "Tooltips",
           icon: <GrTooltip />,
           to: "/Home/Components/Tooltip",
+          groupIndex: 0,
         },
         {
           label: "Placeholders",
           icon: <TfiLayoutMediaLeftAlt />,
           to: "/Home/Components/Placeholder",
+          groupIndex: 0,
         },
       ],
     },
@@ -87,16 +83,19 @@ function Sidebar() {
           label: "Lists",
           icon: <GoTasklist />,
           to: "/Home/Components/List",
+          groupIndex: 1,
         },
         {
           label: "Tables",
           icon: <TbTableColumn />,
           to: "/Home/Components/Table",
+          groupIndex: 1,
         },
         {
           label: "Inputs",
           icon: <RxInput />,
           to: "/Home/Components/Input",
+          groupIndex: 1,
         },
       ],
     },
@@ -110,7 +109,7 @@ function Sidebar() {
             key={link.label}
             icon={link.icon}
             to={link.to}
-            onLinkClick={handleClick}
+            groupIndex={link.groupIndex}
           >
             {link.label}
           </SidebarLink>
@@ -121,8 +120,8 @@ function Sidebar() {
             key={link.label}
             icon={link.icon}
             to={link.to}
-            onLinkClick={handleClick}
             tooltip={link.label}
+            groupIndex={link.groupIndex}
           />
         );
       }
@@ -131,14 +130,14 @@ function Sidebar() {
       <SidebarAccordion
         key={group.label}
         label={group.label}
-        onClick={() => handleClick(index)}
+        onClick={handleSidebarAccordionClick}
+        index={index}
         isOpen={expandedAccordion === index ? true : false}
       >
         {renderLinks}
       </SidebarAccordion>
     );
   });
-
   return (
     <div className="SidebarWrapper ">
       <Button
@@ -152,11 +151,7 @@ function Sidebar() {
       {!isCollapsedSidebar ? (
         <div className="Sidebar side-entrance-left">
           <img className="logo" src={logoImage} alt="RctCompt Logo" />
-          <SidebarLink
-            icon={<MdOutlineSpaceDashboard />}
-            to="/Home"
-            onLinkClick={handleClick}
-          >
+          <SidebarLink icon={<MdOutlineSpaceDashboard />} to="/Home">
             Dashboard
           </SidebarLink>
           <h4>Components</h4>
@@ -171,7 +166,6 @@ function Sidebar() {
             icon={<MdOutlineSpaceDashboard />}
             to="/Home"
             tooltip="Dashboard"
-            onLinkClick={handleClick}
           ></SidebarLink>
           <hr />
           {renderGroups}
