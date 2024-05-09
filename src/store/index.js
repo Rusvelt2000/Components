@@ -1,16 +1,32 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const listSlice = createSlice({
-  name: "list",
+const groceryListSlice = createSlice({
+  name: "groceryList",
   initialState: [],
   reducers: {
-    addItem(state, action) {
+    addGroceryItem(state, action) {
       state.push(action.payload);
     },
-    removeItem(state, action) {
+    removeGroceryItem(state, action) {
       state.splice(action.payload, 1);
     },
-    emptyList(state, action) {
+    emptyGroceryList() {
+      return [];
+    },
+  },
+});
+
+const travelListSlice = createSlice({
+  name: "travelList",
+  initialState: [],
+  reducers: {
+    addTravelItem(state, action) {
+      state.push(action.payload);
+    },
+    removeTravelItem(state, action) {
+      state.splice(action.payload, 1);
+    },
+    emptyTravelList() {
       return [];
     },
   },
@@ -18,9 +34,13 @@ const listSlice = createSlice({
 
 const store = configureStore({
   reducer: {
-    list: listSlice.reducer,
+    groceryList: groceryListSlice.reducer,
+    travelList: travelListSlice.reducer,
   },
 });
 
 export { store };
-export const { addItem, emptyList, removeItem } = listSlice.actions;
+export const { addGroceryItem, emptyGroceryList, removeGroceryItem } =
+  groceryListSlice.actions;
+export const { addTravelItem, emptyTravelList, removeTravelItem } =
+  travelListSlice.actions;

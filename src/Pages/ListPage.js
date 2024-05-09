@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem, emptyList } from "../store";
+import {
+  addGroceryItem,
+  removeGroceryItem,
+  emptyGroceryList,
+  addTravelItem,
+  emptyTravelList,
+  removeTravelItem,
+} from "../store";
 import Section from "../Components/Section";
 import Title from "../Components/Title";
 import Input from "../Components/Input";
@@ -10,37 +17,78 @@ import Container from "../Components/Container";
 
 function ListPage() {
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState("");
-  const listItems = useSelector((state) => {
-    return state.list;
+  const [groceryValue, setGroceryValue] = useState("");
+  const [travelValue, setTravelValue] = useState("");
+  const groceryList = useSelector((state) => {
+    return state.groceryList;
   });
-  const listInput = document.querySelector(".addItem input");
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
+  const travelList = useSelector((state) => {
+    return state.travelList;
+  });
+  const groceryListInput = document.querySelector(".addGrocery input");
+  const travelListInput = document.querySelector(".addTravelItem input");
+  const handleGroceryChange = (event) => {
+    setGroceryValue(event.target.value);
   };
 
-  const handleAddItem = (event) => {
+  const handleTravelChange = (event) => {
+    setTravelValue(event.target.value);
+  };
+
+  const handleAddGrocery = (event) => {
     event.preventDefault();
-    if (inputValue.trim() !== "") {
-      dispatch(addItem(inputValue));
-      listInput.focus();
+    if (groceryValue.trim() !== "") {
+      dispatch(addGroceryItem(groceryValue));
+      groceryListInput.focus();
     }
-    setInputValue("");
+    setGroceryValue("");
   };
 
-  const handleEmptyList = () => {
-    dispatch(emptyList());
-    setInputValue("");
-    listInput.focus();
+  const handleAddTravelItem = (event) => {
+    event.preventDefault();
+    if (travelValue.trim() !== "") {
+      dispatch(addTravelItem(travelValue));
+      travelListInput.focus();
+    }
+    setTravelValue("");
   };
 
-  const handleDelete = (index) => {
-    dispatch(removeItem(index));
+  const handleEmptyGroceryList = () => {
+    dispatch(emptyGroceryList());
+    setGroceryValue("");
+    groceryListInput.focus();
   };
 
-  const renderItems = listItems.map((item, index) => {
+  const handleEmptyTravelList = () => {
+    dispatch(emptyTravelList());
+    travelListInput.focus();
+  };
+
+  const handleDeleteGroceryListItem = (index) => {
+    dispatch(removeGroceryItem(index));
+  };
+
+  const handleDeleteTravelItem = (index) => {
+    dispatch(removeTravelItem(index));
+  };
+
+  const renderGroceryItems = groceryList.map((item, index) => {
     return (
-      <ActionRow key={index} deleteAction={() => handleDelete(index)}>
+      <ActionRow
+        key={item + index}
+        deleteAction={() => handleDeleteGroceryListItem(index)}
+      >
+        <p>{item}</p>
+      </ActionRow>
+    );
+  });
+
+  const renderTravelItems = travelList.map((item, index) => {
+    return (
+      <ActionRow
+        key={item + index}
+        deleteAction={() => handleDeleteTravelItem(index)}
+      >
         <p>{item}</p>
       </ActionRow>
     );
@@ -50,25 +98,62 @@ function ListPage() {
     <div>
       <Title>Lists</Title>
       <Section col4>
-        <Container title="Default list">
-          <form onSubmit={handleAddItem}>
+        <Container title="Grocery list">
+          <form onSubmit={handleAddGrocery}>
             <Input
-              size="sm"
-              placeholder="Add an item to the list"
-              label="Add"
-              onChange={handleChange}
-              value={inputValue}
-              className="addItem"
+              placeholder="e.g. milk"
+              label="Add grocery"
+              onChange={handleGroceryChange}
+              value={groceryValue}
+              className="addGrocery"
             />
-            <Button primary onClick={handleAddItem}>
-              Add item
-            </Button>
-            <Button alert onClick={handleEmptyList}>
-              Empty list
-            </Button>
+            <div className="flex">
+              <Button span primary onClick={handleAddGrocery}>
+                Add item
+              </Button>
+              <Button span alert onClick={handleEmptyGroceryList}>
+                Empty list
+              </Button>
+            </div>
           </form>
+          <div>
+            {renderGroceryItems.length > 0 && (
+              <div>
+                <hr />
+                <h4>Grocery List</h4>
+              </div>
+            )}
+            {renderGroceryItems}
+          </div>
         </Container>
-        <Container>{renderItems}</Container>
+        <Container title="Travel list">
+          <form onSubmit={handleAddTravelItem}>
+            <Input
+              label="Add travel item"
+              placeholder="e.g. toothpaste"
+              onChange={handleTravelChange}
+              value={travelValue}
+              className="addTravelItem"
+            ></Input>
+            <div className="flex">
+              <Button span primary onClick={handleAddTravelItem}>
+                Add item
+              </Button>
+              <Button span alert onClick={handleEmptyTravelList}>
+                Empty list
+              </Button>
+            </div>
+          </form>
+          <div>
+            {renderTravelItems.length > 0 && (
+              <div>
+                <hr />
+                <h4>Travel List</h4>
+                {renderTravelItems}
+              </div>
+            )}
+          </div>
+        </Container>
       </Section>
     </div>
   );

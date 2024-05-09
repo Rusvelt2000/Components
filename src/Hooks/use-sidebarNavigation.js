@@ -4,7 +4,6 @@ function useSidebarNavigation() {
   const [expandedAccordion, setExpandedAccordion] = useState(-1);
 
   const handleExpandSidebarAccordion = (nextIndex) => {
-    console.log("nextIndex", nextIndex);
     setExpandedAccordion((current) => {
       if (current === nextIndex) {
         return -1;

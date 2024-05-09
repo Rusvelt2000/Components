@@ -10,6 +10,7 @@ function Button({
   warning,
   alert,
   className,
+  span,
   ...rest
 }) {
   const classes = classNames("button", className, {
@@ -20,6 +21,7 @@ function Button({
     warning,
     alert,
     favicon,
+    span,
   });
 
   if (primary && secondary && warning && alert) {
