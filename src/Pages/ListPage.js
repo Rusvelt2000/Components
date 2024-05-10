@@ -14,6 +14,8 @@ import Input from "../Components/Input";
 import Button from "../Components/Button";
 import ActionRow from "../Components/ActionRow";
 import Container from "../Components/Container";
+import { MdDeleteOutline } from "react-icons/md";
+import { MdOutlineAdd } from "react-icons/md";
 
 function ListPage() {
   const dispatch = useDispatch();
@@ -72,6 +74,11 @@ function ListPage() {
     dispatch(removeTravelItem(index));
   };
 
+  const handleEmptyAll = () => {
+    dispatch(emptyGroceryList());
+    dispatch(emptyTravelList());
+  };
+
   const renderGroceryItems = groceryList.map((item, index) => {
     return (
       <ActionRow
@@ -98,21 +105,31 @@ function ListPage() {
     <div>
       <Title>Lists</Title>
       <Section col4>
+        <Container title="Empty lists">
+          <Button alert onClick={handleEmptyAll}>
+            <MdDeleteOutline className="icon" />
+            Clear all
+          </Button>
+        </Container>
+      </Section>
+      <Section col4>
         <Container title="Grocery list">
           <form onSubmit={handleAddGrocery}>
             <Input
               placeholder="e.g. milk"
-              label="Add grocery"
+              label="Grocery item"
               onChange={handleGroceryChange}
               value={groceryValue}
               className="addGrocery"
             />
             <div className="flex">
               <Button span primary onClick={handleAddGrocery}>
-                Add item
+                <MdOutlineAdd className="icon" />
+                Add grocery item
               </Button>
-              <Button span alert onClick={handleEmptyGroceryList}>
-                Empty list
+              <Button span alert outline onClick={handleEmptyGroceryList}>
+                <MdDeleteOutline className="icon" />
+                Clear list
               </Button>
             </div>
           </form>
@@ -129,7 +146,7 @@ function ListPage() {
         <Container title="Travel list">
           <form onSubmit={handleAddTravelItem}>
             <Input
-              label="Add travel item"
+              label="Travel item"
               placeholder="e.g. toothpaste"
               onChange={handleTravelChange}
               value={travelValue}
@@ -137,10 +154,12 @@ function ListPage() {
             ></Input>
             <div className="flex">
               <Button span primary onClick={handleAddTravelItem}>
-                Add item
+                <MdOutlineAdd className="icon" />
+                Add travel item
               </Button>
-              <Button span alert onClick={handleEmptyTravelList}>
-                Empty list
+              <Button span alert outline onClick={handleEmptyTravelList}>
+                <MdDeleteOutline className="icon" />
+                Clear list
               </Button>
             </div>
           </form>

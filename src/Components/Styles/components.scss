@@ -245,11 +245,11 @@
     flex-grow: 1;
   }
   .icon {
-    margin-right: calc($default-spacing / 2);
+    margin-right: 8px;
     fill: inherit;
     position: relative;
-    top: 2px;
-    font-size: $big-text;
+    top: 3px;
+    font-size: 18px;
   }
 }
 
