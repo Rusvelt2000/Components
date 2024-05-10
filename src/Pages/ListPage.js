@@ -7,6 +7,7 @@ import {
   addTravelItem,
   emptyTravelList,
   removeTravelItem,
+  resetLists,
 } from "../store";
 import Section from "../Components/Section";
 import Title from "../Components/Title";
@@ -75,8 +76,7 @@ function ListPage() {
   };
 
   const handleEmptyAll = () => {
-    dispatch(emptyGroceryList());
-    dispatch(emptyTravelList());
+    dispatch(resetLists());
   };
 
   const renderGroceryItems = groceryList.map((item, index) => {
@@ -125,11 +125,11 @@ function ListPage() {
             <div className="flex">
               <Button span primary onClick={handleAddGrocery}>
                 <MdOutlineAdd className="icon" />
-                Add grocery item
+                Add item
               </Button>
               <Button span alert outline onClick={handleEmptyGroceryList}>
                 <MdDeleteOutline className="icon" />
-                Clear list
+                Clear
               </Button>
             </div>
           </form>
@@ -155,11 +155,11 @@ function ListPage() {
             <div className="flex">
               <Button span primary onClick={handleAddTravelItem}>
                 <MdOutlineAdd className="icon" />
-                Add travel item
+                Add item
               </Button>
               <Button span alert outline onClick={handleEmptyTravelList}>
                 <MdDeleteOutline className="icon" />
-                Clear list
+                Clear
               </Button>
             </div>
           </form>

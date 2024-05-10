@@ -1,4 +1,6 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, createAction } from "@reduxjs/toolkit";
+
+export const resetLists = createAction("lists/reset");
 
 const groceryListSlice = createSlice({
   name: "groceryList",
@@ -13,6 +15,11 @@ const groceryListSlice = createSlice({
     emptyGroceryList() {
       return [];
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(resetLists, (state, action) => {
+      return [];
+    });
   },
 });
 
@@ -29,6 +36,11 @@ const travelListSlice = createSlice({
     emptyTravelList() {
       return [];
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(resetLists, (state, action) => {
+      return [];
+    });
   },
 });
 

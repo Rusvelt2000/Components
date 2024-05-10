@@ -222,13 +222,20 @@
 
 .button {
   cursor: pointer;
-  padding: 12px 24px;
+  padding: 12px 32px;
   border-radius: $bd-radius;
   font-weight: 600;
   font-size: $md-text;
   margin-bottom: 16px;
   margin-right: 16px;
   transition: all 0.05s ease-in;
+  &:has(.icon) {
+    padding: 12px 34px 12px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
   &:last-of-type {
     margin-right: 0;
   }
@@ -245,10 +252,9 @@
     flex-grow: 1;
   }
   .icon {
-    margin-right: 8px;
+    margin-right: 4px;
     fill: inherit;
     position: relative;
-    top: 3px;
     font-size: 18px;
   }
 }
