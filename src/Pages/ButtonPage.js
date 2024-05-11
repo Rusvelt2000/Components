@@ -41,20 +41,23 @@ function ButtonPage() {
             Outline
           </Button>
         </Container>
-
+      </Section>
+      <Section>
         <Container title="Icon Buttons">
-          <Button primary>
-            <GoCheckCircleFill className="icon" />
-            Icon button
-          </Button>
-          <Button secondary>
-            <GoBookmarkFill className="icon" />
-            Icon button
-          </Button>
-          <Button warning>
-            <GoAlertFill className="icon" />
-            Outline
-          </Button>
+          <div className="flex">
+            <Button primary>
+              <GoCheckCircleFill className="icon" />
+              Accept
+            </Button>
+            <Button secondary>
+              <GoBookmarkFill className="icon" />
+              Bookmark
+            </Button>
+            <Button warning>
+              <GoAlertFill className="icon" />
+              Warning
+            </Button>
+          </div>
         </Container>
         <Container title="Favicon">
           <Button primary favicon>
